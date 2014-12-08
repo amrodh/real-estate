@@ -97,7 +97,7 @@
                     <li <?php if($request == 'projects') echo 'class="active"'; ?>>
                         <a href="<?php echo base_url(); ?>admin/projects"><i class="fa fa-fw fa-user"></i> Projects</a>
                     </li>
-                    <li <?php if($request == 'properties') echo 'class="active"'; ?> >
+                    <li <?php if($request == 'units') echo 'class="active"'; ?> >
                         <a href="<?php echo base_url(); ?>admin/units"><i class="fa fa-fw fa-circle"></i> Units</a>
                     </li>
                     <li <?php if($request == 'users') echo 'class="active"'; ?>>
@@ -121,11 +121,6 @@
                     <!-- <li <?php if($request == 'auctions') echo 'class="active"'; ?>>
                         <a href="<?php echo base_url(); ?>admin/auctions"><i class="glyphicon glyphicon-tower"></i> Auctions</a>
                     </li> -->
-                   
-                    
-                     
-                    
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
