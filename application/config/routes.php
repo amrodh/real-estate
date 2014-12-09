@@ -51,6 +51,7 @@ $route['admin/newsletter/create'] = 'admin/createNewsletter';
 
 
 $route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
+$route['admin/deleteunitimage'] = 'admin/deleteunitimage';
 
 
 $route['admin/sendall'] = 'admin/newsletterSend';

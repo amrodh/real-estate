@@ -29,11 +29,50 @@
             </div>
 
 
+            <div class="col-lg-12">
+              
+              <div style="font-size:200%;">Images</div>
+              <table class="table" id="dev-table">
+                  <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody> 
+                    <?php if (is_array($unit->images)): ?>
 
+                      <?php foreach ($unit->images as $image): ?>
+                        <tr id="image_<?= $image->id  ?>">
+                          <td><?php echo $image->image; ?></td>
+                          <td>
+                            <a href="javascript:void(0);" onclick="unitImageDelete(<?= $image->id ?>)">
+                              <span title="Delete" class="glyphicon glyphicon-remove"></span>
+                            </a>
+                          </td>
+                        </tr>
+                      <?php endforeach ?>
+                    <?php endif ?>
+                  </tbody>
+              </table>
+
+              <div class="panel panel-primary" style="width:20%">
+                 
+                 <a href="">
+                    <div class="panel-footer">
+                        <span class="pull-left">Add More Images</span>
+                        <span class="pull-right"><i class="fa fa-image"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+              </div>
+            </div> 
 
               <div class="row">
                 
                 <div class=" col-md-9 col-lg-12 "> 
+                  <div style="font-size:200%;">Unit information</div>
                   <table class="table table-user-information">
                     <tbody>
                     <tr>

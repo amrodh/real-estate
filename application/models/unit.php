@@ -170,7 +170,19 @@ class Unit extends CI_Model {
 
     }
 
-  
+      function delete_image($id)
+    {
+      $q = $this
+              ->db
+              ->where('id',$id)
+              ->delete('unit_image');
+
+          if($this->db->affected_rows() != 1){
+            return false;
+          }
+
+          return true;
+    }
 
     
 }

@@ -1298,6 +1298,13 @@ class Admin extends CI_Controller {
 		$this->project->delete_image($id);
 		exit();
 	}
+
+	public function deleteunitimage()
+	{
+		$id = $_GET['id'];
+		$this->unit->delete_image($id);
+		exit();
+	}
 	
 
 	public function checkPropertyAlert()

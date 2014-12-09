@@ -187,3 +187,27 @@ function projectImageDelete(id)
 
 	return;
 }
+
+function unitImageDelete(id)
+{
+	var confirm = window.confirm("Are you sure?");
+
+	if(confirm){
+
+		var url = $("#base_url").val();
+		url = url+"admin/deleteunitimage";
+
+		$.ajax({
+		  type: "GET",
+		  url: url,
+		  data: { id : id  }
+		})
+		  .success(function( msg ) {
+		  		$("#image_"+id).fadeOut('slow');
+		  });
+
+		
+	}
+
+	return;
+}
