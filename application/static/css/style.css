@@ -29,6 +29,7 @@
 
 .bx-wrapper .bx-viewport {
     border: none;
+    /*height:200px;*/
 }
 
 .bx-wrapper img {
@@ -48,8 +49,9 @@
 }
 
 .bx-viewport {
-    height: 100%;
+    /*height: 100%;*/
     border: 0;
+    height:200px; 
 }
 
 .bx-wrapper .bx-pager {
@@ -98,4 +100,9 @@ input.rounded:focus {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     color: red;
+}
+
+
+.slider_imgs{
+    max-height: 200px;
 }

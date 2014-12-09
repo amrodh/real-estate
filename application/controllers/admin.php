@@ -528,7 +528,10 @@ class Admin extends CI_Controller {
 		$id = explode('projects/', $id);
 		$id = $id[1];
 		$id = urldecode($id);
+
+
 		$data['project'] = $this->project->getByName($id);
+
 		$data['project']->images = $this->project->get_images($data['project']->id);
 
 
@@ -555,7 +558,8 @@ class Admin extends CI_Controller {
 			redirect('admin/projects');
 		}
 
-		//printme($data);
+		// printme($data);
+		// exit();
 		$this->load->view('admin/projectprofile', $data);
 	}
 

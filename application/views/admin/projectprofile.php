@@ -14,8 +14,8 @@
             <div class="panel-body">
             
 
-                       <div class="row">
-               <ul class="bxslider" style="height: 455px!important;">
+            <div class="row">
+               <ul class="bxslider" style="height: 200px!important;">
                <?php if (is_array($project->images)): ?>
                   <?php foreach ($project->images as $image): ?>
                       <li>
