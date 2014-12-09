@@ -19,7 +19,7 @@
                <?php if (is_array($unit->images)): ?>
                   <?php foreach ($unit->images as $image): ?>
                       <li>
-                          <img class="slider_imgs" src="<?php echo base_url(); ?>application/static/upload/projects/<?= $image->image; ?>">
+                          <img class="slider_imgs" src="<?php echo base_url(); ?>application/static/upload/units/<?= $image->image; ?>">
                       </li>
                   <?php endforeach ?>
 
