@@ -69,6 +69,7 @@ class Admin extends CI_Controller {
 	{
 		$data = $this->init();
 		$data['projects'] = $this->project->getAll();
+		//printme($data);exit();
 		$this->load->view('admin/projects',$data);
 	}
 

@@ -28,12 +28,56 @@
                </ul>
             </div>
 
+            <div class="col-lg-12">
+           <!--  <?php printme($project->images) ?> -->
+              <div style="font-size:200%;">Images</div>
+              <table class="table" id="dev-table">
+                  <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody> 
+                    <?php 
+                      $count=1;
+                     ?>                                                          
+                    <?php if (is_array($project->images)): ?>
 
+                      <?php foreach ($project->images as $image): ?>
+                        <tr>
+                          <td><?= $count; ?></td>
+                          <td><?php echo $image->image; ?></td>
+                          <td>
+                            <a href="">
+                              <span title="Delete" class="glyphicon glyphicon-remove"></span>
+                            </a>
+                          </td>
+                        </tr>
+                        <?php $count++; ?>
+                      <?php endforeach ?>
+                    <?php endif ?>
+                  </tbody>
+              </table>
+
+              <div class="panel panel-primary" style="width:10%">
+                 <!-- <a href="http://localhost:8888/real-estate/admin/content/new"> -->
+                 <a href="">
+                    <div class="panel-footer">
+                        <span class="pull-left">Add New</span>
+                        <span class="pull-right"><i class="fa fa-user"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+              </div>
+            </div> 
 
 
               <div class="row">
-                
                 <div class=" col-md-9 col-lg-12 "> 
+                <div style="font-size:200%;">Project information</div>
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -63,7 +107,7 @@
                            <input style="color:white" type="submit" name="delete" class="button btn btn-sm " value="Delete">
                         </form>
                     </span>
-                </div>
+              </div>
             
           </div>
 
