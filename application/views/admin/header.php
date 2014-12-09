@@ -46,7 +46,7 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>application/static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
+    <input type="hidden" id="base_url" value="<?= base_url(); ?>">
 </head>
 
 <body>

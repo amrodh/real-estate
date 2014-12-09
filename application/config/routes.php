@@ -50,6 +50,9 @@ $route['admin/editcontent/(:any)'] = 'admin/editContent';
 $route['admin/newsletter/create'] = 'admin/createNewsletter';
 
 
+$route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
+
+
 $route['admin/sendall'] = 'admin/newsletterSend';
 
 $route['admin/properties'] = 'admin/properties';

@@ -134,6 +134,22 @@ class Project extends CI_Model {
         return true;
      }
 
+     function delete_image($id)
+     {
+         $q = $this
+              ->db
+              ->where('id',$id)
+              ->delete('project_image');
+
+          if($this->db->affected_rows() != 1){
+            return false;
+          }
+
+          return true;
+     }
+
+
+
 
 }
 
