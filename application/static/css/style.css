@@ -1,0 +1,101 @@
+.navbar-default {
+    background-color: transparent;
+    border: none; 
+}
+
+.container-fluid {
+    padding: 0;
+    margin-top: 1%; 
+    margin-bottom: 1%;
+}
+
+.top_row {
+    margin-top: 1%;
+}
+
+.menu {
+    background-color: red; 
+    padding: 1%; 
+    font-size: 100%; 
+    color: white;
+}
+
+.menu li {
+    padding: 0;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    cursor: pointer;
+}
+
+.bx-wrapper .bx-viewport {
+    border: none;
+}
+
+.bx-wrapper img {
+    width: 100%;
+}
+
+.bx-wrapper {
+    margin: 0px auto 0px;
+}
+
+.bx-wrapper .bx-prev {
+    background: url(../images/controls.png) no-repeat 0 -32px;
+}
+
+.bx-wrapper .bx-next {
+    background: url(../images/controls.png) no-repeat -43px -32px;
+}
+
+.bx-viewport {
+    height: 100%;
+    border: 0;
+}
+
+.bx-wrapper .bx-pager {
+    margin-top: -5%;
+    position: relative;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+    background-color: white;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active{
+    background-color: red;
+}
+
+.footer_text {
+    background-color: red;
+    padding: 0.6%; 
+    font-size: 100%; 
+    color: white;
+}
+
+input.rounded {
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+input.rounded:focus {
+    border-color: #339933;
+}
+
+.subscribe_input {
+    width: 100%; 
+    border: none; 
+    height: 30px;
+}
+
+.subscribe_button {
+    border: none; 
+    background-color: black; 
+    height: 30px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: red;
+}

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Outsource</title>
-		<link rel="stylesheet" href="css/normalize.css"/>
+		<title>Real Estate</title>
+		<link rel="stylesheet" href="<?= base_url(); ?>application/static/css/normalize.css"/>
+		<link href="<?= base_url(); ?>application/static/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?= base_url(); ?>application/static/css/jquery.bxslider.css" rel="stylesheet"/>
 		<link href="<?= base_url(); ?>application/static/css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<img src="images/logo.jpg" alt="" class="img-responsive">
+				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.jpg" alt="" class="img-responsive">
 			</div>
-			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:100px; width:60%;">
+			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
 			</div>
 		</div>
 
@@ -55,25 +57,25 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
 			<ul class="bxslider">
-				<li><img src="images/image1.jpg" style="max-height:500px;"/></li>
-				<li><img src="images/image2.jpg" style="max-height:500px;"/></li>
-				<li><img src="images/image3.jpg" style="max-height:500px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image1.jpg" style="max-height:500px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image2.jpg" style="max-height:500px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image3.jpg" style="max-height:500px;"/></li>
 			</ul> 
 		</div>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div>
-				<img src="images/logo.jpg" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.jpg" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
 			</div>
 		</div>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<img src="images/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
-			<img src="images/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="images/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="images/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="images/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="images/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
 		</div>
 
 
@@ -105,12 +107,12 @@
 					</form>
 				</div>		
 				<div class="col-lg-1 col-md-1">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="images/twitter.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="images/youtube.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="images/facebook.jpg">
+					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
 				</div>	
 			</div>
-			<div class="row footer_text col-sm-12 col-xs-12 hidden-md hidden-lg">
+			<div class="footer_text col-sm-12 col-xs-12 hidden-md hidden-lg">
 				<div class="col-sm-6 col-xs-6" style="padding-top: 0.5%;">
 					<form action="" method="post">
 						<div class="col-sm-8 col-xs-8" style="padding:0;">
@@ -122,20 +124,16 @@
 					</form>
 				</div>		
 				<div class="col-sm-3 col-sm-offset-3 col-xs-3 col-xs-offset-3">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="images/twitter.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="images/youtube.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="images/facebook.jpg">
+					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
 				</div>	
 			</div>
 		</footer>
 
-		<script src="js/main.js"></script>
-		
-
-		<script>
-			$(document).ready(function(){
-			  //$('.bxslider').bxSlider();
-			});
-		</script>
+		<script src="<?= base_url(); ?>application/static/js/jquery.min.js"></script>
+		<script src="<?= base_url(); ?>application/static/js/main.js"></script>
+		<script src="<?= base_url(); ?>application/static/js/bootstrap.min.js"></script>
+		<script src="<?= base_url(); ?>application/static/js/jquery.bxslider.min.js"></script>
 	</body>
 </html>
