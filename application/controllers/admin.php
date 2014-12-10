@@ -1014,28 +1014,35 @@ class Admin extends CI_Controller {
 
 		if(isset($_POST['submit'])){
 
+			// printme($_FILES);
+			// exit();
 			unset($_POST['submit']);
 			$insert = $this->project->insert($_POST);
 
 			if($insert){
 				$project_id = $this->db->insert_id();
-				$project_inputs=array('id'=>$project_id);
 				$files = $_FILES['userfile'];
 
 				$logo = $_FILES['logo'];
-				$fileExtension = explode('.',$logo['name'][0]);
-				$project_inputs['logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				// printme($project_inputs); exit();
-				$this->project->insert($project_inputs);
+				$fileExtension = explode('.',$logo['name']);
+				$logoName = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+				
+
 				$path = $this->config->config['upload_path'];
-				$this->config->set_item('upload_path',$path.'/logos');
-				$upload = uploadme($this);
+				$defaultPath = $path;
+				$this->config->set_item('upload_path',$path.'/logos/');
+				$target_dir = $this->config->config['upload_path'];
+				$target_file = $target_dir.$project_id.'_'.$logoName;
+				move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file);
+				$logoName = $project_id.'_'.$logoName;
+				$this->project->update($project_id,array('logo'=>$logoName));
+				//$upload = uploadme($this);
 
 				$index=0;
 				$tmpFiles=array();
-				$path = $this->config->config['upload_path'];
+				$path = $defaultPath;
 				$this->config->set_item('upload_path',$path.'/projects');
-
+				$inputs['project_id'] = $project_id;
 				foreach ($files['name'] as $name) {
 					
 					$_FILES['userfile']['name'] = $name;
@@ -1045,10 +1052,9 @@ class Admin extends CI_Controller {
 					$_FILES['userfile']['size'] = $files['size'][$index];
 
 					$fileExtension = explode('.',$_FILES['userfile']['name']);
-					$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+					$_FILES['userfile']['name'] = $fileExtension[0].'_'.$inputs['project_id'].'.'.$fileExtension[1];
 					$inputs['image'] = $_FILES['userfile']['name'];
 					$this->project->insert_image($inputs);
-					$upload = uploadme($this);
 					$index++;
 				}
 				redirect('admin/projects');

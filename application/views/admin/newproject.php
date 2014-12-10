@@ -55,7 +55,7 @@
                       <tr>
                         <td>Logo</td>
                         <td>
-                          <input type="file" name="logo[]" required>
+                          <input type="file" name="logo" required>
                         </td>
                       </tr>
                      <tr>
