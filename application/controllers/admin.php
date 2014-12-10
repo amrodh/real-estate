@@ -1069,6 +1069,44 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/newproject',$data);
 	}
 
+	function changelogo()
+	{
+		$data = $this->init();
+
+		if(isset($_POST['submit'])){
+
+			// printme($_FILES);
+			// exit();
+			unset($_POST['submit']);
+
+			$logo = $_FILES['logo'];
+			$fileExtension = explode('.',$logo['name'][0]);
+			$logoName = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+			// printme($logoName); exit();
+
+			$path = $this->config->config['upload_path'];
+			$current_url = $_SERVER["REQUEST_URI"];
+			$project_id = explode('/',$current_url);
+			$project_id = $project_id[4];
+			$defaultPath = $path;
+			$this->config->set_item('upload_path',$path.'/logos/');
+			$target_dir = $this->config->config['upload_path'];
+			// printme($target_dir); exit();
+			$target_file = $target_dir.$project_id.'_'.$logoName;
+			// printme($target_file); exit();
+			move_uploaded_file($logoName, $target_dir);
+			$logoName = $project_id.'_'.$logoName;
+			$this->project->update($project_id,array('logo'=>$logoName));
+			//$upload = uploadme($this);
+
+			redirect('admin/projects/'.$project_id);
+			
+			$data['params'] = $_POST;
+		}
+
+		$this->load->view('admin/changelogo',$data);
+	}
+
 	function content()
 	{	
 		$data = $this->init();

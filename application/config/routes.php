@@ -54,6 +54,7 @@ $route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
 $route['admin/deleteunitimage'] = 'admin/deleteunitimage';
 $route['admin/addprojectimage/(:any)'] = 'admin/addprojectimage';
 $route['admin/addunitimage/(:any)'] = 'admin/addunitimage';
+$route['admin/changelogo/(:any)'] = 'admin/changelogo';
 
 
 $route['admin/sendall'] = 'admin/newsletterSend';

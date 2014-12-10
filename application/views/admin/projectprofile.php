@@ -8,6 +8,17 @@
 
             <div class="container-fluid">
                  <div class="panel panel-info">
+                 <div class="col-lg-3"><img class="slider_imgs" src="<?php echo base_url(); ?>application/static/upload/logos/<?= $project->logo; ?>"></div>
+                  <div class="col-lg-offset-4 col-lg-2">
+                    <a href="<?= base_url(); ?>admin/changelogo/<?php echo $project->id ?>">
+                      <div class="button btn btn-sm" style="color:white; width:70%; margin-top:80%;">
+                          <span class="pull-left">Change logo</span>
+                          <span class="pull-right"><i class="fa fa-image"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+                  </div>
+                  <div style="clear:both;"></div>
             <div class="panel-heading">
               <h3 class="panel-title"><?php echo $project->name; ?></h3>
             </div>
