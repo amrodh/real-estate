@@ -52,7 +52,12 @@
                         <td>Location</td>
                         <td><input type="text" name="location" value="<?php if(isset($params)) echo $params['location']; ?>" required></td>
                       </tr>
-
+                      <tr>
+                        <td>Logo</td>
+                        <td>
+                          <input type="file" name="logo[]" required>
+                        </td>
+                      </tr>
                      <tr>
                       <td>Images</td>
                       <td>
