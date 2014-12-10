@@ -1019,15 +1019,25 @@ class Admin extends CI_Controller {
 
 			if($insert){
 				$project_id = $this->db->insert_id();
-				$inputs=array('project_id'=>$project_id);
+				$project_inputs=array('id'=>$project_id);
 				$files = $_FILES['userfile'];
+
+				$logo = $_FILES['logo'];
+				$fileExtension = explode('.',$logo['name'][0]);
+				$project_inputs['logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+				// printme($project_inputs); exit();
+				$this->project->insert($project_inputs);
+				$path = $this->config->config['upload_path'];
+				$this->config->set_item('upload_path',$path.'/logos');
+				$upload = uploadme($this);
+
 				$index=0;
 				$tmpFiles=array();
 				$path = $this->config->config['upload_path'];
 				$this->config->set_item('upload_path',$path.'/projects');
 
 				foreach ($files['name'] as $name) {
-
+					
 					$_FILES['userfile']['name'] = $name;
 					$_FILES['userfile']['type'] = $files['type'][$index];
 					$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
