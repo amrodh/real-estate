@@ -1055,6 +1055,7 @@ class Admin extends CI_Controller {
 					$_FILES['userfile']['name'] = $fileExtension[0].'_'.$inputs['project_id'].'.'.$fileExtension[1];
 					$inputs['image'] = $_FILES['userfile']['name'];
 					$this->project->insert_image($inputs);
+					$upload = uploadme($this);
 					$index++;
 				}
 				redirect('admin/projects');
