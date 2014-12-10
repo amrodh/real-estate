@@ -1042,6 +1042,7 @@ class Admin extends CI_Controller {
 				$tmpFiles=array();
 				$path = $defaultPath;
 				$this->config->set_item('upload_path',$path.'/projects');
+				// $upload = uploadme($this);
 				$inputs['project_id'] = $project_id;
 				foreach ($files['name'] as $name) {
 					
@@ -1054,6 +1055,7 @@ class Admin extends CI_Controller {
 					$fileExtension = explode('.',$_FILES['userfile']['name']);
 					$_FILES['userfile']['name'] = $fileExtension[0].'_'.$inputs['project_id'].'.'.$fileExtension[1];
 					$inputs['image'] = $_FILES['userfile']['name'];
+					// printme($inputs); exit();
 					$this->project->insert_image($inputs);
 					$index++;
 				}
