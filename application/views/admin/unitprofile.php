@@ -59,7 +59,7 @@
 
               <div class="panel panel-primary" style="width:20%">
                  
-                 <a href="">
+                 <a href="http://localhost:8888/real-estate/admin/addunitimage/<?php echo $unit->id ?>">
                     <div class="panel-footer">
                         <span class="pull-left">Add More Images</span>
                         <span class="pull-right"><i class="fa fa-image"></i></span>

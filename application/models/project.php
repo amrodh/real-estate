@@ -105,6 +105,18 @@ class Project extends CI_Model {
         return true;
    }
 
+   function add_project_image($params)
+   {
+      $query = $this->db->insert_string('project_image', $params);
+      $query = $this->db->query($query);
+
+      if($this->db->affected_rows() != 1){
+          return false;
+        }
+
+        return true;
+   }
+
    function get_images($id)
    {
        $q = $this

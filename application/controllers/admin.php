@@ -1299,6 +1299,97 @@ class Admin extends CI_Controller {
 		exit();
 	}
 
+	public function addprojectimage()
+	{
+		$data = $this->init();
+
+		$id = $this->uri->uri_string;
+		$id = explode('addprojectimage/', $id);
+		$id = $id[1];
+		$id = urldecode($id);
+		$project_name = $this->project->getByID($id)->name;
+
+		if(isset($_POST['submit'])){
+
+			unset($_POST['submit']);
+
+				$files = $_FILES['userfile'];
+				$index=0;
+				$tmpFiles=array();
+				$path = $this->config->config['upload_path'];
+				$this->config->set_item('upload_path',$path.'/projects');
+
+				foreach ($files['name'] as $name) {
+
+					$_FILES['userfile']['name'] = $name;
+					$_FILES['userfile']['type'] = $files['type'][$index];
+					$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
+					$_FILES['userfile']['error'] = $files['error'][$index];
+					$_FILES['userfile']['size'] = $files['size'][$index];
+					// printme($_FILES['userfile']); exit();
+
+					$fileExtension = explode('.',$_FILES['userfile']['name']);
+					$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+					$inputs['image'] = $_FILES['userfile']['name'];
+					$inputs['project_id'] = $id;
+					$this->project->add_project_image($inputs);
+					$upload = uploadme($this);
+					$index++;
+				}
+				redirect('admin/projects/'.$project_name);
+		 // }
+			
+			// $data['params'] = $_POST;
+		 }
+
+		$this->load->view('admin/addprojectimage', $data);
+	}
+
+	public function addunitimage()
+	{
+		$data = $this->init();
+
+		$id = $this->uri->uri_string;
+		$id = explode('addunitimage/', $id);
+		$id = $id[1];
+		$id = urldecode($id);
+		// printme($id); exit();
+
+		if(isset($_POST['submit'])){
+
+			unset($_POST['submit']);
+
+				$files = $_FILES['userfile'];
+				$index=0;
+				$tmpFiles=array();
+				$path = $this->config->config['upload_path'];
+				$this->config->set_item('upload_path',$path.'/units');
+
+				foreach ($files['name'] as $name) {
+// printme($files); exit();
+					$_FILES['userfile']['name'] = $name;
+					$_FILES['userfile']['type'] = $files['type'][$index];
+					$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
+					$_FILES['userfile']['error'] = $files['error'][$index];
+					$_FILES['userfile']['size'] = $files['size'][$index];
+
+					$fileExtension = explode('.',$_FILES['userfile']['name']);
+					$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+					$inputs['image'] = $_FILES['userfile']['name'];
+					$inputs['unit_id'] = $id;
+					// printme($inputs); exit();
+					$this->unit->add_unit_image($inputs);
+					$upload = uploadme($this);
+					$index++;
+				}
+				redirect('admin/units/'.$id);
+			
+			// $data['params'] = $_POST;
+		 }
+
+		$this->load->view('admin/addunitimage', $data);
+	}
+
 	public function deleteunitimage()
 	{
 		$id = $_GET['id'];

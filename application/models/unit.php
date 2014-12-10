@@ -56,7 +56,17 @@ class Unit extends CI_Model {
 
    }
 
-   
+   function add_unit_image($params)
+   {
+      $query = $this->db->insert_string('unit_image', $params);
+      $query = $this->db->query($query);
+
+      if($this->db->affected_rows() != 1){
+          return false;
+        }
+
+        return true;
+   }
 
 
 
