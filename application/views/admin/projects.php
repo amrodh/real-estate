@@ -37,7 +37,7 @@
                             <?php if (is_array($projects)): ?>
                                 <?php foreach($projects as $project): ?>
                                 <tr>
-                                    <td><a href="projects/<?php echo $project->name; ?>"><?php echo $project->name; ?></a></td>
+                                    <td><a href="projects/<?php echo $project->id; ?>"><?php echo $project->name; ?></a></td>
                                     <td><?php echo $project->location; ?></td>
                                     <td><?php echo $project->creation_date; ?></td>
                                 </tr>          

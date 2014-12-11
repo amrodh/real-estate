@@ -529,11 +529,12 @@ class Admin extends CI_Controller {
 		$id = explode('projects/', $id);
 		$id = $id[1];
 		$id = urldecode($id);
+//printme($id); exit();
 
-
-		$data['project'] = $this->project->getByName($id);
+		$data['project'] = $this->project->getByID($id);
 
 		$data['project']->images = $this->project->get_images($data['project']->id);
+		// printme($data['project']); exit();
 
 
 		if(isset($_POST['delete'])){
@@ -1080,21 +1081,22 @@ class Admin extends CI_Controller {
 			unset($_POST['submit']);
 
 			$logo = $_FILES['logo'];
+			//printme($logo); exit();
 			$fileExtension = explode('.',$logo['name'][0]);
 			$logoName = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
 			// printme($logoName); exit();
 
-			$path = $this->config->config['upload_path'];
+
 			$current_url = $_SERVER["REQUEST_URI"];
 			$project_id = explode('/',$current_url);
 			$project_id = $project_id[4];
+			
+			$path = $this->config->config['upload_path'];
 			$defaultPath = $path;
 			$this->config->set_item('upload_path',$path.'/logos/');
 			$target_dir = $this->config->config['upload_path'];
-			// printme($target_dir); exit();
 			$target_file = $target_dir.$project_id.'_'.$logoName;
-			// printme($target_file); exit();
-			move_uploaded_file($logoName, $target_dir);
+			move_uploaded_file($_FILES["logo"]["tmp_name"][0], $target_file);  
 			$logoName = $project_id.'_'.$logoName;
 			$this->project->update($project_id,array('logo'=>$logoName));
 			//$upload = uploadme($this);
