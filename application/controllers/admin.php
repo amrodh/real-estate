@@ -1395,7 +1395,7 @@ class Admin extends CI_Controller {
 					$upload = uploadme($this);
 					$index++;
 				}
-				redirect('admin/projects/'.$project_name);
+				redirect('admin/projects/'.$id);
 		 // }
 			
 			// $data['params'] = $_POST;
