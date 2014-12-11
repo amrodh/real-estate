@@ -78,7 +78,7 @@
                     <tr>
                         <td width="15%">Project:</td>
                         <td width="85%">
-                          <a href="<?= base_url(); ?>admin/projects/<?= $unit->project->name ?>"><?= $unit->project->name ?></a>
+                          <a href="<?= base_url(); ?>admin/projects/<?= $unit->project->id ?>"><?= $unit->project->name ?></a>
                         </td>
                         <td></td>
                       </tr>

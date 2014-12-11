@@ -543,7 +543,7 @@ class Admin extends CI_Controller {
 		}
 
 		if(isset($_POST['edit'])){
-			$data['params'] = $this->project->getByName($id);
+			$data['params'] = $this->project->getByID($id);
 			$this->load->view('admin/projectedit', $data);
 			return;
 		}
@@ -552,7 +552,7 @@ class Admin extends CI_Controller {
 			unset($_POST['confirmedit']);
 			$this->project->update($data['project']->id,$_POST);
 			$data['project'] = $this->project->getByID($data['project']->id);
-			redirect('admin/project/'.$data['project']->name);
+			redirect('admin/projects/'.$data['project']->id);
 		}
 
 		if(isset($_POST['confirmdelete'])){
@@ -652,26 +652,28 @@ class Admin extends CI_Controller {
 		 // exit();
 
 		if(isset($_POST['delete'])){
-			$this->load->view('admin/projectdelete', $data);
+			$this->load->view('admin/unitdelete', $data);
 			return;
 		}
 
 		if(isset($_POST['edit'])){
-			$data['params'] = $this->project->getByName($id);
-			$this->load->view('admin/projectedit', $data);
+			$data['params'] = $this->unit->getByID($id);
+			$this->load->view('admin/unitedit', $data);
 			return;
 		}
 
 		if(isset($_POST['confirmedit'])){
 			unset($_POST['confirmedit']);
-			$this->project->update($data['project']->id,$_POST);
-			$data['project'] = $this->project->getByID($data['project']->id);
-			redirect('admin/project/'.$data['project']->name);
+			if(isset($_POST['is_featured']))
+				$_POST['is_featured'] = 1;
+			$this->unit->update($data['unit']->id,$_POST);
+			$data['unit'] = $this->unit->getByID($data['unit']->id);
+			redirect('admin/units/'.$data['unit']->id);
 		}
 
 		if(isset($_POST['confirmdelete'])){
-			$this->project->delete($data['project']->id);
-			redirect('admin/projects');
+			$this->unit->delete($data['unit']->id);
+			redirect('admin/units');
 		}
 
 		//printme($data);

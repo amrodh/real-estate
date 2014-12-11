@@ -13,7 +13,7 @@
                         
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Project / Edit
+                                <i class="fa fa-dashboard"></i> Unit / Edit
                             </li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Project Edit</h3>
+              <h3 class="panel-title">Unit Edit</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -38,16 +38,24 @@
                     <tbody>
                       <tr>
                         <td>Name:</td>
-                        <td><input type="text" name="name" required pattern=".{4,}" title="4 characters minimum" 
-                        value="<?php if(isset($params)) echo $params->name; ?>">
+                        <td><input type="text" name="title" required pattern=".{4,}" title="4 characters minimum" 
+                        value="<?php if(isset($params)) echo $params->title; ?>">
                         </td>
                       </tr>
                       <tr>
-                        <td>Location</td>
-                        <td>
-                            <input type="text" name="location" required pattern=".{4,}" title="4 characters minimum" 
-                        value="<?php if(isset($params)) echo $params->location; ?>">
-                         </td>
+                        <td>Area:</td>
+                        <td><input type="text" name="area" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->area; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Price:</td>
+                        <td><input type="text" name="price" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->price; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Location:</td>
+                        <td><input type="text" name="location" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->location; ?>">
+                        </td>
                       </tr>
                       <tr>
                         <td>Description</td>
@@ -55,7 +63,12 @@
                             <textarea name="description" id="" cols="30" rows="10"><?php if(isset($params)) echo $params->description; ?></textarea>
                          </td>
                       </tr>
-                      
+                       <tr>
+                        <td>Featured</td>
+                        <td>
+                          <input type="checkbox" name="is_featured">
+                        </td>
+                      </tr>
                       
                     </tbody>
                   </table>
