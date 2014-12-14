@@ -51,9 +51,9 @@ function checkUnitName()
 
 function checkProjectName()
 {
-	alert('here');
 	var projectChange = $("#projectName").attr('data-change');
 	var projectValue = $("#projectName").val();
+
 	if(projectChange == 0){
 		$("#projectEditForm").submit();
 	}
@@ -66,7 +66,7 @@ function checkProjectName()
 		  data: { value: projectValue }
 		})
 		  .success(function( msg ) {
-		  	// alert(msg);
+
 		  	  if(msg == 'false'){
 		  	  	alert('Duplicate project name. Please choose another.');
 		  	  	return false;
@@ -83,6 +83,16 @@ function checkProjectName()
 }
 
  $("#unitName").change(function(){
+            var defaultValue = $(this).attr('data-default');
+            var change = $(this).val();
+
+            if(change != defaultValue)
+            	$(this).attr('data-change',1);
+            else
+            	$(this).attr('data-change',0);
+}); 
+
+$("#projectName").change(function(){
             var defaultValue = $(this).attr('data-default');
             var change = $(this).val();
 
