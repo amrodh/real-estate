@@ -41,6 +41,7 @@ $route['admin/users'] = 'admin/users';
 $route['admin/projects'] = 'admin/projects';
 $route['admin/alert'] = 'admin/checkPropertyAlert';
 $route['admin/content'] = 'admin/content';
+$route['admin/social'] = 'admin/social';
 $route['admin/offices'] = 'admin/offices';
 $route['admin/offices/new'] = 'admin/newOffice';
 $route['admin/content/new'] = 'admin/addContent';

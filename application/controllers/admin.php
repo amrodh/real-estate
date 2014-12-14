@@ -1164,10 +1164,16 @@ class Admin extends CI_Controller {
 	function content()
 	{	
 		$data = $this->init();
+		
 		$data['slides'] = $this->content->getSliderContent();
 		$this->load->view('admin/content',$data);
 	}
 
+	function social()
+	{
+		$data = $this->init();
+		$this->load->view('admin/social',$data);	
+	}
 
 	public function deleteContent()
 	{

@@ -94,6 +94,9 @@
                     <li <?php if($request == 'content') echo 'class="active"'; ?>>
                         <a href="<?php echo base_url(); ?>admin/content"><i class="glyphicon glyphicon-list-alt"></i> Content Management</a>
                     </li>
+                    <li <?php if($request == 'social') echo 'class="active"'; ?>>
+                        <a href="<?php echo base_url(); ?>admin/social"><i class="glyphicon glyphicon-globe"></i> Social Links</a>
+                    </li>
                     <li <?php if($request == 'projects') echo 'class="active"'; ?>>
                         <a href="<?php echo base_url(); ?>admin/projects"><i class="fa fa-fw fa-user"></i> Projects</a>
                     </li>
