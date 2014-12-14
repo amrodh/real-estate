@@ -31,14 +31,14 @@
             </div>
             <div class="panel-body">
               <div class="row">
-              <form action="" method="post" enctype="multipart/form-data">
+              <form action="" method="post" id="projectEditForm" enctype="multipart/form-data">
                 
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
                         <td>Name:</td>
-                        <td><input type="text" name="name" required pattern=".{4,}" title="4 characters minimum" 
+                        <td><input type="text" name="name" id="projectName" data-change='0' data-default='<?= $project->name; ?>' required pattern=".{4,}" title="4 characters minimum" 
                         value="<?php if(isset($params)) echo $params->name; ?>">
                         </td>
                       </tr>
@@ -61,7 +61,8 @@
                   </table>
                   </form>
                   
-                  <input type="submit" name="confirmedit" class="btn btn-primary" value="Submit">
+                  <input type="button" name="confirmedit" class="btn btn-primary" onclick="checkProjectName()" value="Submit">
+                  <input type="hidden" name="confirmedit_hidden">
                   <input type="submit" name="cancel" class="btn btn-primary" value="Cancel">
                 </div>
                

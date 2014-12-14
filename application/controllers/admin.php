@@ -529,7 +529,6 @@ class Admin extends CI_Controller {
 		$id = explode('projects/', $id);
 		$id = $id[1];
 		$id = urldecode($id);
-//printme($id); exit();
 
 		$data['project'] = $this->project->getByID($id);
 
@@ -548,8 +547,10 @@ class Admin extends CI_Controller {
 			return;
 		}
 
-		if(isset($_POST['confirmedit'])){
-			unset($_POST['confirmedit']);
+		if(isset($_POST['confirmedit_hidden']) && !isset($_POST['cancel'])){
+
+			unset($_POST['confirmedit_hidden']);
+
 			$this->project->update($data['project']->id,$_POST);
 			$data['project'] = $this->project->getByID($data['project']->id);
 			redirect('admin/projects/'.$data['project']->id);
@@ -659,24 +660,31 @@ class Admin extends CI_Controller {
 		if(isset($_POST['edit'])){
 			$data['params'] = $this->unit->getByID($id);
 			$this->load->view('admin/unitedit', $data);
-			return;
+ 			return;
 		}
 
-		if(isset($_POST['confirmedit'])){
-			unset($_POST['confirmedit']);
+		// printme($_POST);
+		// exit();
+		if(isset($_POST['confirmedit_hidden']) && !isset($_POST['cancel'])){
+
+			
+			unset($_POST['confirmedit_hidden']);
+
 			if(isset($_POST['is_featured']))
 				$_POST['is_featured'] = 1;
-			$this->unit->update($data['unit']->id,$_POST);
-			$data['unit'] = $this->unit->getByID($data['unit']->id);
-			redirect('admin/units/'.$data['unit']->id);
+			else
+				$_POST['is_featured'] = 0;
+
+				$this->unit->update($data['unit']->id,$_POST);
+				$data['unit'] = $this->unit->getByID($data['unit']->id);
+				redirect('admin/units/'.$data['unit']->id);
 		}
 
 		if(isset($_POST['confirmdelete'])){
 			$this->unit->delete($data['unit']->id);
 			redirect('admin/units');
 		}
-
-		//printme($data);
+	
 		$this->load->view('admin/unitprofile', $data);
 		//printme($data['unit']);
 
@@ -815,46 +823,72 @@ class Admin extends CI_Controller {
 		{
 			unset($_POST['submit']);
 
+			$units = $this->unit->getAll();
+			$count = 0;
+			$flag = 1;
+			foreach ($units as $unit) {
+				$unit_name = $this->unit->getAll()[$count]->title;
+				$unit_projID = $this->unit->getAll()[$count]->project_id;
+				$curr_project_id = $_POST['project_id'];
+				$curr_name = $_POST['title'];
+				// printme($unit_name);
+				// printme($unit_projID);
+				// printme($curr_name);
+				// printme($curr_project_id);
+				$nameCheck = strcasecmp($curr_name,$unit_name);
+				$projIdCheck = strcasecmp($curr_project_id,$unit_projID);
+
+				if($nameCheck == 0 && $projIdCheck == 0) {
+					echo "<script>alert(JSON.stringify('Duplicate name! Please choose another.'));</script>";
+					$flag = 0;
+				}
+				$count++; 
+			}
+
 			if(isset($_POST['is_featured']))
 				$_POST['is_featured'] = 1;
+			else 
+				$_POST['is_featured'] = 0;
 
 			// printme($_POST);
 			// exit();
-			$insert = $this->unit->insert($_POST);
-
-			if($insert){
-				$unit_id = $this->db->insert_id();
-				$inputs=array('unit_id'=>$unit_id);
-				$files = $_FILES['userfile'];
-				$index=0;
-				$tmpFiles=array();
-				$path = $this->config->config['upload_path'];
-				$this->config->set_item('upload_path',$path.'/units');
-
-				foreach ($files['name'] as $name) {
-
-					$_FILES['userfile']['name'] = $name;
-					$_FILES['userfile']['type'] = $files['type'][$index];
-					$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
-					$_FILES['userfile']['error'] = $files['error'][$index];
-					$_FILES['userfile']['size'] = $files['size'][$index];
-
-					$fileExtension = explode('.',$_FILES['userfile']['name']);
-					$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-					$inputs['image'] = $_FILES['userfile']['name'];
-					$this->unit->insert_image($inputs);
-					$upload = uploadme($this);
-					$index++;
-				}
-				redirect('admin/units/'.$unit_id);
-			}
-
+			if($flag == 1) {
+				$insert = $this->unit->insert($_POST);
 			
+				if($insert){
+					$unit_id = $this->db->insert_id();
+					$inputs=array('unit_id'=>$unit_id);
+					$files = $_FILES['userfile'];
+					$index=0;
+					$tmpFiles=array();
+					$path = $this->config->config['upload_path'];
+					$this->config->set_item('upload_path',$path.'/units');
+
+					foreach ($files['name'] as $name) {
+
+						$_FILES['userfile']['name'] = $name;
+						$_FILES['userfile']['type'] = $files['type'][$index];
+						$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
+						$_FILES['userfile']['error'] = $files['error'][$index];
+						$_FILES['userfile']['size'] = $files['size'][$index];
+
+						$fileExtension = explode('.',$_FILES['userfile']['name']);
+						$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+						$inputs['image'] = $_FILES['userfile']['name'];
+						$this->unit->insert_image($inputs);
+						$upload = uploadme($this);
+						$index++;
+					}
+					redirect('admin/units/'.$unit_id);
+				}
+			}
+			$data['params'] = $_POST;
 		}
 
 		$this->load->view('admin/newUnit', $data);
 
 	}
+
 	public function newCourse()
 	{
 		$data = $this->init();
@@ -1017,53 +1051,69 @@ class Admin extends CI_Controller {
 
 		if(isset($_POST['submit'])){
 
-			// printme($_FILES);
-			// exit();
-			unset($_POST['submit']);
-			$insert = $this->project->insert($_POST);
+			$proj = $this->project->getAll();
+			$count = 0;
+			$flag = 1;
+			foreach ($proj as $project) {
+				$proj_name = $this->project->getAll()[$count]->name;
 
-			if($insert){
-				$project_id = $this->db->insert_id();
-				$files = $_FILES['userfile'];
-
-				$logo = $_FILES['logo'];
-				$fileExtension = explode('.',$logo['name']);
-				$logoName = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				
-
-				$path = $this->config->config['upload_path'];
-				$defaultPath = $path;
-				$this->config->set_item('upload_path',$path.'/logos/');
-				$target_dir = $this->config->config['upload_path'];
-				$target_file = $target_dir.$project_id.'_'.$logoName;
-				move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file);
-				$logoName = $project_id.'_'.$logoName;
-				$this->project->update($project_id,array('logo'=>$logoName));
-				//$upload = uploadme($this);
-
-				$index=0;
-				$tmpFiles=array();
-				$path = $defaultPath;
-				$this->config->set_item('upload_path',$path.'/projects');
-				// $upload = uploadme($this);
-				$inputs['project_id'] = $project_id;
-				foreach ($files['name'] as $name) {
-					
-					$_FILES['userfile']['name'] = $name;
-					$_FILES['userfile']['type'] = $files['type'][$index];
-					$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
-					$_FILES['userfile']['error'] = $files['error'][$index];
-					$_FILES['userfile']['size'] = $files['size'][$index];
-
-					$fileExtension = explode('.',$_FILES['userfile']['name']);
-					$_FILES['userfile']['name'] = $fileExtension[0].'_'.$inputs['project_id'].'.'.$fileExtension[1];
-					$inputs['image'] = $_FILES['userfile']['name'];
-					// printme($inputs); exit();
-					$this->project->insert_image($inputs);
-					$upload = uploadme($this);
-					$index++;
+				if(strcasecmp($_POST['name'],$proj_name) == 0) {
+					// echo "<script>alert('Duplicate name! Please choose another.');window.location.href='';</script>";
+					echo "<script>alert(JSON.stringify('Duplicate name! Please choose another.'));</script>";
+					$flag = 0;
 				}
-				redirect('admin/projects');
+				$count++; 
+			}
+
+			unset($_POST['submit']);
+
+			if($flag == 1) {
+				$insert = $this->project->insert($_POST);
+
+				if($insert){
+
+					$project_id = $this->db->insert_id();
+					$files = $_FILES['userfile'];
+
+					$logo = $_FILES['logo'];
+					$fileExtension = explode('.',$logo['name']);
+					$logoName = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+					
+
+					$path = $this->config->config['upload_path'];
+					$defaultPath = $path;
+					$this->config->set_item('upload_path',$path.'/logos/');
+					$target_dir = $this->config->config['upload_path'];
+					$target_file = $target_dir.$project_id.'_'.$logoName;
+					move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file);
+					$logoName = $project_id.'_'.$logoName;
+					$this->project->update($project_id,array('logo'=>$logoName));
+					//$upload = uploadme($this);
+
+					$index=0;
+					$tmpFiles=array();
+					$path = $defaultPath;
+					$this->config->set_item('upload_path',$path.'/projects');
+					// $upload = uploadme($this);
+					$inputs['project_id'] = $project_id;
+					foreach ($files['name'] as $name) {
+						
+						$_FILES['userfile']['name'] = $name;
+						$_FILES['userfile']['type'] = $files['type'][$index];
+						$_FILES['userfile']['tmp_name'] = $files['tmp_name'][$index];
+						$_FILES['userfile']['error'] = $files['error'][$index];
+						$_FILES['userfile']['size'] = $files['size'][$index];
+
+						$fileExtension = explode('.',$_FILES['userfile']['name']);
+						$_FILES['userfile']['name'] = $fileExtension[0].'_'.$inputs['project_id'].'.'.$fileExtension[1];
+						$inputs['image'] = $_FILES['userfile']['name'];
+						// printme($inputs); exit();
+						$this->project->insert_image($inputs);
+						$upload = uploadme($this);
+						$index++;
+					}
+					redirect('admin/projects');
+				}
 		}
 			
 			$data['params'] = $_POST;
@@ -1356,8 +1406,30 @@ class Admin extends CI_Controller {
 	public function deleteprojectimage()
 	{
 		$id = $_GET['id'];
+		$image = $this->project->get_image_ByID($id);
 		$this->project->delete_image($id);
+		$project_images = $this->project->get_images($image->project_id);
+
+		
+
+		$sliderHTML = '<ul class="bxslider" style="height: 200px!important;">';
+		if (is_array($project_images)) {
+			foreach ($project_images as $image) {
+				$sliderHTML .= '<li><img class="slider_imgs" src="'.base_url().'application/static/upload/projects/'.$image->image.'"></li>';
+			}
+			$sliderHTML .= '</ul>';
+		}else{
+			echo '<div class="alert alert-warning" role="alert">None Available</div>';
+			exit();
+		}
+
+		echo $sliderHTML;
 		exit();
+		
+		
+
+		
+		
 	}
 
 	public function addprojectimage()
@@ -1451,10 +1523,50 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/addunitimage', $data);
 	}
 
+
+	public function unitNameValidation()
+	{
+		
+		$check = $this->project->checkProjecttName($_GET['value']);
+		if(!$check)
+			echo 'false';
+		else
+			echo 'true';
+	}
+
+	public function projectNameValidation()
+	{
+		
+		$check = $this->project->checkProjectName($_GET['value']);
+		if(!$check)
+			echo 'false';
+		else
+			echo 'true';
+	}
+
 	public function deleteunitimage()
 	{
 		$id = $_GET['id'];
+		$image = $this->unit->get_image_ByID($id);
+		//printme($image); exit();
 		$this->unit->delete_image($id);
+
+		$unit_images = $this->unit->get_images($image->unit_id);
+
+		
+
+		$sliderHTML = '<ul class="bxslider" style="height: 200px!important;">';
+		if (is_array($unit_images)) {
+			foreach ($unit_images as $image) {
+				$sliderHTML .= '<li><img class="slider_imgs" src="'.base_url().'application/static/upload/units/'.$image->image.'"></li>';
+			}
+			$sliderHTML .= '</ul>';
+		}else{
+			echo '<div class="alert alert-warning" role="alert">None Available</div>';
+			exit();
+		}
+
+		echo $sliderHTML;
 		exit();
 	}
 	

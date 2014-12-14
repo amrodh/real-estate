@@ -8,9 +8,86 @@ jQuery(document).ready(function($) {
 		$(".changePasswordContainer").slideUp('slow');
 		$(".changePasswordAnchor").fadeIn('slow');
 	});	
+
+
 });
 
 var abc = 0; 
+
+
+function checkUnitName()
+{
+	var unitChange = $("#unitName").attr('data-change');
+	var unitValue = $("#unitName").val();
+	if(unitChange == 0){
+		$("#unitEditForm").submit();
+	}
+	else{
+		url =$("#base_url").val();
+		url += 'admin/unitNameValidation';
+		$.ajax({
+		  type: "GET",
+		  url: url,
+		  data: { value: unitValue }
+		})
+		  .success(function( msg ) {
+		  	  if(msg == 'false'){
+		  	  	alert('Duplicate Title name');
+		  	  	return false;
+		  	  }else{
+		  	  	$("#confirmedit_hidden").val('1');
+		  	  	$("#unitEditForm").submit();
+		  	  	return;
+		  	  }
+		  });
+
+	}
+
+	return true;
+}
+
+function checkProjectName()
+{
+	alert('here');
+	var projectChange = $("#projectName").attr('data-change');
+	var projectValue = $("#projectName").val();
+	if(projectChange == 0){
+		$("#projectEditForm").submit();
+	}
+	else{
+		url =$("#base_url").val();
+		url += 'admin/projectNameValidation';
+		$.ajax({
+		  type: "GET",
+		  url: url,
+		  data: { value: projectValue }
+		})
+		  .success(function( msg ) {
+		  	// alert(msg);
+		  	  if(msg == 'false'){
+		  	  	alert('Duplicate project name. Please choose another.');
+		  	  	return false;
+		  	  }else{
+		  	  	$("#confirmedit_hidden").val('1');
+		  	  	$("#projectEditForm").submit();
+		  	  	return;
+		  	  }
+		  });
+
+	}
+
+	return true;
+}
+
+ $("#unitName").change(function(){
+            var defaultValue = $(this).attr('data-default');
+            var change = $(this).val();
+
+            if(change != defaultValue)
+            	$(this).attr('data-change',1);
+            else
+            	$(this).attr('data-change',0);
+}); 
 
 
 $('#add_more').click(function() {
@@ -179,7 +256,17 @@ function projectImageDelete(id)
 		  data: { id : id  }
 		})
 		  .success(function( msg ) {
-		  		$("#image_"+id).fadeOut('slow');
+
+		  		$(".image_"+id).fadeOut('slow');
+		  		
+		  		
+		  		//$('.sliderContent').fadeOut('slow',function(){
+		  			$('.bxslider').remove();
+		  			$('.sliderContent').html(msg);
+		  			$('.bxslider').bxSlider();
+		  			//$('sliderContent').fadeIn('slow');
+		  		//});
+		  		
 		  });
 
 		
@@ -204,6 +291,9 @@ function unitImageDelete(id)
 		})
 		  .success(function( msg ) {
 		  		$("#image_"+id).fadeOut('slow');
+		  		$('.bxslider').remove();
+		  		$('.sliderContent').html(msg);
+		  		$('.bxslider').bxSlider();
 		  });
 
 		

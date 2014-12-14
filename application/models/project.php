@@ -59,6 +59,20 @@ class Project extends CI_Model {
     }
 
 
+   function checkProjectName($value)
+   {
+       $q = $this
+              ->db
+              ->where('name',$value)
+              ->get('project');
+
+           if($q->num_rows >0){
+              return false;
+           } 
+
+           return true; 
+   }
+
 
     function delete($id)
     {
@@ -126,6 +140,36 @@ class Project extends CI_Model {
 
            if($q->num_rows >0){
               return $q->result();
+           } 
+
+           return false; 
+   }
+
+   function get_image_ByID($id)
+   {
+    $q = $this
+              ->db
+              ->where('id',$id)
+              ->limit(1)
+              ->get('project_image');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+   }
+
+    function get_unitimage_ByID($id)
+   {
+    $q = $this
+              ->db
+              ->where('id',$id)
+              ->limit(1)
+              ->get('unit_image');
+
+           if($q->num_rows >0){
+              return $q->row();
            } 
 
            return false; 

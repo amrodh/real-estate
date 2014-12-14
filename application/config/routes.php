@@ -59,6 +59,12 @@ $route['admin/changelogo/(:any)'] = 'admin/changelogo';
 
 $route['admin/sendall'] = 'admin/newsletterSend';
 
+
+$route['admin/unitNameValidation'] = 'admin/unitNameValidation';
+
+
+
+
 $route['admin/properties'] = 'admin/properties';
 $route['admin/propertyalert'] = 'admin/propertyalert';
 $route['admin/newsletter'] = 'admin/newsletter';

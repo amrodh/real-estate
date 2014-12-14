@@ -69,6 +69,21 @@ class Unit extends CI_Model {
    }
 
 
+   function checkUnitName($value)
+   {
+       $q = $this
+              ->db
+              ->where('title',$value)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return false;
+           } 
+
+           return true; 
+   }
+
+
 
     function getAll()
     {
@@ -179,6 +194,21 @@ class Unit extends CI_Model {
            return false; 
 
     }
+
+    function get_image_ByID($id)
+   {
+    $q = $this
+              ->db
+              ->where('id',$id)
+              ->limit(1)
+              ->get('unit_image');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+   }
 
       function delete_image($id)
     {
