@@ -667,7 +667,7 @@ class Admin extends CI_Controller {
 		// exit();
 		if(isset($_POST['confirmedit_hidden']) && !isset($_POST['cancel'])){
 
-			
+
 			unset($_POST['confirmedit_hidden']);
 
 			if(isset($_POST['is_featured']))
@@ -1527,7 +1527,7 @@ class Admin extends CI_Controller {
 	public function unitNameValidation()
 	{
 		
-		$check = $this->project->checkProjecttName($_GET['value']);
+		$check = $this->unit->checkUnitName($_GET['value']);
 		if(!$check)
 			echo 'false';
 		else

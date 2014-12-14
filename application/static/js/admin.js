@@ -17,12 +17,15 @@ var abc = 0;
 
 function checkUnitName()
 {
+
 	var unitChange = $("#unitName").attr('data-change');
 	var unitValue = $("#unitName").val();
+
 	if(unitChange == 0){
 		$("#unitEditForm").submit();
 	}
 	else{
+
 		url =$("#base_url").val();
 		url += 'admin/unitNameValidation';
 		$.ajax({
