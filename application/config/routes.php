@@ -52,6 +52,7 @@ $route['admin/newsletter/create'] = 'admin/createNewsletter';
 
 
 $route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
+$route['admin/deletesociallink'] = 'admin/deletesociallink';
 $route['admin/deleteunitimage'] = 'admin/deleteunitimage';
 $route['admin/addprojectimage/(:any)'] = 'admin/addprojectimage';
 $route['admin/addunitimage/(:any)'] = 'admin/addunitimage';
@@ -89,5 +90,6 @@ $route['admin/projects/(:any)'] = 'admin/showProject';
 
 $route['admin/users/new'] = 'admin/createUser';
 $route['admin/projects/new'] = 'admin/createProject';
+$route['admin/social/new'] = 'admin/addSocialLink';
 $route['admin/checkpasswordchange.php'] = 'admin/checkpasswordchange';
 $route['admin/users/(:any)'] = "admin/userProfile";

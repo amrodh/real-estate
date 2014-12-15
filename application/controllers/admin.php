@@ -1045,6 +1045,41 @@ class Admin extends CI_Controller {
 	}
 
 
+	function addSocialLink()
+	{
+		$data = $this->init();
+		$this->load->model('social');
+
+		if(isset($_POST['submit'])){
+			unset($_POST['submit']);
+
+			$insert = $this->social->insert($_POST);
+
+			if($insert){
+				$id = $this->db->insert_id();
+				$logo = $_FILES['image'];
+				$logoName = $logo['name'];
+				//printme($logoName);
+
+				$path = $this->config->config['upload_path'];
+				$defaultPath = $path;
+				$this->config->set_item('upload_path',$path.'/social_links/');
+				$target_dir = $this->config->config['upload_path'];
+				$target_file = $target_dir.$logoName;
+				move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+				$this->social->update($id,array('image'=>$logoName));
+
+				redirect('admin/social');
+			}
+
+			$data['params'] = $_POST;
+
+		}
+
+		$this->load->view('admin/newsociallink',$data);
+	}
+
+
 	function createProject()
 	{	
 		$data = $this->init();
@@ -1172,6 +1207,8 @@ class Admin extends CI_Controller {
 	function social()
 	{
 		$data = $this->init();
+		$this->load->model('social');
+		$data['social_links'] = $this->social->getAll();
 		$this->load->view('admin/social',$data);	
 	}
 
@@ -1430,12 +1467,17 @@ class Admin extends CI_Controller {
 		}
 
 		echo $sliderHTML;
-		exit();
+		exit();		
 		
-		
+	}
 
-		
-		
+	public function deletesociallink()
+	{
+		$this->load->model('social');
+		$id = $_GET['id'];
+		//printme($id); exit();
+		$this->social->delete($id);
+		redirect('admin/social');
 	}
 
 	public function addprojectimage()

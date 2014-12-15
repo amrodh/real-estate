@@ -253,6 +253,31 @@ function completeChangePassword()
 	
 }
 
+function socialLinkDelete(id)
+{
+	var confirm = window.confirm("Are you sure?");
+
+	if(confirm){
+
+	var url = $("#base_url").val();
+	url = url+"admin/deletesociallink";
+
+		$.ajax({
+		  type: "GET",
+		  url: url,
+		  data: { id : id  }
+		})
+		  .success(function( msg ) {
+alert(msg);
+		  		$("#social_"+id).fadeOut('slow');
+
+		  });
+
+		
+	}
+
+	return;
+}
 
 function projectImageDelete(id)
 {
