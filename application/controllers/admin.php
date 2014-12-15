@@ -1209,6 +1209,14 @@ class Admin extends CI_Controller {
 		$data = $this->init();
 		$this->load->model('social');
 		$data['social_links'] = $this->social->getAll();
+
+		if(isset($_POST['save'])){
+			printme($_POST); exit();
+			$id = $_POST['name_id'];
+			$this->social->update($data['id'],$_POST);
+			redirect('admin/social');
+		}
+
 		$this->load->view('admin/social',$data);	
 	}
 

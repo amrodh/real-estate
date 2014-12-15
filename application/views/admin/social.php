@@ -29,21 +29,28 @@
                         <table class="table" id="dev-table">
                             <thead>
                             <tr width="100%">
-                                <th width="25%">Image</th>
+                                <th width="25%">Logo</th>
                                 <th width="25%">Name</th>
                                 <th width="25%">Link</th>
+                                <th></th>
                                 <th></th>
                             </tr>
                             </thead>
                             <?php if (is_array($social_links)): ?>
                                 <?php foreach($social_links as $social_link): ?>
                                 <tr id="social_<?= $social_link->id  ?>">
-                                    <td><img class="row" src="<?php echo base_url(); ?>application/static/upload/social_links/<?= $social_link->image; ?>"></td>
-                                    <td><?php echo $social_link->name; ?></td>
+                                    <input type="hidden" name='icon_id' value="<?= $social_link->id  ?>">
+                                    <td><img style="margin-left:2%;" class="row" src="<?php echo base_url(); ?>application/static/upload/social_links/<?= $social_link->image; ?>"></td>
+                                    <td value="<?php echo $social_link->name; ?>"><?php echo $social_link->name; ?></td>
                                     <td><a href=""><?php echo $social_link->link; ?></a></td>
                                     <td>
                                         <a href="javascript:void(0);" onclick="socialLinkDelete(<?= $social_link->id ?>)">
                                             <span title="Delete" class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="socialLinkEdit(<?= $social_link->id ?>,<?= $social_link->name ?>,<?= $social_link->link ?>)">
+                                            <span title="Edit" class="glyphicon glyphicon-edit"></span>
                                         </a>
                                     </td>
                                 </tr>          

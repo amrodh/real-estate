@@ -16,25 +16,6 @@ $route['404_override'] = '';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $route['admin'] = 'admin';
 $route['admin/script'] = 'admin/script';
 $route['admin/users'] = 'admin/users';

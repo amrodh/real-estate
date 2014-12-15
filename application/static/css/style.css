@@ -27,6 +27,11 @@
     cursor: pointer;
 }
 
+.menu li a {
+    padding: 0;
+    color: white !important;
+}
+
 .bx-wrapper .bx-viewport {
     border: none;
     /*height:200px;*/

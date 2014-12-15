@@ -34,7 +34,7 @@
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center">HOME</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">PROJECTS</li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="sahrawy.php">SAHRAWY</a></li>
+						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">SAHRAWY</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">RAYOS</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 hidden-xs text-center" style="width: 10%;">CONTACT US</li>
 						            <li class="col-xs-12 visible-xs text-center">CONTACT US</li>

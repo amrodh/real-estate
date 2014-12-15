@@ -268,15 +268,30 @@ function socialLinkDelete(id)
 		  data: { id : id  }
 		})
 		  .success(function( msg ) {
-alert(msg);
 		  		$("#social_"+id).fadeOut('slow');
-
 		  });
 
 		
 	}
 
 	return;
+}
+
+	$(".usersLandingContent").click(function(){
+		//alert("success");
+	});
+
+function socialLinkEdit(id, name, link)
+{
+	// alert("success");
+	htmlContent = '<form action="" method="post"><input type="hidden" name="icon_id" value="'+id;
+	htmlContent +='"><td><form action="" method="post" enctype="multipart/form-data"><input type="file" name="image" required multiple>';
+	htmlContent += '<input type="submit" name="submit" class="btn btn-primary" value="Submit"></form></td>';
+	htmlContent += '<td value="'+name+'"><?php echo $social_link->name; ?></td>';
+	htmlContent += '<td><a href=""><?php echo $social_link->link; ?></a></td>';
+	htmlContent += '<input style="color:white" type="submit" name="save" class="button btn btn-sm" value="Save"><input style="color:white" type="submit" name="cancel" class="button btn btn-sm " value="Cancel"></form>';
+
+	$("#social_"+id).html(htmlContent);
 }
 
 function projectImageDelete(id)
