@@ -32,7 +32,7 @@
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center">HOME</li>
+						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center"><a href="">HOME</a></li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">PROJECTS</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="<?= base_url(); ?>sahrawy">SAHRAWY</a></li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">RAYOS</li>
@@ -82,7 +82,7 @@
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
 				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					HOME
+					<a href="">HOME</a>
 				</div>
 				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
 					PROJECTS

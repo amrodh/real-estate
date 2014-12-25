@@ -1,7 +1,13 @@
+body {
+    background-image: url('../images/real_estate/background.jpg');
+    background-repeat: repeat;
+}
+
 h3 {
-    color: red;
+    color: #ed3f3f;
     text-align: right;
     font-weight: initial;
+    margin-bottom: 3%;
 }
 
 p {
@@ -25,7 +31,7 @@ p {
 }
 
 .menu {
-    background-color: red; 
+    background-color: #ed3f3f; 
     padding: 1%; 
     font-size: 100%; 
     color: white;
@@ -80,11 +86,11 @@ p {
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active{
-    background-color: red;
+    background-color: #ed3f3f;
 }
 
 .footer_text {
-    background-color: red;
+    background-color: #ed3f3f;
     padding: 0.6%; 
     font-size: 100%; 
     color: white;
@@ -115,7 +121,7 @@ input.rounded:focus {
     height: 30px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    color: red;
+    color: #ed3f3f;
 }
 
 
@@ -125,6 +131,10 @@ input.rounded:focus {
 
 #map-canvas {
     height: 295px;
+}
+
+.sets {
+    margin-bottom: 5%;
 }
 
 .image > img {
@@ -152,4 +162,13 @@ input.rounded:focus {
     text-align: center;
     font-size: 150%;
     margin: 0;
+}
+
+.image button {
+    border: 0;
+    background-color: #ed3f3f;
+    color: white;
+    width: 100%;
+    margin-top: 5%;
+    font-size: 150%;
 }

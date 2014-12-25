@@ -31,8 +31,6 @@ $route['admin/editcontent/(:any)'] = 'admin/editContent';
 
 $route['admin/newsletter/create'] = 'admin/createNewsletter';
 
-$route['sahrawy'] = 'home/sahrawy';
-
 $route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
 $route['admin/deletesociallink'] = 'admin/deletesociallink';
 $route['admin/deleteunitimage'] = 'admin/deleteunitimage';
@@ -75,3 +73,21 @@ $route['admin/projects/new'] = 'admin/createProject';
 $route['admin/social/new'] = 'admin/addSocialLink';
 $route['admin/checkpasswordchange.php'] = 'admin/checkpasswordchange';
 $route['admin/users/(:any)'] = "admin/userProfile";
+
+
+
+
+
+$route['home'] = 'home';
+$route['sahrawy'] = 'home/sahrawy';
+
+
+
+
+
+
+
+
+
+
+
