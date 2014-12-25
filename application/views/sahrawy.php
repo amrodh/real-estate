@@ -36,8 +36,8 @@
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">PROJECTS</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="">SAHRAWY</a></li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">RAYOS</li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 hidden-xs text-center" style="width: 10%;">CONTACT US</li>
-						            <li class="col-xs-12 visible-xs text-center">CONTACT US</li>
+						            <li class="col-lg-1 col-md-1 col-sm-2 hidden-xs text-center" style="width: 10%;"><a href="<?= base_url(); ?>contact">CONTACT US</a></li>
+						            <li class="col-xs-12 visible-xs text-center"><a href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
 						        <form class="navbar-form" role="search" style="margin: 0;">
@@ -72,7 +72,10 @@
 			<div class="col-lg-12 col-md-12" style="padding:0">
 				<h3>مشاريع أخرى</h3>
 				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
-				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
+					<div class="type_left"><p>اسم المشروع</p></div>
+				</div>
 				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
 			</div>
 		</div>
@@ -261,7 +264,7 @@
 					RAYOS
 				</div>
 				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					CONTACT US
+					<a href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
 				<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
 					<form action="" method="post">

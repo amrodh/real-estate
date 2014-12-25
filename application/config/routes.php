@@ -80,6 +80,7 @@ $route['admin/users/(:any)'] = "admin/userProfile";
 
 $route['home'] = 'home';
 $route['sahrawy'] = 'home/sahrawy';
+$route['contact'] = 'home/contact';
 
 
 

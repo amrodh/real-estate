@@ -1,11 +1,11 @@
 body {
     background-image: url('../images/real_estate/background.jpg');
     background-repeat: repeat;
+    text-align: right;
 }
 
 h3 {
     color: #ed3f3f;
-    text-align: right;
     font-weight: initial;
     margin-bottom: 3%;
 }
@@ -13,6 +13,10 @@ h3 {
 p {
     text-align: right;
     font-size: 120%;
+}
+
+input, textarea {
+    text-align: right;
 }
 
 .navbar-default {
@@ -133,13 +137,39 @@ input.rounded:focus {
     height: 295px;
 }
 
+#map_canvas_contact {
+    height: 220px;
+    margin-bottom: 10%;
+}
+
 .sets {
     margin-bottom: 5%;
+}
+
+.image_left > img {
+    z-index: -1;
+    width: 100%;
 }
 
 .image > img {
     z-index: -1;
     width: 100%;
+}
+
+.type_left {
+    z-index: 10;
+    height: 45px;
+    background-color: #ed3f3f;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    margin-top: 54%;
+}
+
+.type_left > p {
+    color: white;
+    text-align: center;
+    font-size: 200%;
 }
 
 .type {
@@ -171,4 +201,29 @@ input.rounded:focus {
     width: 100%;
     margin-top: 5%;
     font-size: 150%;
+}
+
+.contact_input, .contact_textarea {
+    margin-top: 2%;
+    border: none;
+    background-color: #d0d0d0;
+}
+
+.contact_input {
+    height: 30px;
+}
+
+#contact_button {
+    margin-top: 2%;
+    border: none;
+    background-color: #ed3f3f;
+    color: white;
+    width: 20%;
+    text-align: center;
+    float: left;
+}
+
+.contact_info {
+    padding: 0;
+    margin-top: 5%;
 }
