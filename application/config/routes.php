@@ -31,6 +31,7 @@ $route['admin/editcontent/(:any)'] = 'admin/editContent';
 
 $route['admin/newsletter/create'] = 'admin/createNewsletter';
 
+$route['sahrawy'] = 'home/sahrawy';
 
 $route['admin/deleteprojectimage'] = 'admin/deleteprojectimage';
 $route['admin/deletesociallink'] = 'admin/deletesociallink';

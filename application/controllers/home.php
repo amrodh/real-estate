@@ -7,4 +7,9 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('home.php');
 	}
+
+	function sahrawy() { 
+
+		$this->load->view('sahrawy.php');
+	}
 }

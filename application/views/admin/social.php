@@ -49,7 +49,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="javascript:void(0);" onclick="socialLinkEdit(<?= $social_link->id ?>,<?= $social_link->name ?>,<?= $social_link->link ?>)">
+                                        <a href="javascript:void(0);" onclick="socialLinkEdit(<?= $social_link->id  ?>, '<?= $social_link->name  ?>', '<?= $social_link->link  ?>')">
                                             <span title="Edit" class="glyphicon glyphicon-edit"></span>
                                         </a>
                                     </td>

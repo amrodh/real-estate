@@ -11,7 +11,7 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.jpg" alt="" class="img-responsive">
+				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive">
 			</div>
 			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
 			</div>
@@ -34,7 +34,7 @@
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center">HOME</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">PROJECTS</li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="sahrawy.php">SAHRAWY</a></li>
+						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="<?= base_url(); ?>sahrawy">SAHRAWY</a></li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">RAYOS</li>
 						            <li class="col-lg-1 col-md-1 col-sm-2 hidden-xs text-center" style="width: 10%;">CONTACT US</li>
 						            <li class="col-xs-12 visible-xs text-center">CONTACT US</li>
@@ -65,17 +65,17 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div>
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.jpg" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
 			</div>
 		</div>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
 		</div>
 
 
@@ -88,7 +88,7 @@
 					PROJECTS
 				</div>
 				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					SAHRAWY
+					<a href="<?= base_url(); ?>sahrawy">SAHRAWY</a>
 				</div>
 				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
 					RAYOS

@@ -55,28 +55,122 @@
 	    	</nav>
 		</div>
 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
-			<ul class="bxslider">
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image1.jpg" style="max-height:500px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image2.jpg" style="max-height:500px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image3.jpg" style="max-height:500px;"/></li>
-			</ul> 
-		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3>SAHRAWY</h3></div>
 
-		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div>
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.jpg" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+		<div class="section col-lg-3 col-md-3 visible-lg visible-md">
+
+			<div class="col-lg-12 col-md-12" style="padding:0">
+				<h3>الموقع</h3>
+				<p>اعتداء وبريطانيا جوي أن. مع هنا شدّت الموسوعة جُل, فاتّبع أوروبا الأرواح أضف عل. كل مشارف وفرنسا يتم</p>
+			</div>
+
+			<div class="col-lg-12 col-md-12" style="padding:0">
+				<h3>الخريطة</h3>
+				<div id="map-canvas"></div>
+			</div>
+
+			<div class="col-lg-12 col-md-12" style="padding:0">
+				<h3>مشاريع أخرى</h3>
+				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
+				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
+				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
 			</div>
 		</div>
 
-		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/tours1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/booking.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+		<div class="section col-lg-9 col-md-9 visible-lg visible-md">
+			<img style="padding:0" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/sahrawy.jpg">
+
+			<div class="col-lg-12 col-md-12" style="padding:0">
+				<h3>عن المشروع </h3>
+				<p>بعض ما سقوط جديدة. الا ما وحتّى المبرمة الأوروبية, لم أحدث وبدأت بمحاولة كان. هذه ان وأزيز الغربي, وقامت وحلفاؤها كلّ هو. الشمال التّحول الإكتفاء بال و, وأزيز اليابانية و ضرب.</p>
+				<p>أفاق بلديهما شموليةً بـ عدم, جوزيف للأسطول 30 كما. استبدال بولندا، ان وفي. قبل بيرل الحكومة أن, عل كردة عليها الإتحاد وصل. 30 بحق أسيا الأمور وقوعها،, عل نقطة النفط كلا. بال إختار المشترك نورماندي عل, هذه لم سحقت بوزيرها, </p>
+			</div>
+
+			<div class="col-lg-12 col-md-12" style="padding:0">
+				<h3>الوحدات</h3>
+				<div class="col-lg-12 col-md-12 row">
+					<div class="image col-lg-3 col-md-3">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap4.jpg">
+						<div class="type"><p>للبيع</p></div>
+						<div class="price">
+							<p>شقه</p>
+							<p>
+								<span>180</span>
+								<span>متر</span>
+								<span>&nbsp;&nbsp;&nbsp;3</span>
+								<span>غرف</span>
+							</p>
+							<p>
+								<span style="color:red">235000</span>
+								<span>جنيه</span>
+							</p>
+						</div>
+					</div>
+					<div class="image col-lg-3 col-md-3">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap3.jpg">
+						<div class="type"><p>للاجار</p></div>
+						<div class="price">
+							<p>شقه</p>
+							<p>
+								<span>180</span>
+								<span>متر</span>
+								<span>&nbsp;&nbsp;&nbsp;3</span>
+								<span>غرف</span>
+							</p>
+							<p>
+								<span style="color:red">2000/</span>
+								<span>شهر</span>
+							</p>
+						</div>
+					</div>
+					<div class="image col-lg-3 col-md-3">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap2.jpg">
+						<div class="type"><p>للبيع</p></div>
+						<div class="price">
+							<p>شقه</p>
+							<p>
+								<span>180</span>
+								<span>متر</span>
+								<span>&nbsp;&nbsp;&nbsp;3</span>
+								<span>غرف</span>
+							</p>
+							<p>
+								<span style="color:red">235000</span>
+								<span>جنيه</span>
+							</p>
+						</div>
+					</div>
+					<div class="image col-lg-3 col-md-3">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap1.jpg">
+						<div class="type"><p>للبيع</p></div>
+						<div class="price">
+							<p>شقه</p>
+							<p>
+								<span>180</span>
+								<span>متر</span>
+								<span>&nbsp;&nbsp;&nbsp;3</span>
+								<span>غرف</span>
+							</p>
+							<p>
+								<span style="color:red">235000</span>
+								<span>جنيه</span>
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+<!-- 				<div style="clear: both"></div>
+
+				<div class="col-lg-12 col-md-12 row">
+					<img class="img-responsive col-lg-3 col-md-3" src="<?= base_url(); ?>application/static/images/real_estate/ap5.jpg">
+					<img class="img-responsive col-lg-3 col-md-3" src="<?= base_url(); ?>application/static/images/real_estate/ap6.jpg">
+					<img class="img-responsive col-lg-3 col-md-3" src="<?= base_url(); ?>application/static/images/real_estate/ap7.jpg">
+					<img class="img-responsive col-lg-3 col-md-3" src="<?= base_url(); ?>application/static/images/real_estate/ap8.jpg">
+				</div> -->
+			</div>
 		</div>
+
 
 
 		<footer>
@@ -135,5 +229,20 @@
 		<script src="<?= base_url(); ?>application/static/js/main.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/bootstrap.min.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/jquery.bxslider.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+		<script>
+			function initialize() {
+			 	var mapCanvas = document.getElementById('map-canvas');
+			 	var mapOptions = {
+			 		center: new google.maps.LatLng(44.5403, -78.5463),
+			 		zoom: 8,
+			 		mapTypeId: google.maps.MapTypeId.ROADMAP
+			 	}
+			 	var map = new google.maps.Map(mapCanvas, mapOptions);
+		  	}
+		  	google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+
 	</body>
 </html>
