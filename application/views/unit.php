@@ -11,7 +11,7 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive">
+				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
 			</div>
@@ -32,8 +32,8 @@
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
@@ -74,14 +74,20 @@
 				<div id="map-canvas"></div>
 			</div>
 
-			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
-				<h3>مشاريع أخرى</h3>
-				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
+			<div class="col-lg-12 col-md-12" style="padding:0; margin-bottom:5%;">
+				<h3 class="arabic">مشاريع</h3>
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/rayos';?>">RAYOS</a></p></div>
+				</div>
 				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-					<div class="type_left"><p>اسم المشروع</p></div>
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/sahrawy';?>">SAHRAWY</a></p></div>
 				</div>
-				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/rayos';?>">RAYOS</a></p></div>
+				</div>
 			</div>
 		</div>
 
@@ -134,7 +140,7 @@
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
 				<h3>وحدات شبيهه</h3>
-				<?php if(!empty($units)):
+				<?php if(!sizeof($units) == 1):
 				foreach($units as $u): 
 					if($unit->id != $u->id):
 						foreach($unit_images as $unit_image):
@@ -162,7 +168,9 @@
 						</div>
 				<?php endif;
 				endforeach;
-				endif ?>
+				else: ?>
+					<div>لا يوجد وحدات</div>
+				<?php endif ?>
 				</div>
 
 			</div>
@@ -172,7 +180,7 @@
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
-				<div class="col-lg-1 col-md-1 col-lg-offset-2 col-md-offset-2 text-center footer_links">
+				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
 				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
@@ -182,7 +190,7 @@
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
-				<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
+				<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6">
 					<form action="" method="post">
 						<div class="col-lg-8 col-md-8" style="padding:0;">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">

@@ -28,34 +28,34 @@
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
-                      <tr>
+                      <!-- <tr>
                         <td>Heading 1:</td>
-                        <td><input type="text" name="h1_en" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h1_en']; ?>">
+                        <td><input type="text" name="h1_en" pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h1_en']; ?>">
                         </td>
-                        <td><input style="text-align:right;direction:RTL;" type="text" name="h1_ar" value="<?php if(isset($params)) echo $params['h1_ar']; ?>" required>
+                        <td><input style="text-align:right;direction:RTL;" type="text" name="h1_ar" value="<?php if(isset($params)) echo $params['h1_ar']; ?>" >
                         </td>
                         <td>العنوان 1</td>
                       </tr>
                       <tr>
                         <td>Heading 2</td>
                         <td>
-                           <input type="text" name="h2_en" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h2_en']; ?>">
+                           <input type="text" name="h2_en" pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h2_en']; ?>">
                          </td>
                         <td>
-                        <input type="text" style="text-align:right;direction:RTL;" name="h2_ar" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h2_ar']; ?>">
+                        <input type="text" style="text-align:right;direction:RTL;" name="h2_ar" pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['h2_ar']; ?>">
                         </td>
                         <td>العنوان 2</td>
-                      </tr>
-                      <tr>
+                      </tr> -->
+                      <!-- <tr>
                         <td>Link</td>
                         <td>
-                           <input type="text" name="link_en" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['link_en']; ?>">
+                           <input type="text" name="link_en" pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['link_en']; ?>">
                          </td>
                         <td>
-                        <input type="text" style="text-align:right;direction:RTL;" name="link_ar" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['link_ar']; ?>">
+                        <input type="text" style="text-align:right;direction:RTL;" name="link_ar" pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['link_ar']; ?>">
                         </td>
                         <td>الرابط</td>
-                      </tr>
+                      </tr> -->
                      
 
                       <tr>
@@ -63,16 +63,16 @@
                         <td><input type="file" name="userfile['image']" required>
                         </td>
                       </tr>
-                       <tr>
+                       <!-- <tr>
                         <td>Logo</td>
-                        <td><input type="file" name="userfile['logo']" required>
+                        <td><input type="file" name="userfile['logo']" >
                         </td>
 
                         
-                        <td><input type="file" name="userfile['alt_logo']" required>
+                        <td><input type="file" name="userfile['alt_logo']" >
                         </td>
                         <td>لوجو</td>
-                      </tr>
+                      </tr> -->
                       
                      
                     </tbody>

@@ -6,6 +6,12 @@ jQuery(document).ready(function($){
 		page:true
 	});
 
+	// alert('here');
+    // $('ul').hasClass('remove', function(){
+    //   alert('here');
+    // });
+
+// $('ul').hasClass('remove');
 
 
 });	

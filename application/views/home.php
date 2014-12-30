@@ -33,7 +33,7 @@
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="current_link" href="">HOME</a></li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
 							            <ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
@@ -61,20 +61,20 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
 			<ul class="bxslider">
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image1.jpg" style="max-height:400px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image2.jpg" style="max-height:400px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image3.jpg" style="max-height:400px;"/></li>
+				<?php foreach($slides as $slide): ?>
+					<li><img src="<?= base_url(); ?>application/static/upload/slider/<?php echo $slide ?>" style="max-height:400px;"/></li>
+				<? endforeach ?>
 			</ul> 
 		</div>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div>
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4"></a>
 			</div>
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
-			<ul class="bxslider">
+			<ul class="bxslider remove">
 			<?php $li_tags = ceil(sizeof($featured_images)/6); 
 			while($li_tags != 0){?>
 				<li class="col-lg-12 col-md-12">
@@ -105,7 +105,7 @@
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
-				<div class="col-lg-1 col-md-1 col-lg-offset-2 col-md-offset-2 text-center footer_links">
+				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="">HOME</a>
 				</div>
 				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
@@ -115,7 +115,7 @@
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
-				<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
+				<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6">
 					<form action="" method="post">
 						<div class="col-lg-8 col-md-8" style="padding:0;">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">

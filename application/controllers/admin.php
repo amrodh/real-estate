@@ -1328,6 +1328,7 @@ class Admin extends CI_Controller {
 
 			if(isset($_FILES)){
 				$path = $this->config->config['upload_path'];
+				// printme($path);exit();
 				$this->config->set_item('upload_path',$path.'/slider');
 				
 				$tmp = $_FILES;
@@ -1348,48 +1349,49 @@ class Admin extends CI_Controller {
 					return;
 				}
 
-				$_FILES['userfile']['name']     = $tmp['userfile']['name']["'logo'"];
-				$_FILES['userfile']['type']     = $tmp['userfile']['type']["'logo'"];
-				$_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'logo'"];
-				$_FILES['userfile']['error']    = $tmp['userfile']['error']["'logo'"];
-				$_FILES['userfile']['size']     = $tmp['userfile']['size']["'logo'"];
-				$fileExtension = explode('.',$_FILES['userfile']['name']);
-				$_POST['logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				$_FILES['userfile']['name'] = $_POST['logo'];
+				// $_FILES['userfile']['name']     = $tmp['userfile']['name']["'logo'"];
+				// $_FILES['userfile']['type']     = $tmp['userfile']['type']["'logo'"];
+				// $_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'logo'"];
+				// $_FILES['userfile']['error']    = $tmp['userfile']['error']["'logo'"];
+				// $_FILES['userfile']['size']     = $tmp['userfile']['size']["'logo'"];
+				// $fileExtension = explode('.',$_FILES['userfile']['name']);
+				// $_POST['logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+				// $_FILES['userfile']['name'] = $_POST['logo'];
 
 				
 
-				$upload = uploadme($this);
-				if(isset($upload['error'])){
-					echo 'yes';
-					$data['error'] = 'Upload Failed, Please try again';
-					$this->load->view('admin/newcontent',$data);
-					return;
-				}
+				// $upload = uploadme($this);
+				// if(isset($upload['error'])){
+				// 	echo 'yes';
+				// 	$data['error'] = 'Upload Failed, Please try again';
+				// 	$this->load->view('admin/newcontent',$data);
+				// 	return;
+				// }
 
-				$_FILES['userfile']['name']     = $tmp['userfile']['name']["'alt_logo'"];
-				$_FILES['userfile']['type']     = $tmp['userfile']['type']["'alt_logo'"];
-				$_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'alt_logo'"];
-				$_FILES['userfile']['error']    = $tmp['userfile']['error']["'alt_logo'"];
-				$_FILES['userfile']['size']     = $tmp['userfile']['size']["'alt_logo'"];
-				$fileExtension = explode('.',$_FILES['userfile']['name']);
-				$_POST['alt_logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				$_FILES['userfile']['name'] = $_POST['alt_logo'];
+				// $_FILES['userfile']['name']     = $tmp['userfile']['name']["'alt_logo'"];
+				// $_FILES['userfile']['type']     = $tmp['userfile']['type']["'alt_logo'"];
+				// $_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'alt_logo'"];
+				// $_FILES['userfile']['error']    = $tmp['userfile']['error']["'alt_logo'"];
+				// $_FILES['userfile']['size']     = $tmp['userfile']['size']["'alt_logo'"];
+				// $fileExtension = explode('.',$_FILES['userfile']['name']);
+				// $_POST['alt_logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+				// $_FILES['userfile']['name'] = $_POST['alt_logo'];
 
 				
 
-				$upload = uploadme($this);
-				if(isset($upload['error'])){
-					echo 'yes';
-					$data['error'] = 'Upload Failed, Please try again';
-					$this->load->view('admin/newcontent',$data);
-					return;
-				}
+				// $upload = uploadme($this);
+				// if(isset($upload['error'])){
+				// 	echo 'yes';
+				// 	$data['error'] = 'Upload Failed, Please try again';
+				// 	$this->load->view('admin/newcontent',$data);
+				// 	return;
+				// }
 
 				unset($_POST['submit']);
 				$_POST['is_active'] = 1;
 				//printme($_POST);exit();
 				$this->content->insertSlide($_POST);
+				echo "<script type='text/javascript'>alert('Slide inserted');</script>";
 			}
 
 			

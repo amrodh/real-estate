@@ -20,7 +20,9 @@
                 </div>
         <div class="usersLandingContent">
             
-       
+       <div>Please note that all unit images have to be of the same size.</div>
+
+
                 <div class="row">
                     <div class="col-lg-10">
                         <div class="panel-body">

@@ -7,6 +7,13 @@ class Home extends CI_Controller {
 	{
 		$data['projects'] = $this->project->getAll();
 
+		$sliders_content = $this->content->getSliderContent();
+		$slides = array();
+		foreach ($sliders_content as $slider_content ) {
+			array_push($slides,$slider_content->image);
+		}
+		$data['slides'] = $slides;
+
 		$a = array();
 		// printme($a); exit();
 		$order = 0;
@@ -62,13 +69,15 @@ class Home extends CI_Controller {
 
 		$unit_images = array();
 		$order = 0;
-		foreach ($data['units'] as $unit ) {
-			$id = $data['units'][$order]->id;
-			$unit_image = $this->unit->getFeaturedImage($id)[0]->image;
-			$type = $this->unit->get_unit_type($unit->type_id);
-			$type = $type[0]->type;
-			$order++;
-			array_push($unit_images,[$id,$unit_image,$type]);
+		if(!empty($data['units'])) {
+			foreach ($data['units'] as $unit ) {
+				$id = $data['units'][$order]->id;
+				$unit_image = $this->unit->getFeaturedImage($id)[0]->image;
+				$type = $this->unit->get_unit_type($unit->type_id);
+				$type = $type[0]->type;
+				$order++;
+				array_push($unit_images,[$id,$unit_image,$type]);
+			}
 		}
 		$data['unit_images'] = $unit_images;
 

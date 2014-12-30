@@ -123,10 +123,10 @@ class Content extends CI_Model {
     {
 
         $slide = $this->getSliderByID($id);
-        $slideOrder = $slide->order;
+        // $slideOrder = $slide->order;
 
-        $where = array('order >' => $slideOrder);
-        $sliders = $this->getSlidersWhere($where);
+        // $where = array('order >' => $slideOrder);
+        // $sliders = $this->getSlidersWhere($where);
 
         
 
@@ -140,10 +140,10 @@ class Content extends CI_Model {
           }
 
 
-          foreach ($sliders as $slide) {
-            $update = array('order'=>$slide->order-1);
-            $this->updateSlide($slide->id,$update);
-         }
+         //  foreach ($sliders as $slide) {
+         //    $update = array('order'=>$slide->order-1);
+         //    $this->updateSlide($slide->id,$update);
+         // }
 
 
           return true;

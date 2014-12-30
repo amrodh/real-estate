@@ -19,6 +19,8 @@
                     </div>
                 </div>
         <div class="usersLandingContent">
+
+        <div>Please note that all project images have to be of the same size.</div>
             
        
                 <div class="row">
