@@ -24,7 +24,7 @@ class Project extends CI_Model {
 
     }
 
-     function getByName($name)
+    function getByName($name)
     {
 
       $q = $this
@@ -57,7 +57,6 @@ class Project extends CI_Model {
            return false; 
 
     }
-
 
    function checkProjectName($value)
    {

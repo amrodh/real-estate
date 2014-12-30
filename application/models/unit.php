@@ -101,6 +101,24 @@ class Unit extends CI_Model {
     }
 
 
+    function getAllByProjectID($id)
+    {
+
+      $q = $this
+              ->db
+              ->where('project_id',$id)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+
+
      function getTypes()
     {
 
@@ -132,7 +150,7 @@ class Unit extends CI_Model {
     }
 
 
-    function insert_image($params)
+  function insert_image($params)
    {
       $query = $this->db->insert_string('unit_image', $params);
       $query = $this->db->query($query);
@@ -143,6 +161,21 @@ class Unit extends CI_Model {
 
         return true;
    }
+
+
+  // function insert_unit_image($params)
+  //  {
+  //     $query = $this
+  //                 ->db
+  //                 ->where()
+  //                 ->update('unit', $params); 
+      
+  //     if($this->db->affected_rows() != 1){
+  //         return false;
+  //       }
+
+  //       return true;
+  //  }
 
 
    function get_unit_type($id)
@@ -178,6 +211,41 @@ class Unit extends CI_Model {
 
     }
 
+
+    function getProjectByUnit($unit_name)
+    {
+
+      $q = $this
+              ->db
+              ->where('title',$unit_name)
+              ->limit(1)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+
+    }
+
+
+    function getByProjectID($id)
+    {
+
+      $q = $this
+              ->db
+              ->where('project_id',$id)
+              ->limit(1)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+
+    }
 
      function getFeatured()
     {

@@ -43,14 +43,14 @@
 						            <?php foreach($array as $project): 
 							        		if($project[0] == "sahrawy"):?>
 												<li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
-													<a class="current_link" href="<?= base_url().$project[1].'/'.$project[0];?>"><?php echo $project[0]; ?></a>
+													<a class="menu_link" href="<?= base_url().$project[1].'/'.$project[0];?>"><?php echo $project[0]; ?></a>
 												</li>
 									<?php endif;
 									 endforeach ?>
 						            <?php foreach($array as $project): 
 							        		if($project[0] == "rayos"):?>
 												<li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
-													<a class="menu_link" href="<?= base_url().$project[1].'/'.$project[0];?>"><?php echo $project[0]; ?></a>
+													<a class="current_link" href="<?= base_url().$project[1].'/'.$project[0];?>"><?php echo $project[0]; ?></a>
 												</li>
 									<?php endif;
 									 endforeach ?>
@@ -269,7 +269,7 @@
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
-				<div class="col-lg-1 col-md-1 col-lg-offset-2 col-md-offset-2 text-center footer_links">
+				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
 				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">

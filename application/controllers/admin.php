@@ -863,6 +863,7 @@ class Admin extends CI_Controller {
 					$tmpFiles=array();
 					$path = $this->config->config['upload_path'];
 					$this->config->set_item('upload_path',$path.'/units');
+					$this->unit->insert_unit_image($_FILES['userfile']['name'][0]);
 
 					foreach ($files['name'] as $name) {
 
@@ -876,6 +877,7 @@ class Admin extends CI_Controller {
 						$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
 						$inputs['image'] = $_FILES['userfile']['name'];
 						$this->unit->insert_image($inputs);
+
 						$upload = uploadme($this);
 						$index++;
 					}
@@ -1116,6 +1118,7 @@ class Admin extends CI_Controller {
 					
 
 					$path = $this->config->config['upload_path'];
+					// printme($path);exit();
 					$defaultPath = $path;
 					$this->config->set_item('upload_path',$path.'/logos/');
 					$target_dir = $this->config->config['upload_path'];

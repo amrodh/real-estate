@@ -79,8 +79,11 @@ $route['admin/users/(:any)'] = "admin/userProfile";
 
 
 $route['home'] = 'home';
-$route['sahrawy'] = 'home/sahrawy';
+// $route['(:any)/sahrawy'] = 'home/sahrawy';
 $route['contact'] = 'home/contact';
+// $route['(:any)/rayos'] = 'home/rayos';
+$route['unit/(:any)'] = 'home/unit';
+$route['project/(:any)'] = 'home/project';
 
 
 

@@ -7,7 +7,7 @@
 		<link href="<?= base_url(); ?>application/static/css/jquery.bxslider.css" rel="stylesheet"/>
 		<link href="<?= base_url(); ?>application/static/css/style.css" rel="stylesheet"/>
 	</head>
-	<body>
+	<body class="frontend">
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -32,22 +32,26 @@
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center"><a href="">HOME</a></li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">PROJECTS</li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center"><a href="<?= base_url(); ?>sahrawy">SAHRAWY</a></li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-12 text-center">RAYOS</li>
-						            <li class="col-lg-1 col-md-1 col-sm-2 hidden-xs text-center" style="width: 10%;"><a href="<?= base_url(); ?>contact">CONTACT US</a></li>
-						            <li class="col-xs-12 visible-xs text-center"><a href="<?= base_url(); ?>contact">CONTACT US</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="current_link" href="">HOME</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" href="">PROJECTS</a>
+							            <ul>
+							            	<?php foreach($array as $project): ?>
+												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
+											<? endforeach ?>
+										</ul>
+									</li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
+						            <li class="col-xs-12 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
-						        <form class="navbar-form" role="search" style="margin: 0;">
+						        <!-- <form class="navbar-form" role="search" style="margin: 0;">
 							        <div class="input-group">
 							            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
 							            <div class="input-group-btn">
 							                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 							            </div>
 							        </div>
-						        </form>
+						        </form> -->
 			            	</div>
 			            </div>
 			        </div> 
@@ -57,9 +61,9 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
 			<ul class="bxslider">
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image1.jpg" style="max-height:500px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image2.jpg" style="max-height:500px;"/></li>
-				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image3.jpg" style="max-height:500px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image1.jpg" style="max-height:400px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image2.jpg" style="max-height:400px;"/></li>
+				<li><img src="<?= base_url(); ?>application/static/images/real_estate/image3.jpg" style="max-height:400px;"/></li>
 			</ul> 
 		</div>
 
@@ -69,37 +73,60 @@
 			</div>
 		</div>
 
-		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%; margin-left:10%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
-			<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" alt="" class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 13%;">
+		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
+			<ul class="bxslider">
+				<li>
+					<div style="float:left;">
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+					<div style="float:left;">
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+					<div style="float:left;">	
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+					<div style="float:right;">	
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+					<div style="float:right;">	
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+					<div style="float:right;">	
+						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
+					</div>
+				</li>
+				<!-- <li>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
+				</li>
+				<li>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
+					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
+				</li> -->
+			</ul> 
 		</div>
 
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
-				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					<a href="">HOME</a>
+				<div class="col-lg-1 col-md-1 col-lg-offset-2 col-md-offset-2 text-center footer_links">
+					<a class="frontend" href="">HOME</a>
 				</div>
-				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					PROJECTS
-				</div>
-				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					<a href="<?= base_url(); ?>sahrawy">SAHRAWY</a>
-				</div>
-				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					RAYOS
-				</div>
-				<div class="col-lg-1 col-md-1 text-center" style="cursor: pointer; padding:0;">
-					<a href="<?= base_url(); ?>contact">CONTACT US</a>
+				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
+					<a class="frontend" href="">PROJECTS</a>
+				</div> -->
+			
+				<div class="col-lg-1 col-md-1 text-center footer_links">
+					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
 				<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
 					<form action="" method="post">
 						<div class="col-lg-8 col-md-8" style="padding:0;">
-							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded">
+							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
 						</div>
 						<div class="col-lg-2 col-md-2" style="padding:0;">
 							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button">
@@ -116,7 +143,7 @@
 				<div class="col-sm-6 col-xs-6" style="padding-top: 0.5%;">
 					<form action="" method="post">
 						<div class="col-sm-8 col-xs-8" style="padding:0;">
-							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded">
+							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
 						</div>
 						<div class="col-sm-2 col-xs-2" style="padding:0;">
 							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button">
@@ -135,5 +162,16 @@
 		<script src="<?= base_url(); ?>application/static/js/main.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/bootstrap.min.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/jquery.bxslider.min.js"></script>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-58024854-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
 	</body>
 </html>

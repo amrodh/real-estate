@@ -7,7 +7,7 @@
 		<link href="<?= base_url(); ?>application/static/css/jquery.bxslider.css" rel="stylesheet"/>
 		<link href="<?= base_url(); ?>application/static/css/style.css" rel="stylesheet"/>
 	</head>
-	<body class="frontend">
+	<body>
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -32,7 +32,7 @@
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
 						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
@@ -40,8 +40,9 @@
 											<?php endforeach ?>
 										</ul>
 						            </li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center"><a class="current_link" href="">CONTACT US</a></li>
-						            <li class="col-xs-12 visible-xs text-center"><a class="menu_link" href="">CONTACT US</a></li>
+
+						            <li class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
+						            <li class="col-xs-12 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
 						        <!-- <form class="navbar-form" role="search" style="margin: 0;">
@@ -59,61 +60,99 @@
 	    	</nav>
 		</div>
 
-		<div class="col-lg-3 col-md-3 arabic">
-			<div class="section col-lg-12 col-md-12 visible-lg visible-md">
-				<div class="col-lg-12 col-md-12" style="padding:0">
-					<h3>مشاريع أخرى</h3>
-					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
-					<div class="image_left col-lg-12 col-md-12" style="padding:0;">
-						<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-						<div class="type_left"><p>اسم المشروع</p></div>
-					</div>
-					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3 style="text-align:right"><?php echo $unit->title; ?></h3></div>
+
+		<div class="section col-lg-3 col-md-3 visible-lg visible-md">
+
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<h3>الموقع</h3>
+				<p>اعتداء وبريطانيا جوي أن. مع هنا شدّت الموسوعة جُل, فاتّبع أوروبا الأرواح أضف عل. كل مشارف وفرنسا يتم</p>
+			</div>
+
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<h3>الخريطة</h3>
+				<div id="map-canvas"></div>
+			</div>
+
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<h3>مشاريع أخرى</h3>
+				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
+					<div class="type_left"><p>اسم المشروع</p></div>
 				</div>
+				<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
 			</div>
 		</div>
 
-		<div class="col-lg-9 col-md-9 arabic">
-			<div class="row">
-				<div class="section col-lg-7 col-md-7 visible-lg visible-md">
-					<h3>راسلنا</h3>
-					<form action="" method="POST">
-						<input class="contact_input col-lg-12 col-md-12" type="text" name="name" placeholder="الاسم">
-						<input class="contact_input col-lg-12 col-md-12" type="text" name="company" placeholder="الشركه">
-						<input class="contact_input col-lg-12 col-md-12" type="text" name="email" placeholder="البريد الالكتروني">
-						<textarea class="contact_textarea col-lg-12 col-md-12" name="msg" rows="4" cols="50" placeholder="الرساله"></textarea>
+		<div class="section col-lg-9 col-md-9 visible-lg visible-md">
+			<img style="padding:0" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/sahrawy.jpg">
 
-						<input id="contact_button" type="submit" value="ارسل" name="submitMail">
-					</form>
-				</div>
-
-				<div class="section col-lg-5 col-md-5 visible-lg visible-md">
-					<h3>اتصل بنا</h3>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">321 321 21 12</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
-							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/phone.png">
-						</div>
-					</div>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">321 321 21 12</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
-							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/mobile.png">
-						</div>
-					</div>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">الياباني. جوي ونتج ويعزى التقليدي من, و أراض الحربي، والروس</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
-							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/location.png">
-						</div>
-					</div>
-				</div>
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0; margin-bottom:5%;">
+				<h3>تفاصيل الإعلان</h3>
+				<table style="width:100%">
+					<tr>
+						<td class="light">شقه</td> 
+						<td class="right_col dark">النوع</td>
+					</tr>
+					<tr>
+						<td class="dark"><?php echo $unit->floor; ?></td>
+						<td class="right_col light">الطابق</td> 
+					</tr>
+					<tr>
+						<td class="light"><?php echo $unit->rooms; ?></td>
+						<td class="right_col dark">الغرف</td> 
+					</tr>
+					<tr>
+						<td class="dark"><?php echo $unit->bathrooms; ?></td>
+						<td class="right_col light">الحمامات</td> 
+					</tr>
+					<tr>
+						<td class="light">متر<?php echo $unit->area; ?></td>
+						<td class="right_col dark">المساحة</td> 
+					</tr>
+					<tr>
+						<td class="dark">سوبر لوكس</td>
+						<td class="right_col light">التشطيب</td> 
+					</tr>
+				</table>
 			</div>
-			<div class="row col-lg-12 col-md-12" style="padding:0">
-				<h3>موقع الشركه</h3>
-				<div id="map_canvas_contact"></div>
+
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<h3>عن الوحده</h3>
+				<p><?php echo $unit->description; ?></p>
+			</div>
+
+			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<h3>وحدات شبيهه</h3>
+				<?php if(!empty($units)):
+				foreach($units as $unit): ?>
+					<div class="image col-lg-3 col-md-3">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap4.jpg">
+						<div class="type"><p>للبيع</p></div>
+						<div class="price">
+							<p>شقه</p>
+							<p>
+								<span><?php echo $unit->area; ?></span>
+								<span>متر</span>
+								<span>&nbsp;&nbsp;&nbsp;<?php echo $unit->rooms; ?></span>
+								<span>غرف</span>
+							</p>
+							<p>
+								<span style="color:red"><?php echo $unit->price; ?></span>
+								<span>جنيه</span>
+							</p>
+							<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'">التفاصيل</button>
+						</div>
+					</div>
+				<?php endforeach;
+				endif ?>
+				</div>
+
 			</div>
 		</div>
+
+
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
@@ -121,11 +160,11 @@
 					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
 				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">PROJECTS</a>
+					<a class="frontend" class="frontend" href="">PROJECTS</a>
 				</div> -->
 
 				<div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">CONTACT US</a>
+					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
 				<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
 					<form action="" method="post">
@@ -170,7 +209,7 @@
 
 		<script>
 			function initialize() {
-			 	var mapCanvas = document.getElementById('map_canvas_contact');
+			 	var mapCanvas = document.getElementById('map-canvas');
 			 	var mapOptions = {
 			 		center: new google.maps.LatLng(44.5403, -78.5463),
 			 		zoom: 8,
@@ -191,5 +230,6 @@
 		  ga('send', 'pageview');
 
 		</script>
+
 	</body>
 </html>

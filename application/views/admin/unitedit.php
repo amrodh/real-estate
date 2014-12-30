@@ -54,6 +54,21 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>Floor:</td>
+                        <td><input type="text" name="floor" required pattern="" value="<?php if(isset($params)) echo $params->floor; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Rooms:</td>
+                        <td><input type="text" name="rooms" required pattern="" value="<?php if(isset($params)) echo $params->rooms; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Bathrooms:</td>
+                        <td><input type="text" name="bathrooms" required pattern="" value="<?php if(isset($params)) echo $params->bathrooms; ?>">
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Location:</td>
                         <td><input type="text" name="location" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->location; ?>">
                         </td>

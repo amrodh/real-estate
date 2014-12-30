@@ -39,6 +39,22 @@
                         <td width="%">Area:</td>
                         <td width="%"><?php echo $unit->area; ?></td>
                       </tr>
+                      <tr>
+                        <td width="%">Price:</td>
+                        <td width="%"><?php echo $unit->price; ?></td>
+                      </tr>
+                      <tr>
+                        <td width="%">Floor:</td>
+                        <td width="%"><?php echo $unit->floor; ?></td>
+                      </tr>
+                      <tr>
+                        <td width="%">Rooms:</td>
+                        <td width="%"><?php echo $unit->rooms; ?></td>
+                      </tr>
+                      <tr>
+                        <td width="%">Bathrooms:</td>
+                        <td width="%"><?php echo $unit->bathrooms; ?></td>
+                      </tr>
                       <?php if ($unit->is_featured == 1): ?>
                          <tr id="featured">
                           <td width="%">Featured:</td>
