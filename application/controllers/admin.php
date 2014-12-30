@@ -863,7 +863,7 @@ class Admin extends CI_Controller {
 					$tmpFiles=array();
 					$path = $this->config->config['upload_path'];
 					$this->config->set_item('upload_path',$path.'/units');
-					$this->unit->insert_unit_image($_FILES['userfile']['name'][0]);
+					// $this->unit->insert_unit_image($_FILES['userfile']['name'][0]);
 
 					foreach ($files['name'] as $name) {
 

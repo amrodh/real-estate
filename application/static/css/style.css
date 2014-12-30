@@ -310,6 +310,7 @@ input.rounded:focus {
     text-align: center;
     font-size: 150%;
     margin: 0;
+    margin-top: 3%;
 }
 
 .image button {
@@ -387,4 +388,8 @@ input.rounded:focus {
 .left_link:hover {
     color: black;
     text-decoration: none;
+}
+
+.bx-viewport {
+    background-color: transparent !important;
 }

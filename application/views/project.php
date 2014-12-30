@@ -112,12 +112,17 @@
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
 				<h3>الوحدات</h3>
 				<?php if(!empty($units)):
-				foreach($units as $unit): ?>
+				foreach($units as $unit): 
+					foreach($unit_images as $unit_image):
+						if($unit_image[0] == $unit->id):
+							$featured_unit_image = $unit_image[1]; break;
+						endif;
+					endforeach?>
 					<div class="image col-lg-3 col-md-3">
-						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap4.jpg">
+						<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
 						<div class="type"><p>للبيع</p></div>
 						<div class="price">
-							<p>شقه</p>
+							<p><?php echo $unit_image[2]; ?></p>
 							<p>
 								<span><?php echo $unit->area; ?></span>
 								<span>متر</span>

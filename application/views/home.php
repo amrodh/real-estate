@@ -73,40 +73,32 @@
 			</div>
 		</div>
 
-		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
 			<ul class="bxslider">
-				<li>
-					<div style="float:left;">
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:100%;"/>
-					</div>
-					<div style="float:left;">
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:100%;"/>
-					</div>
-					<div style="float:left;">	
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
-					</div>
-					<div style="float:right;">	
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
-					</div>
-					<div style="float:right;">	
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
-					</div>
-					<div style="float:right;">	
-						<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:100%;"/>
-					</div>
+			<?php $li_tags = ceil(sizeof($featured_images)/6); 
+			while($li_tags != 0){?>
+				<li class="col-lg-12 col-md-12">
+					<?php $order = 1;
+					foreach($featured_images as $featured_image):
+						// printme(fmod($order,7));
+					if (fmod($order,7) == 0):
+						array_shift($featured_images);
+						array_shift($featured_images);
+						array_shift($featured_images);
+						array_shift($featured_images);
+						array_shift($featured_images);
+						array_shift($featured_images);
+						break;
+					endif; ?>
+						<div class="col-lg-2 col-md-2">
+							<img src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_image;?>"/>
+						</div>
+					<? $order++;
+					endforeach ?>
 				</li>
-				<!-- <li>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
-				</li>
-				<li>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo1.png" style="max-height:400px; max-width:25%; float:left;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
-					<img src="<?= base_url(); ?>application/static/images/real_estate/logo2.png" style="max-height:400px; max-width:25%; float:right;"/>
-				</li> -->
+			<?php $li_tags--;
+			} ?>
+
 			</ul> 
 		</div>
 

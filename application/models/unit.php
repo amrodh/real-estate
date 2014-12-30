@@ -263,6 +263,21 @@ class Unit extends CI_Model {
 
     }
 
+    function getFeaturedImage($id)
+    {
+      $q = $this
+              ->db
+              ->where('unit_id',$id)
+              ->limit(1)
+              ->get('unit_image');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+    }
+
     function get_image_ByID($id)
    {
     $q = $this

@@ -86,7 +86,16 @@
 		</div>
 
 		<div class="section col-lg-9 col-md-9 visible-lg visible-md">
-			<img style="padding:0" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/sahrawy.jpg">
+			<?php if(!empty($images)):?>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
+					<ul class="bxslider">
+					
+					<?php foreach($images as $image): ?>
+						<li><img src="<?= base_url(); ?>application/static/upload/units/<?php echo $image->image; ?>" style="max-height:400px;"/></li>
+					<? endforeach ?>
+					</ul>		
+				</div>
+			<?php endif?>
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0; margin-bottom:5%;">
 				<h3>تفاصيل الإعلان</h3>
@@ -126,26 +135,33 @@
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
 				<h3>وحدات شبيهه</h3>
 				<?php if(!empty($units)):
-				foreach($units as $unit): ?>
-					<div class="image col-lg-3 col-md-3">
-						<img class="img-responsive" src="<?= base_url(); ?>application/static/images/real_estate/ap4.jpg">
-						<div class="type"><p>للبيع</p></div>
-						<div class="price">
-							<p>شقه</p>
-							<p>
-								<span><?php echo $unit->area; ?></span>
-								<span>متر</span>
-								<span>&nbsp;&nbsp;&nbsp;<?php echo $unit->rooms; ?></span>
-								<span>غرف</span>
-							</p>
-							<p>
-								<span style="color:red"><?php echo $unit->price; ?></span>
-								<span>جنيه</span>
-							</p>
-							<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'">التفاصيل</button>
+				foreach($units as $u): 
+					if($unit->id != $u->id):
+						foreach($unit_images as $unit_image):
+							if($unit_image[0] == $u->id):
+								$featured_unit_image = $unit_image[1]; break;
+							endif;
+						endforeach?>
+						<div class="image col-lg-3 col-md-3">
+							<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
+							<div class="type"><p>للبيع</p></div>
+							<div class="price">
+								<p><?php echo $unit_image[2]; ?></p>
+								<p>
+									<span><?php echo $u->area; ?></span>
+									<span>متر</span>
+									<span>&nbsp;&nbsp;&nbsp;<?php echo $u->rooms; ?></span>
+									<span>غرف</span>
+								</p>
+								<p>
+									<span style="color:red"><?php echo $u->price; ?></span>
+									<span>جنيه</span>
+								</p>
+								<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'">التفاصيل</button>
+							</div>
 						</div>
-					</div>
-				<?php endforeach;
+				<?php endif;
+				endforeach;
 				endif ?>
 				</div>
 

@@ -19,6 +19,20 @@ class Home extends CI_Controller {
 		$data['array'] = $a;
 		// printme($data);exit();
 
+		$featured_images = array();
+		$order = 0;
+		$featured = $this->unit->getFeatured();
+		foreach ($featured as $f ) {
+			$featured_id = $featured[$order]->id;
+			$featured_image = $this->unit->getFeaturedImage($featured_id)[0]->image;
+			// printme($featured_image);
+			$order++;
+			array_push($featured_images,$featured_image);
+		}
+		$data['featured_images'] = $featured_images;
+		// printme($featured_images);exit();
+		
+		
 		$this->load->view('home.php',$data);
 	}
 
@@ -45,11 +59,20 @@ class Home extends CI_Controller {
 
 		$data['units'] = $this->unit->getAllByProjectID($data['id']->id);
 
-		// $data['unit_images'] = $this->unit->get_images($data['id']->id);
+
+		$unit_images = array();
+		$order = 0;
+		foreach ($data['units'] as $unit ) {
+			$id = $data['units'][$order]->id;
+			$unit_image = $this->unit->getFeaturedImage($id)[0]->image;
+			$type = $this->unit->get_unit_type($unit->type_id);
+			$type = $type[0]->type;
+			$order++;
+			array_push($unit_images,[$id,$unit_image,$type]);
+		}
+		$data['unit_images'] = $unit_images;
 
 		$data['images'] = $this->project->get_images($data['id']->id);
-
-		// printme ($data); exit();
 
 		$this->load->view('project.php',$data);
 	}
@@ -59,7 +82,6 @@ class Home extends CI_Controller {
 		$data['projects'] = $this->project->getAll();
 
 		$a = array();
-		// printme($a); exit();
 		$order = 0;
 		foreach ($data['projects'] as $project ) {
 			$name = $data['projects'][$order]->name;
@@ -75,13 +97,11 @@ class Home extends CI_Controller {
 		$project = $this->unit->getProjectByUnit($unit_name);
 		$project_id = $project->project_id;
 		$data['units'] = $this->unit->getAllByProjectID($project_id);
-		// printme($unit_name); exit();
 
 		$units = $this->unit->getAll();
 		$order = 0;
 		foreach ($units as $unit ) {
 			$id = $units[$order]->project_id;
-			 // printme($project_id);exit();
 			if ($id == $project_id) {
 				$proj_id = $id;
 				break;
@@ -90,9 +110,22 @@ class Home extends CI_Controller {
 		}
 
 		$data['unit'] = $this->unit->getByProjectID($proj_id);
+		$data['images'] = $this->unit->get_images($data['unit']->id);
 
-		// printme($data['unit']); exit();
-		
+		$unit_images = array();
+		$order = 0;
+		foreach ($data['units'] as $unit ) {
+			if ($unit->id != $data['unit']->id) {
+				$type = $this->unit->get_unit_type($unit->type_id);
+				$type = $type[0]->type;
+				$id = $unit->id;
+				$unit_image = $this->unit->getFeaturedImage($id)[0]->image;
+				$order++;
+				array_push($unit_images,[$id,$unit_image,$type]);
+			}
+		}
+		$data['unit_images'] = $unit_images;
+
 		$this->load->view('unit.php',$data);
 	}
 
