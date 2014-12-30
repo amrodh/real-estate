@@ -11,7 +11,7 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive">
+				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
 			</div>
@@ -69,18 +69,17 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div>
-				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4"></a>
+				<img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
 			</div>
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
-			<ul class="bxslider remove">
+			<ul class="bxslider1">
 			<?php $li_tags = ceil(sizeof($featured_images)/6); 
 			while($li_tags != 0){?>
 				<li class="col-lg-12 col-md-12">
 					<?php $order = 1;
 					foreach($featured_images as $featured_image):
-						// printme(fmod($order,7));
 					if (fmod($order,7) == 0):
 						array_shift($featured_images);
 						array_shift($featured_images);
@@ -91,7 +90,7 @@
 						break;
 					endif; ?>
 						<div class="col-lg-2 col-md-2">
-							<img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image;?>"/>
+							<a href="<?= base_url().'project/'.$featured_image[1];?>"><img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/></a>
 						</div>
 					<? $order++;
 					endforeach ?>

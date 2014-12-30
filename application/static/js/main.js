@@ -6,6 +6,12 @@ jQuery(document).ready(function($){
 		page:true
 	});
 
+	$('.bxslider1').bxSlider({
+		auto:true,
+		controls:true,
+		pager:false
+	});
+
 	// alert('here');
     // $('ul').hasClass('remove', function(){
     //   alert('here');

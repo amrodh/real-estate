@@ -110,9 +110,9 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<?php if(!empty($units)):?>
 				<h3>الوحدات</h3>
-				<?php if(!empty($units)):
-				foreach($units as $unit): 
+				<?php foreach($units as $unit): 
 					foreach($unit_images as $unit_image):
 						if($unit_image[0] == $unit->id):
 							$featured_unit_image = $unit_image[1]; break;
@@ -138,7 +138,6 @@
 					</div>
 				<?php endforeach;
 				else: ?>
-				<div>لا يوجد وحدات</div>
 			<?php endif ?>
 			</div>
 		</div>

@@ -32,9 +32,10 @@ class Home extends CI_Controller {
 		foreach ($featured as $f ) {
 			$featured_id = $featured[$order]->id;
 			$featured_image = $this->project->getLogo($featured_id)[0]->logo;
+			$featured_name = $this->project->getLogo($featured_id)[0]->name;
 			// printme($featured_image);exit();
 			$order++;
-			array_push($featured_images,$featured_image);
+			array_push($featured_images,[$featured_image,$featured_name]);
 		}
 		$data['featured_images'] = $featured_images;
 		// printme($featured_images);exit();

@@ -139,9 +139,9 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
+				<?php if(!sizeof($units) == 1):?>
 				<h3>وحدات شبيهه</h3>
-				<?php if(!sizeof($units) == 1):
-				foreach($units as $u): 
+				<?php foreach($units as $u): 
 					if($unit->id != $u->id):
 						foreach($unit_images as $unit_image):
 							if($unit_image[0] == $u->id):
@@ -169,7 +169,6 @@
 				<?php endif;
 				endforeach;
 				else: ?>
-					<div>لا يوجد وحدات</div>
 				<?php endif ?>
 				</div>
 
