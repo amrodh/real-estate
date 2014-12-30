@@ -91,7 +91,7 @@
 						break;
 					endif; ?>
 						<div class="col-lg-2 col-md-2">
-							<img src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_image;?>"/>
+							<img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image;?>"/>
 						</div>
 					<? $order++;
 					endforeach ?>

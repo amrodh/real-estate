@@ -28,11 +28,11 @@ class Home extends CI_Controller {
 
 		$featured_images = array();
 		$order = 0;
-		$featured = $this->unit->getFeatured();
+		$featured = $this->project->getFeatured();
 		foreach ($featured as $f ) {
 			$featured_id = $featured[$order]->id;
-			$featured_image = $this->unit->getFeaturedImage($featured_id)[0]->image;
-			// printme($featured_image);
+			$featured_image = $this->project->getLogo($featured_id)[0]->logo;
+			// printme($featured_image);exit();
 			$order++;
 			array_push($featured_images,$featured_image);
 		}

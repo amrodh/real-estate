@@ -551,6 +551,11 @@ class Admin extends CI_Controller {
 
 			unset($_POST['confirmedit_hidden']);
 
+			if(isset($_POST['is_featured']))
+				$_POST['is_featured'] = 1;
+			else
+				$_POST['is_featured'] = 0;
+
 			$this->project->update($data['project']->id,$_POST);
 			$data['project'] = $this->project->getByID($data['project']->id);
 			redirect('admin/projects/'.$data['project']->id);
@@ -1101,6 +1106,11 @@ class Admin extends CI_Controller {
 				}
 				$count++; 
 			}
+
+			if(isset($_POST['is_featured']))
+				$_POST['is_featured'] = 1;
+			else 
+				$_POST['is_featured'] = 0;
 
 			unset($_POST['submit']);
 

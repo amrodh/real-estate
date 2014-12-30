@@ -55,7 +55,12 @@
                             <textarea name="description" id="" cols="30" rows="10"><?php if(isset($params)) echo $params->description; ?></textarea>
                          </td>
                       </tr>
-                      
+                      <tr>
+                        <td>Featured</td>
+                        <td>
+                          <input type="checkbox" name="is_featured" <?php if(($params->is_featured) == 1) echo 'checked' ?> >
+                        </td>
+                      </tr>  
                       
                     </tbody>
                   </table>

@@ -34,7 +34,13 @@
                           <tr>
                             <td width="%">location:</td>
                             <td width="%"><?php echo $project->location; ?></td>
-                          </tr>             
+                          </tr>  
+                          <?php if ($project->is_featured == 1): ?>
+                             <tr id="featured">
+                              <td width="%">Featured:</td>
+                              <td width="%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                            </tr>  
+                          <?php endif ?>           
                         </tbody>
                       </table>
                   </div>

@@ -64,6 +64,12 @@
                         <input type="file" name="userfile[]" required multiple>
                       </td>
                     </tr>
+                    <tr>
+                        <td>Featured</td>
+                        <td>
+                          <input type="checkbox" name="is_featured">
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                   </form>

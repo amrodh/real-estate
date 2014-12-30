@@ -73,6 +73,37 @@ class Project extends CI_Model {
    }
 
 
+    function getFeatured()
+    {
+
+      $q = $this
+              ->db
+              ->where('is_featured',1)
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+    function getLogo($id)
+    {
+      $q = $this
+              ->db
+              ->where('id',$id)
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+    }
+
+
     function delete($id)
     {
       $q = $this
