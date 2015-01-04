@@ -59,17 +59,23 @@
 	    	</nav>
 		</div>
 
-		<div class="col-lg-3 col-md-3 arabic">
+		<div class="col-lg-3 col-md-3">
 			<div class="section col-lg-12 col-md-12 visible-lg visible-md">
-				<div class="col-lg-12 col-md-12" style="padding:0">
-					<h3>مشاريع أخرى</h3>
+				<div class="col-lg-12 col-md-12" style="padding:0; margin-bottom:5%;">
+				<h3 class="arabic">مشاريع</h3>
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
-					<div class="image_left col-lg-12 col-md-12" style="padding:0;">
-						<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-						<div class="type_left"><p>اسم المشروع</p></div>
-					</div>
-					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/rayos';?>">RAYOS</a></p></div>
 				</div>
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/sahrawy';?>">SAHRAWY</a></p></div>
+				</div>
+				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
+					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/rayos';?>">RAYOS</a></p></div>
+				</div>
+			</div>
 			</div>
 		</div>
 

@@ -50,6 +50,16 @@
                          </td>
                       </tr>
                       <tr>
+                        <td>Latitude:</td>
+                        <td><input type="text" name="latitude" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->latitude; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Longitude:</td>
+                        <td><input type="text" name="longitude" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->longitude; ?>">
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Description</td>
                         <td>
                             <textarea name="description" id="" cols="30" rows="10"><?php if(isset($params)) echo $params->description; ?></textarea>

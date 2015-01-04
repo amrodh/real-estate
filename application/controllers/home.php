@@ -38,8 +38,34 @@ class Home extends CI_Controller {
 			array_push($featured_images,[$featured_image,$featured_name]);
 		}
 		$data['featured_images'] = $featured_images;
-		// printme($featured_images);exit();
+		// printme($data);exit();
 		
+		if(isset($_POST['subscribe'])){
+
+			$email = $_POST["email"];
+			date_default_timezone_set("Egypt");
+			$date = date("Y-m-d")." ".date("h:i:sa");
+
+			$params = array(
+		            "user_identifier" => $email,
+		            "date_joined" => $date
+		    );
+
+			$insert_flag = 0;
+		    $newsletter_users = $this->user->getAllNewsletterData();
+		    foreach ($newsletter_users as $newsletter_user ) {
+				$user_email = $newsletter_user->user_identifier;
+				// printme($email);
+				
+				if($user_email == $email){
+					$insert_flag = 1;
+				}
+			}
+			// printme($insert_flag);exit();
+
+			if(!$insert_flag) $this->user->insertNewsletterData($params);
+		}
+
 		
 		$this->load->view('home.php',$data);
 	}
@@ -96,8 +122,10 @@ class Home extends CI_Controller {
 		foreach ($data['projects'] as $project ) {
 			$name = $data['projects'][$order]->name;
 			$id = $data['projects'][$order]->id;
+			$latitude = $data['projects'][$order]->latitude;
+			$longitude = $data['projects'][$order]->longitude;
 			$order++;
-			array_push($a,[$name,$id]);
+			array_push($a,[$name,$id,$latitude,$longitude]);
 		}
 		$data['array'] = $a;
 
@@ -136,6 +164,7 @@ class Home extends CI_Controller {
 		}
 		$data['unit_images'] = $unit_images;
 
+		// printme($data);exit();
 		$this->load->view('unit.php',$data);
 	}
 

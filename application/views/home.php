@@ -75,6 +75,21 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
 			<ul class="bxslider1">
+				<?php $order = 1;
+				foreach($featured_images as $featured_image): ?>
+				<li class="col-lg-12 col-md-12">
+					<!-- <div class="col-lg-2 col-md-2"> -->
+					<!-- <a href="<?= base_url().'project/'.$featured_image[1];?>"><img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/></a> -->
+					<img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/>
+					<!-- </div> -->
+				</li>
+				<? $order++;
+				endforeach ?>
+			</ul> 
+		</div>
+
+		<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
+			<ul class="bxslider1">
 			<?php $li_tags = ceil(sizeof($featured_images)/6); 
 			while($li_tags != 0){?>
 				<li class="col-lg-12 col-md-12">
@@ -99,7 +114,7 @@
 			} ?>
 
 			</ul> 
-		</div>
+		</div> -->
 
 
 		<footer>
@@ -116,11 +131,11 @@
 				</div>	
 				<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6">
 					<form action="" method="post">
-						<div class="col-lg-8 col-md-8" style="padding:0;">
+						<div class="col-lg-8 col-md-8" style="padding:0; color:black">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
 						</div>
 						<div class="col-lg-2 col-md-2" style="padding:0;">
-							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button">
+							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button" onClick="alert('You are now subscribed.')">
 						</div>
 					</form>
 				</div>		

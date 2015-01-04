@@ -53,6 +53,16 @@
                         <td><input type="text" name="location" value="<?php if(isset($params)) echo $params['location']; ?>" required></td>
                       </tr>
                       <tr>
+                        <td>Latitude</td>
+                        <td><input type="text" name="latitude" value="<?php if(isset($params)) echo $params['latitude']; ?>"required >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Longitude</td>
+                        <td><input type="text" name="longitude" value="<?php if(isset($params)) echo $params['longitude']; ?>"required >
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Logo</td>
                         <td>
                           <input type="file" name="logo" required>

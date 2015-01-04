@@ -1504,6 +1504,15 @@ class Admin extends CI_Controller {
 		redirect('admin/social');
 	}
 
+	public function deletenewslettermail()
+	{
+		$this->load->model('user');
+		$id = $_GET['id'];
+		// printme($id); exit();
+		$this->user->deleteNewsletterData($id);
+		redirect('admin/newsletter');
+	}
+
 	public function addprojectimage()
 	{
 		$data = $this->init();

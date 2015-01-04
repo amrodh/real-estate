@@ -33,7 +33,7 @@
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
@@ -105,8 +105,7 @@
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
 				<h3>عن المشروع </h3>
-				<p>بعض ما سقوط جديدة. الا ما وحتّى المبرمة الأوروبية, لم أحدث وبدأت بمحاولة كان. هذه ان وأزيز الغربي, وقامت وحلفاؤها كلّ هو. الشمال التّحول الإكتفاء بال و, وأزيز اليابانية و ضرب.</p>
-				<p>أفاق بلديهما شموليةً بـ عدم, جوزيف للأسطول 30 كما. استبدال بولندا، ان وفي. قبل بيرل الحكومة أن, عل كردة عليها الإتحاد وصل. 30 بحق أسيا الأمور وقوعها،, عل نقطة النفط كلا. بال إختار المشترك نورماندي عل, هذه لم سحقت بوزيرها, </p>
+				<p><?php echo $id->description; ?></p>
 			</div>
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
@@ -199,13 +198,20 @@
 
 		<script>
 			function initialize() {
+				var myLatlng = new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>);
 			 	var mapCanvas = document.getElementById('map-canvas');
 			 	var mapOptions = {
-			 		center: new google.maps.LatLng(44.5403, -78.5463),
+			 		center: new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>),
 			 		zoom: 8,
 			 		mapTypeId: google.maps.MapTypeId.ROADMAP
 			 	}
 			 	var map = new google.maps.Map(mapCanvas, mapOptions);
+
+			 	var marker = new google.maps.Marker({
+			        position: myLatlng, 
+			        map: map,
+			        title:"<?php echo($id->name);?>"
+			    });   
 		  	}
 		  	google.maps.event.addDomListener(window, 'load', initialize);
 		</script>

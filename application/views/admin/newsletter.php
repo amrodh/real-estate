@@ -31,10 +31,11 @@
                             <tr>
                                 <th>Username</th>
                                 <th>Date Joined</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <?php foreach($users as $user): ?>
-                           		<tr>
+                           	<tr id="email_<?= $user->id  ?>">
                                 <td>
                                 	<?php if (is_object($user->user_identifier)): ?>
                                 		<a href="users/<?= $user->user_identifier->username; ?>">
@@ -46,8 +47,14 @@
                                 </td>
                                 <td><?php echo $user->date_joined; ?></td>
                                 
-                            </tr>          
-                            <?php endforeach ?>                       
+                                <td>
+                                    <a href="javascript:void(0);" onclick="newslettermailDelete(<?= $user->id ?>)">
+                                        <span title="Delete" class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>         
+                            <?php endforeach ?>  
+
                         </table>
                     </div>
                     <div class="col-lg-3">

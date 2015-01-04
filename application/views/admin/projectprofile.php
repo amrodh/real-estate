@@ -35,6 +35,14 @@
                             <td width="%">location:</td>
                             <td width="%"><?php echo $project->location; ?></td>
                           </tr>  
+                          <tr>
+                            <td width="%">Latitude:</td>
+                            <td width="%"><?php echo $project->latitude; ?></td>
+                          </tr>
+                          <tr>
+                            <td width="%">Longitude:</td>
+                            <td width="%"><?php echo $project->longitude; ?></td>
+                          </tr>
                           <?php if ($project->is_featured == 1): ?>
                              <tr id="featured">
                               <td width="%">Featured:</td>

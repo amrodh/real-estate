@@ -315,6 +315,22 @@ class User extends CI_Model {
       exit();
    }
 
+   function getAllNewsletterData()
+    {
+
+      $q = $this
+              ->db
+              ->get('user_newsletter');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+
    function insertNewsletterData($params)
    {
 
@@ -325,6 +341,22 @@ class User extends CI_Model {
           return false;
         }
         return true;
+   }
+
+
+   function deleteNewsletterData($id)
+   {
+
+      $q = $this
+              ->db
+              ->where('id',$id)
+              ->delete('user_newsletter');
+
+          if($this->db->affected_rows() != 1){
+            return false;
+          }
+
+          return true;
    }
 
 

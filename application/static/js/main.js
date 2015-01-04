@@ -8,16 +8,11 @@ jQuery(document).ready(function($){
 
 	$('.bxslider1').bxSlider({
 		auto:true,
+		slideWidth: 220,
 		controls:true,
+		maxSlides:6,
+		moveSlides:1,
 		pager:false
 	});
-
-	// alert('here');
-    // $('ul').hasClass('remove', function(){
-    //   alert('here');
-    // });
-
-// $('ul').hasClass('remove');
-
-
+	
 });	

@@ -33,10 +33,14 @@
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
+												<?php if($unit->project_id == $project[1]){
+													$project_lat = $project[2];
+													$project_long = $project[3];
+													} ?>
 											<?php endforeach ?>
 										</ul>
 						            </li>
@@ -127,7 +131,7 @@
 						<td class="right_col dark">المساحة</td> 
 					</tr>
 					<tr>
-						<td class="dark">سوبر لوكس</td>
+						<td class="dark"><?php echo $unit->finishing; ?></td>
 						<td class="right_col light">التشطيب</td> 
 					</tr>
 				</table>
@@ -232,13 +236,20 @@
 
 		<script>
 			function initialize() {
+				var projectLatlng = new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>);
 			 	var mapCanvas = document.getElementById('map-canvas');
 			 	var mapOptions = {
-			 		center: new google.maps.LatLng(44.5403, -78.5463),
+			 		center: new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>),
 			 		zoom: 8,
 			 		mapTypeId: google.maps.MapTypeId.ROADMAP
 			 	}
 			 	var map = new google.maps.Map(mapCanvas, mapOptions);
+
+			 	var marker = new google.maps.Marker({
+			        position: projectLatlng, 
+			        map: map,
+			        title:"<?php echo $unit->title;?>"
+			    });  
 		  	}
 		  	google.maps.event.addDomListener(window, 'load', initialize);
 		</script>

@@ -55,6 +55,10 @@
                         <td width="%">Bathrooms:</td>
                         <td width="%"><?php echo $unit->bathrooms; ?></td>
                       </tr>
+                      <tr>
+                        <td>Finishing</td>
+                        <td width="%"><?php echo $unit->finishing; ?></td>
+                      </tr>
                       <?php if ($unit->is_featured == 1): ?>
                          <tr id="featured">
                           <td width="%">Featured:</td>
