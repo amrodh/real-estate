@@ -15,7 +15,6 @@ class Home extends CI_Controller {
 		$data['slides'] = $slides;
 
 		$a = array();
-		// printme($a); exit();
 		$order = 0;
 		foreach ($data['projects'] as $project ) {
 			$name = $data['projects'][$order]->name;
@@ -24,7 +23,6 @@ class Home extends CI_Controller {
 			array_push($a,[$name,$id]);
 		}
 		$data['array'] = $a;
-		// printme($data);exit();
 
 		$featured_images = array();
 		$order = 0;
@@ -33,37 +31,44 @@ class Home extends CI_Controller {
 			$featured_id = $featured[$order]->id;
 			$featured_image = $this->project->getLogo($featured_id)[0]->logo;
 			$featured_name = $this->project->getLogo($featured_id)[0]->name;
-			// printme($featured_image);exit();
 			$order++;
 			array_push($featured_images,[$featured_image,$featured_name]);
 		}
 		$data['featured_images'] = $featured_images;
-		// printme($data);exit();
 		
 		if(isset($_POST['subscribe'])){
 
 			$email = $_POST["email"];
-			date_default_timezone_set("Egypt");
-			$date = date("Y-m-d")." ".date("h:i:sa");
 
-			$params = array(
-		            "user_identifier" => $email,
-		            "date_joined" => $date
-		    );
+			if($email == "") {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>";
 
-			$insert_flag = 0;
-		    $newsletter_users = $this->user->getAllNewsletterData();
-		    foreach ($newsletter_users as $newsletter_user ) {
-				$user_email = $newsletter_user->user_identifier;
-				// printme($email);
-				
-				if($user_email == $email){
-					$insert_flag = 1;
+			} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>"; 
+
+			} else {
+			
+				date_default_timezone_set("Egypt");
+				$date = date("Y-m-d")." ".date("h:i:sa");
+
+				$params = array(
+			            "user_identifier" => $email,
+			            "date_joined" => $date
+			    );
+
+				$insert_flag = 0;
+			    $newsletter_users = $this->user->getAllNewsletterData();
+			    foreach ($newsletter_users as $newsletter_user ) {
+					$user_email = $newsletter_user->user_identifier;
+					
+					if($user_email == $email){
+						$insert_flag = 1;
+					}
 				}
-			}
-			// printme($insert_flag);exit();
 
-			if(!$insert_flag) $this->user->insertNewsletterData($params);
+				if(!$insert_flag) $this->user->insertNewsletterData($params);
+				echo "<script type='text/javascript'>alert('You are now subscribed.');</script>"; 
+			}
 		}
 
 		
@@ -109,6 +114,41 @@ class Home extends CI_Controller {
 		$data['unit_images'] = $unit_images;
 
 		$data['images'] = $this->project->get_images($data['id']->id);
+
+		if(isset($_POST['subscribe'])){
+
+			$email = $_POST["email"];
+
+			if($email == "") {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>";
+
+			} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>"; 
+
+			} else {
+			
+				date_default_timezone_set("Egypt");
+				$date = date("Y-m-d")." ".date("h:i:sa");
+
+				$params = array(
+			            "user_identifier" => $email,
+			            "date_joined" => $date
+			    );
+
+				$insert_flag = 0;
+			    $newsletter_users = $this->user->getAllNewsletterData();
+			    foreach ($newsletter_users as $newsletter_user ) {
+					$user_email = $newsletter_user->user_identifier;
+					
+					if($user_email == $email){
+						$insert_flag = 1;
+					}
+				}
+
+				if(!$insert_flag) $this->user->insertNewsletterData($params);
+				echo "<script type='text/javascript'>alert('You are now subscribed.');</script>"; 
+			}
+		}
 
 		$this->load->view('project.php',$data);
 	}
@@ -164,6 +204,41 @@ class Home extends CI_Controller {
 		}
 		$data['unit_images'] = $unit_images;
 
+		if(isset($_POST['subscribe'])){
+
+			$email = $_POST["email"];
+
+			if($email == "") {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>";
+
+			} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>"; 
+
+			} else {
+			
+				date_default_timezone_set("Egypt");
+				$date = date("Y-m-d")." ".date("h:i:sa");
+
+				$params = array(
+			            "user_identifier" => $email,
+			            "date_joined" => $date
+			    );
+
+				$insert_flag = 0;
+			    $newsletter_users = $this->user->getAllNewsletterData();
+			    foreach ($newsletter_users as $newsletter_user ) {
+					$user_email = $newsletter_user->user_identifier;
+					
+					if($user_email == $email){
+						$insert_flag = 1;
+					}
+				}
+
+				if(!$insert_flag) $this->user->insertNewsletterData($params);
+				echo "<script type='text/javascript'>alert('You are now subscribed.');</script>"; 
+			}
+		}
+
 		// printme($data);exit();
 		$this->load->view('unit.php',$data);
 	}
@@ -199,6 +274,41 @@ class Home extends CI_Controller {
 			mail("m.ashraf@enlightworld.com","My subject",$message,$headers);
 		}
 
+		if(isset($_POST['subscribe'])){
+
+			$email = $_POST["email"];
+
+			if($email == "") {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>";
+
+			} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo "<script type='text/javascript'>alert('Email has to be filled out.');</script>"; 
+
+			} else {
+			
+				date_default_timezone_set("Egypt");
+				$date = date("Y-m-d")." ".date("h:i:sa");
+
+				$params = array(
+			            "user_identifier" => $email,
+			            "date_joined" => $date
+			    );
+
+				$insert_flag = 0;
+			    $newsletter_users = $this->user->getAllNewsletterData();
+			    foreach ($newsletter_users as $newsletter_user ) {
+					$user_email = $newsletter_user->user_identifier;
+					
+					if($user_email == $email){
+						$insert_flag = 1;
+					}
+				}
+
+				if(!$insert_flag) $this->user->insertNewsletterData($params);
+				echo "<script type='text/javascript'>alert('You are now subscribed.');</script>"; 
+			}
+		}
+		
 		$this->load->view('contact.php',$data);
 	}
 }

@@ -11,7 +11,7 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive"></a>
+				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class=""></a>
 			</div>
 			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
 			</div>
@@ -79,8 +79,8 @@
 				foreach($featured_images as $featured_image): ?>
 				<li class="col-lg-12 col-md-12">
 					<!-- <div class="col-lg-2 col-md-2"> -->
-					<!-- <a href="<?= base_url().'project/'.$featured_image[1];?>"><img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/></a> -->
-					<img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/>
+					<a href="<?= base_url().'project/'.$featured_image[1];?>"><img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/></a>
+					<!-- <img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/> -->
 					<!-- </div> -->
 				</li>
 				<? $order++;
@@ -130,19 +130,25 @@
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
 				<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6">
-					<form action="" method="post">
+					<form action="" method="post" name="form">
 						<div class="col-lg-8 col-md-8" style="padding:0; color:black">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
 						</div>
 						<div class="col-lg-2 col-md-2" style="padding:0;">
-							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button" onClick="alert('You are now subscribed.')">
+							<input type="submit" name="subscribe" value="SUBSCRIBE" class="subscribe_button">
 						</div>
 					</form>
 				</div>		
 				<div class="col-lg-1 col-md-1">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					<a href="http://www.twitter.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					</a>
+					<a href="http://www.youtube.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					</a>
+					<a href="http://www.facebook.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					</a>
 				</div>	
 			</div>
 			<div class="footer_text col-sm-12 col-xs-12 hidden-md hidden-lg">
@@ -157,9 +163,15 @@
 					</form>
 				</div>		
 				<div class="col-sm-3 col-sm-offset-3 col-xs-3 col-xs-offset-3">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					<a href="http://www.twitter.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					</a>
+					<a href="http://www.youtube.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					</a>
+					<a href="http://www.facebook.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					</a>
 				</div>	
 			</div>
 		</footer>

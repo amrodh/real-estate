@@ -233,6 +233,7 @@ input.rounded:focus {
     width: 100%; 
     border: none; 
     height: 30px;
+    color:black;
 }
 
 .subscribe_button {
@@ -266,7 +267,10 @@ input.rounded:focus {
 .image {
     padding-right: 0;
     padding-left: 1%;
+    margin: 0 auto;
     margin-bottom: 5%;
+    float: right;
+    min-height:400px;
 }
 
 .image > img {
@@ -298,6 +302,7 @@ input.rounded:focus {
     position: relative;
     width: 100%;
     margin-top: -20%;
+    margin: 0 auto;
 }
 
 .type > p {
@@ -311,6 +316,10 @@ input.rounded:focus {
     font-size: 150%;
     margin: 0;
     margin-top: 3%;
+}
+
+.image img {
+    min-height: 250px;
 }
 
 .image button {
@@ -383,6 +392,7 @@ input.rounded:focus {
     width: 100%;
     display: block;
     color: white;
+    font-size: 90%;
 }
 
 .left_link:hover {

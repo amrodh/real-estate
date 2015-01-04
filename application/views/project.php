@@ -166,9 +166,15 @@
 					</form>
 				</div>		
 				<div class="col-lg-1 col-md-1">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					<a href="http://www.twitter.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					</a>
+					<a href="http://www.youtube.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					</a>
+					<a href="http://www.facebook.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					</a>
 				</div>	
 			</div>
 			<div class="footer_text col-sm-12 col-xs-12 hidden-md hidden-lg">
@@ -183,9 +189,15 @@
 					</form>
 				</div>		
 				<div class="col-sm-3 col-sm-offset-3 col-xs-3 col-xs-offset-3">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					<img class="img-responsive col-sm-3 col-xs-3" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					<a href="http://www.twitter.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+					</a>
+					<a href="http://www.youtube.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+					</a>
+					<a href="http://www.facebook.com">
+						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+					</a>
 				</div>	
 			</div>
 		</footer>
