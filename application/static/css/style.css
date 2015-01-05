@@ -197,7 +197,6 @@ a:hover.frontend {
 }
 
 .bx-wrapper .bx-pager {
-    margin-top: -6%;
     position: relative;
 }
 
@@ -262,6 +261,7 @@ input.rounded:focus {
 .image_left > img {
     z-index: -1;
     width: 100%;
+    margin-bottom: 5%;
 }
 
 .image {
@@ -280,7 +280,7 @@ input.rounded:focus {
 
 .type_left {
     z-index: 10;
-    height: 45px;
+    height: 19%;
     background-color: #ed3f3f;
     opacity: 0.8;
     position: absolute;
@@ -316,10 +316,6 @@ input.rounded:focus {
     font-size: 150%;
     margin: 0;
     margin-top: 3%;
-}
-
-.image img {
-    min-height: 250px;
 }
 
 .image button {
@@ -406,4 +402,96 @@ input.rounded:focus {
 
 .remove.bxpager {
     display: none;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+    .image img {
+        height: 250px;
+    }
+
+    .bx-wrapper .bx-pager {
+        margin-top: -8%;
+    }
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .image img {
+        height: 200px;
+    }
+
+    .left_link {
+        font-size: 70%;
+    }
+
+    .bx-wrapper .bx-pager {
+        margin-top: -9%;
+    }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+    .image img {
+        height: 300px;
+    }
+
+    .contact_info {
+        padding: 0;
+        margin-top: 1%;
+    }
+
+    .bx-wrapper .bx-pager {
+        margin-top: -9%;
+    }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    .image img {
+        height: 400px;
+    }
+
+    .contact_info {
+        padding: 0;
+        margin-top: 1%;
+    }
+
+    .bx-wrapper .bx-pager {
+        margin-top: -10%;
+    }
+}
+
+@media (max-width: 600px) {
+    .bx-wrapper .bx-pager {
+        margin-top: -13%;
+    }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+    .image img {
+        height: 300px;
+    }
+
+    .contact_info {
+        padding: 0;
+        margin-top: 1%;
+    }
+
+    .bx-wrapper .bx-pager {
+        margin-top: -17%;
+    }
+
+    .menu_link {
+        font-size: 80%;
+    }
+
+    .current_link {
+        font-size: 80%;
+    }
+
+    nav ul ul li a {
+        font-size: 70%;
+    }
 }

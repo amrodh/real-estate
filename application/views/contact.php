@@ -11,37 +11,35 @@
 
 		<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 top_row">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1" style="background-color:grey; height:80px; width:60%;">
+				<a href="<?= base_url(); ?>home"><img src="<?= base_url(); ?>application/static/images/real_estate/logo.png" alt="" class=""></a>
 			</div>
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			<nav class="navbar navbar-default top">
 	    	    <div class="container-fluid">
-	    	        <div class="navbar-header">
+	    	        <!-- <div class="navbar-header">
 	    	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 	    	              <span class="sr-only">Toggle navigation</span>
 	    	              <span class="icon-bar"></span>
 	    	              <span class="icon-bar"></span>
 	    	              <span class="icon-bar"></span>
 	    	            </button>
-	    	        </div>     
+	    	        </div>  -->    
 			        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
-			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			            <div>
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 col-lg-offset-5 col-md-offset-3 col-sm-offset-3 col-xs-offset-2 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
+						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
 											<?php endforeach ?>
 										</ul>
 						            </li>
-						            <li class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center"><a class="current_link" href="">CONTACT US</a></li>
-						            <li class="col-xs-12 visible-xs text-center"><a class="menu_link" href="">CONTACT US</a></li>
+						            <li class="col-lg-2 col-md-3 col-sm-3 hidden-xs text-center"><a class="current_link" href="">CONTACT US</a></li>
+						            <li class="col-xs-3 visible-xs text-center"><a class="current_link" href="">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
 						        <!-- <form class="navbar-form" role="search" style="margin: 0;">
@@ -79,7 +77,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-9 col-md-9 arabic">
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 arabic">
 			<div class="row">
 				<div class="section col-lg-7 col-md-7 visible-lg visible-md">
 					<h3>راسلنا</h3>
@@ -93,29 +91,41 @@
 					</form>
 				</div>
 
-				<div class="section col-lg-5 col-md-5 visible-lg visible-md">
+				<div class="section col-lg-5 col-md-5 col-sm-12 col-xs-12">
 					<h3>اتصل بنا</h3>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">321 321 21 12</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
+					<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 contact_info">
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p style="line-height: 200%;">321 321 21 12</p></div>
+						<div style="padding:0" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/phone.png">
 						</div>
 					</div>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">321 321 21 12</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
+					<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 contact_info">
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p style="line-height: 200%;">321 321 21 12</p></div>
+						<div style="padding:0" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/mobile.png">
 						</div>
 					</div>
-					<div class="row col-lg-12 col-md-12 contact_info">
-						<div class="col-lg-11 col-md-11"><p style="line-height: 200%;">الياباني. جوي ونتج ويعزى التقليدي من, و أراض الحربي، والروس</p></div>
-						<div style="padding:0" class="col-lg-1 col-md-1">
+					<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 contact_info">
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p style="line-height: 200%;">الياباني. جوي ونتج ويعزى التقليدي من, و أراض الحربي، والروس</p></div>
+						<div style="padding:0" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 							<img style="padding:0;" class="img-responsive pull-right" src="<?= base_url(); ?>application/static/images/real_estate/location.png">
 						</div>
 					</div>
 				</div>
+
+				<div class="section col-sm-12 col-xs-12 visible-sm visible-xs" style="margin-top:5%;">
+					<h3>راسلنا</h3>
+					<form action="" method="POST">
+						<input class="contact_input col-sm-12 col-xs-12" type="text" name="name" placeholder="الاسم">
+						<input class="contact_input col-sm-12 col-xs-12" type="text" name="company" placeholder="الشركه">
+						<input class="contact_input col-sm-12 col-xs-12" type="text" name="email" placeholder="البريد الالكتروني">
+						<textarea class="contact_textarea col-sm-12 col-xs-12" name="msg" rows="4" cols="50" placeholder="الرساله"></textarea>
+
+						<input id="contact_button" type="submit" value="ارسل" name="submitMail">
+					</form>
+				</div>
 			</div>
-			<div class="row col-lg-12 col-md-12" style="padding:0">
+			<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0">
 				<h3>موقع الشركه</h3>
 				<div id="map_canvas_contact"></div>
 			</div>
@@ -124,18 +134,18 @@
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
 				<div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
+					<a class="frontend" href="">HOME</a>
 				</div>
 				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="">PROJECTS</a>
 				</div> -->
-
-				<div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">CONTACT US</a>
+			
+				<div class="col-lg-2 col-md-2 text-center footer_links">
+					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
-				<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6">
-					<form action="" method="post">
-						<div class="col-lg-8 col-md-8" style="padding:0;">
+				<div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-3">
+					<form action="" method="post" name="form">
+						<div class="col-lg-8 col-md-8" style="padding:0; color:black">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
 						</div>
 						<div class="col-lg-2 col-md-2" style="padding:0;">
@@ -143,7 +153,7 @@
 						</div>
 					</form>
 				</div>		
-				<div class="col-lg-1 col-md-1">
+				<div class="col-lg-1 col-md-2">
 					<a href="http://www.twitter.com">
 						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
 					</a>
@@ -168,15 +178,15 @@
 				</div>		
 				<div class="col-sm-3 col-sm-offset-3 col-xs-3 col-xs-offset-3">
 					<a href="http://www.twitter.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
+						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
 					</a>
 					<a href="http://www.youtube.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
+						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
 					</a>
 					<a href="http://www.facebook.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
+						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
 					</a>
-				</div>
+				</div>	
 			</div>
 		</footer>
 
