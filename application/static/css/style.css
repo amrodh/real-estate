@@ -253,6 +253,11 @@ input.rounded:focus {
     height: 305px;
 }
 
+#map-canvas2 {
+    height: 305px;
+    margin-bottom: 3%;
+}
+
 #map_canvas_contact {
     height: 215px;
     margin-bottom: 10%;
@@ -411,7 +416,7 @@ input.rounded:focus {
     }
 
     .bx-wrapper .bx-pager {
-        margin-top: -8%;
+        margin-top: -6%;
     }
 }
 

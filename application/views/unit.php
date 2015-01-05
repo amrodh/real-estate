@@ -177,7 +177,10 @@
 			</div>
 		</div>
 
-
+		<div class="col-sm-12 col-xs-12 visible-sm visible-xs arabic" style="padding:0">
+			<h3>الخريطة</h3>
+			<div id="map-canvas2"></div>
+		</div>
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
@@ -245,23 +248,36 @@
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
 
 		<script>
+			var map,map2,marker,marker2;
+			
 			function initialize() {
-				var projectLatlng = new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>);
-			 	var mapCanvas = document.getElementById('map-canvas');
+				var myLatlng = new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>);
+			 	// var mapCanvas = document.getElementById('map-canvas');
 			 	var mapOptions = {
-			 		center: new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>),
+			 		center: new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>),
 			 		zoom: 8,
 			 		mapTypeId: google.maps.MapTypeId.ROADMAP
 			 	}
-			 	var map = new google.maps.Map(mapCanvas, mapOptions);
+			 	// map = new google.maps.Map(mapCanvas, mapOptions);
 
-			 	var marker = new google.maps.Marker({
-			        position: projectLatlng, 
+			 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    			map2 = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions); 
+
+			 	marker = new google.maps.Marker({
+			        position: myLatlng, 
 			        map: map,
-			        title:"<?php echo $unit->title;?>"
-			    });  
+			        title:"<?php echo($id->name);?>"
+			    });
+
+			    marker2 = new google.maps.Marker({
+			        position: myLatlng, 
+			        map: map2,
+			        title:"<?php echo($id->name);?>"
+			    });   
 		  	}
 		  	google.maps.event.addDomListener(window, 'load', initialize);
+
 		</script>
 
 		<script>
