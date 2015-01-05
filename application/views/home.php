@@ -17,15 +17,7 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			<nav class="navbar navbar-default top">
-	    	    <div class="container-fluid">
-	    	        <!-- <div class="navbar-header">
-	    	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	    	              <span class="sr-only">Toggle navigation</span>
-	    	              <span class="icon-bar"></span>
-	    	              <span class="icon-bar"></span>
-	    	              <span class="icon-bar"></span>
-	    	            </button>
-	    	        </div> -->     
+	    	    <div class="container-fluid">   
 			        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			            <div>
 			            	<div class="row menu">
@@ -42,14 +34,6 @@
 						            <li class="col-xs-3 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
-						        <!-- <form class="navbar-form" role="search" style="margin: 0;">
-							        <div class="input-group">
-							            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-							            <div class="input-group-btn">
-							                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-							            </div>
-							        </div>
-						        </form> -->
 			            	</div>
 			            </div>
 			        </div> 
@@ -86,44 +70,11 @@
 			</ul> 
 		</div>
 
-		<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-top:5%;">
-			<ul class="bxslider1">
-			<?php $li_tags = ceil(sizeof($featured_images)/6); 
-			while($li_tags != 0){?>
-				<li class="col-lg-12 col-md-12">
-					<?php $order = 1;
-					foreach($featured_images as $featured_image):
-					if (fmod($order,7) == 0):
-						array_shift($featured_images);
-						array_shift($featured_images);
-						array_shift($featured_images);
-						array_shift($featured_images);
-						array_shift($featured_images);
-						array_shift($featured_images);
-						break;
-					endif; ?>
-						<div class="col-lg-2 col-md-2">
-							<a href="<?= base_url().'project/'.$featured_image[1];?>"><img src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/></a>
-						</div>
-					<? $order++;
-					endforeach ?>
-				</li>
-			<?php $li_tags--;
-			} ?>
-
-			</ul> 
-		</div> -->
-
-
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="">HOME</a>
 				</div>
-				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">PROJECTS</a>
-				</div> -->
-			
 				<div class="col-lg-2 col-md-2 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	

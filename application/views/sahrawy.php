@@ -272,10 +272,6 @@
 				<div class="col-lg-1 col-md-1 col-lg-offset-2 col-md-offset-2 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
-				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">PROJECTS</a>
-				</div> -->
-
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	

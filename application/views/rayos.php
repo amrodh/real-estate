@@ -185,7 +185,6 @@
 
 				</div>
 
-				<!-- <div style="clear: both"></div> -->
 
 				<div class="sets col-lg-12 col-md-12 arabic">
 					<div class="image col-lg-3 col-md-3">
@@ -272,10 +271,6 @@
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
-				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">PROJECTS</a>
-				</div> -->
-
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	

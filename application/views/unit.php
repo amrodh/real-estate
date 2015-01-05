@@ -17,15 +17,7 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			<nav class="navbar navbar-default top">
-	    	    <div class="container-fluid">
-	    	        <!-- <div class="navbar-header">
-	    	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	    	              <span class="sr-only">Toggle navigation</span>
-	    	              <span class="icon-bar"></span>
-	    	              <span class="icon-bar"></span>
-	    	              <span class="icon-bar"></span>
-	    	            </button>
-	    	        </div>  -->    
+	    	    <div class="container-fluid">  
 			        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			            <div>
 			            	<div class="row menu">
@@ -34,7 +26,7 @@
 						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
-												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; //echo $project[1]; ?></a></li>
+												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; ?></a></li>
 												<?php if($unit->project_id == $project[1]){
 													$project_lat = $project[2];
 													$project_long = $project[3];
@@ -47,14 +39,6 @@
 						            <li class="col-xs-3 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">
-						        <!-- <form class="navbar-form" role="search" style="margin: 0;">
-							        <div class="input-group">
-							            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-							            <div class="input-group-btn">
-							                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-							            </div>
-							        </div>
-						        </form> -->
 			            	</div>
 			            </div>
 			        </div> 
@@ -187,10 +171,6 @@
 				<div class="col-lg-1 col-md-1 text-center footer_links">
 					<a class="frontend" href="">HOME</a>
 				</div>
-				<!-- <div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">PROJECTS</a>
-				</div> -->
-			
 				<div class="col-lg-2 col-md-2 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
@@ -251,14 +231,12 @@
 			var map,map2,marker,marker2;
 			
 			function initialize() {
-				var myLatlng = new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>);
-			 	// var mapCanvas = document.getElementById('map-canvas');
+				var myLatlng = new google.maps.LatLng(<?php echo($project[2]);?>, <?php echo($project[2]);?>);
 			 	var mapOptions = {
-			 		center: new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>),
+			 		center: new google.maps.LatLng(<?php echo($project[3]);?>, <?php echo($project[3]);?>),
 			 		zoom: 8,
 			 		mapTypeId: google.maps.MapTypeId.ROADMAP
 			 	}
-			 	// map = new google.maps.Map(mapCanvas, mapOptions);
 
 			 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
@@ -267,13 +245,13 @@
 			 	marker = new google.maps.Marker({
 			        position: myLatlng, 
 			        map: map,
-			        title:"<?php echo($id->name);?>"
+			        title:"<?php echo($unit->title);?>"
 			    });
 
 			    marker2 = new google.maps.Marker({
 			        position: myLatlng, 
 			        map: map2,
-			        title:"<?php echo($id->name);?>"
+			        title:"<?php echo($unit->title);?>"
 			    });   
 		  	}
 		  	google.maps.event.addDomListener(window, 'load', initialize);
