@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<div class="row col-xs-12" style="margin-bottom:5%">
+		<div class="col-xs-12" style="margin-bottom:5%">
 			<ul class="bxslider" data-call="bxslider" data-options="{slideMargin:5,controls:false,moveSlides:1,pager:false}"
 			 data-breaks="[{screen: 1200, slides:6}, {screen:700, slides:3}]">
 				<?php $order = 1;

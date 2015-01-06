@@ -133,7 +133,7 @@
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
 				<div class="col-lg-1 col-md-1 text-center footer_links">
-					<a class="frontend" href="">HOME</a>
+					<a class="frontend" href="<?= base_url(); ?>home">HOME</a>
 				</div>
 				<div class="col-lg-2 col-md-2 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>

@@ -231,9 +231,9 @@
 			var map,map2,marker,marker2;
 			
 			function initialize() {
-				var myLatlng = new google.maps.LatLng(<?php echo($project[2]);?>, <?php echo($project[2]);?>);
+				var myLatlng = new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>);
 			 	var mapOptions = {
-			 		center: new google.maps.LatLng(<?php echo($project[3]);?>, <?php echo($project[3]);?>),
+			 		center: new google.maps.LatLng(<?php echo($project_lat);?>, <?php echo($project_long);?>),
 			 		zoom: 8,
 			 		mapTypeId: google.maps.MapTypeId.ROADMAP
 			 	}
