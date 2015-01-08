@@ -27,7 +27,7 @@
 							            <ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; ?></a></li>
-											<? endforeach ?>
+											<?php endforeach ?>
 										</ul>
 									</li>
 						            <li class="col-lg-2 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
@@ -45,7 +45,7 @@
 			<ul class="bxslider">
 				<?php foreach($slides as $slide): ?>
 					<li><img src="<?= base_url(); ?>application/static/upload/slider/<?php echo $slide ?>" style="max-height:400px;"/></li>
-				<? endforeach ?>
+				<?php endforeach ?>
 			</ul> 
 		</div>
 
@@ -65,7 +65,7 @@
 						<img class="" src="<?= base_url(); ?>application/static/upload/logos/<?php echo $featured_image[0];?>"/>
 					</a>
 				</li>
-				<? $order++;
+				<?php $order++;
 				endforeach ?>
 			</ul> 
 		</div>

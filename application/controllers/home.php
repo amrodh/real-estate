@@ -80,7 +80,6 @@ class Home extends CI_Controller {
 		$projects = $this->project->getAll();
 
 		$a = array();
-		// printme($a); exit();
 		$order = 0;
 		foreach ($projects as $project ) {
 			$name = $projects[$order]->name;
@@ -92,12 +91,10 @@ class Home extends CI_Controller {
 
 		$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
 		$actual_link = explode("/",$actual_link); 
-		// printme($actual_link); exit();
 
 		$data['id'] = $this->project->getByName(urldecode($actual_link[5]));
 
 		$data['units'] = $this->unit->getAllByProjectID($data['id']->id);
-
 
 		$unit_images = array();
 		$order = 0;
@@ -187,7 +184,8 @@ class Home extends CI_Controller {
 			$order++;
 		}
 
-		$data['unit'] = $this->unit->getByProjectID($proj_id);
+		$data['unit'] = $this->unit->getByProjectAndUnit($proj_id,$unit_name);
+		$data['unit_type'] = $this->unit->get_unit_type($data['unit']->type_id);
 		$data['images'] = $this->unit->get_images($data['unit']->id);
 
 		$unit_images = array();

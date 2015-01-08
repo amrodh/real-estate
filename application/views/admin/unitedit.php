@@ -79,6 +79,16 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>Type</td>
+                        <td>
+                          <select name="type_id" id="" required>
+                            <?php foreach ($types as $type): ?>
+                              <option value="<?= $type->id ?>"><?= $type->type; ?></option>
+                            <?php endforeach ?>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Description</td>
                         <td>
                             <textarea name="description" id="" cols="30" rows="10"><?php if(isset($params)) echo $params->description; ?></textarea>

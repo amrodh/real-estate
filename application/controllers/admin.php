@@ -653,9 +653,7 @@ class Admin extends CI_Controller {
 		$project = $this->project->getByID($data['unit']->project_id);
 		$data['unit']->type_id = $type[0]->type;
 		$data['unit']->project = $project;
-
-		 // printme($data);
-		 // exit();
+		$data['types'] = $this->unit->getTypes();
 
 		if(isset($_POST['delete'])){
 			$this->load->view('admin/unitdelete', $data);
@@ -668,10 +666,7 @@ class Admin extends CI_Controller {
  			return;
 		}
 
-		// printme($_POST);
-		// exit();
 		if(isset($_POST['confirmedit_hidden']) && !isset($_POST['cancel'])){
-
 
 			unset($_POST['confirmedit_hidden']);
 
@@ -821,9 +816,6 @@ class Admin extends CI_Controller {
 		$data['types'] = $this->unit->getTypes();
 		$data['projects'] = $this->project->getAll();
 
-		// printme($data['projects']);
-		// exit();
-
 		if(isset($_POST['submit']))
 		{
 			unset($_POST['submit']);
@@ -836,10 +828,6 @@ class Admin extends CI_Controller {
 				$unit_projID = $this->unit->getAll()[$count]->project_id;
 				$curr_project_id = $_POST['project_id'];
 				$curr_name = $_POST['title'];
-				// printme($unit_name);
-				// printme($unit_projID);
-				// printme($curr_name);
-				// printme($curr_project_id);
 				$nameCheck = strcasecmp($curr_name,$unit_name);
 				$projIdCheck = strcasecmp($curr_project_id,$unit_projID);
 
@@ -855,8 +843,6 @@ class Admin extends CI_Controller {
 			else 
 				$_POST['is_featured'] = 0;
 
-			// printme($_POST);
-			// exit();
 			if($flag == 1) {
 				$insert = $this->unit->insert($_POST);
 			

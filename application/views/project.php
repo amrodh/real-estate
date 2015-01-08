@@ -91,7 +91,7 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 arabic" style="padding:0">
-				<?php if(!empty($units)):?>
+				<?php if(!empty($units)): ?>
 				<h3>الوحدات</h3>
 				<?php foreach($units as $unit): 
 					foreach($unit_images as $unit_image):

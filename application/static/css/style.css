@@ -369,6 +369,7 @@ input.rounded:focus {
 
 .footer_links > a {
     text-decoration: none;
+    color: white;
     /*font-stretch: expanded;*/
 }
 

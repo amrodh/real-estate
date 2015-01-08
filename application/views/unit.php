@@ -93,7 +93,7 @@
 				<h3>تفاصيل الإعلان</h3>
 				<table style="width:100%">
 					<tr>
-						<td class="light">شقه</td> 
+						<td class="light"><?php echo $unit_type[0]->type; ?></td> 
 						<td class="right_col dark">النوع</td>
 					</tr>
 					<tr>
@@ -109,7 +109,7 @@
 						<td class="right_col light">الحمامات</td> 
 					</tr>
 					<tr>
-						<td class="light">متر<?php echo $unit->area; ?></td>
+						<td class="light"><?php echo $unit->area; ?>متر</td>
 						<td class="right_col dark">المساحة</td> 
 					</tr>
 					<tr>
@@ -149,7 +149,7 @@
 									<span style="color:red"><?php echo $u->price; ?></span>
 									<span>جنيه</span>
 								</p>
-								<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'">التفاصيل</button>
+								<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $u->title; ?>'">التفاصيل</button>
 							</div>
 						</div>
 				<?php endif;
