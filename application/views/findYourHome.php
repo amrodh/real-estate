@@ -55,7 +55,7 @@
 				</div>
 				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/sahrawy';?>">SAHRAWY</a></p></div>
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/ofok';?>">OFOK</a></p></div>
 				</div>
 			</div>
 
@@ -110,19 +110,19 @@
 										<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 											<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $units_data[$inner_count][6] ?>">
 											<div class="type arabic"><p>للبيع</p></div>
-											<div class="price">
-												<p style="width:50%; margin:0 auto"><?php echo $units_data[$inner_count][7]; ?></p>
-												<p style="width:40%; margin:0 auto">
-													<span style="float:right"><?php echo $units_data[$inner_count][2]; ?></span>
-													<span class="arabic">متر&nbsp;</span>
+											<div class="price col-lg-12">
+												<p class="col-lg-12"><?php echo $units_data[$inner_count][7]; ?></p>
+												<p class="col-lg-12">
+													<span class="arabic col-lg-1">متر&nbsp;</span>
+													<span class="col-lg-8"><?php echo $units_data[$inner_count][2]; ?></span>
 												</p>
-												<p style="width:30%; margin:0 auto">
-													<span class="arabic" style="float:left">غرف&nbsp;</span>
-													<span><?php echo $units_data[$inner_count][5]; ?></span>
+												<p class="col-lg-12">
+													<span class="arabic col-lg-1">غرف&nbsp;</span>
+													<span class="col-lg-8"><?php echo $units_data[$inner_count][5]; ?></span>
 												</p>
-												<p style="width:50%; margin:0 auto">
-													<span style="color:red"><?php echo number_format($units_data[$inner_count][3]); ?></span>
-													<span style="float:left">.ج.م</span>
+												<p class="col-lg-12">
+													<span class="arabic col-lg-1">.ج.م</span>
+													<span class="col-lg-8" style="padding:0; color:#ed3f3f"><?php echo number_format($units_data[$inner_count][3]); ?></span>
 												</p>
 												<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $units_data[$inner_count][1]; ?>'"><span>التفاصيل</span></button>
 											</div>

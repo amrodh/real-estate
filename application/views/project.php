@@ -98,20 +98,20 @@
 					<div class="image col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
 						<div class="type arabic"><p>للبيع</p></div>
-						<div class="price">
-							<p style="width:50%; margin:0 auto"><?php echo $unit_image[2]; ?></p>
-							<p style="width:40%; margin:0 auto">
-								<span style="float:right"><?php echo $unit->area; ?></span>
-								<span class="arabic">متر&nbsp;</span>
+						<div class="price col-lg-12">
+							<p class="col-lg-12"><?php echo $unit_image[2]; ?></p>
+							<p class="col-lg-12">
+								<span class="arabic col-lg-1">متر&nbsp;</span>
+								<span class="col-lg-8"><?php echo $unit->area; ?></span>
 							</p>
-							<p style="width:30%; margin:0 auto">
-								<span class="arabic" style="float:left">غرف&nbsp;</span>
-								<span><?php echo $unit->rooms; ?></span>
+							<p class="col-lg-12">
+								<span class="arabic col-lg-1">غرف&nbsp;</span>
+								<span class="col-lg-8"><?php echo $unit->rooms; ?></span>
 							</p>
-							<p style="width:50%; margin:0 auto">
-								<span style="color:red"><?php echo number_format($unit->price); ?></span>
-								<span style="float:left">.ج.م</span>
-							</p>
+							<p class="col-lg-12">
+								<span class="col-lg-1 arabic">.ج.م</span>
+								<span class="col-lg-8" style="padding:0;color:#ed3f3f"><?php echo number_format($unit->price); ?></span>
+							</p> 
 							<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'"><span>التفاصيل</span></button>
 						</div>
 					</div>

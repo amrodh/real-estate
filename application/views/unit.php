@@ -86,32 +86,35 @@
 				</div>
 			<?php endif?>
 
-			<div class="col-lg-12 col-md-12 arabic" style="padding:0; margin-bottom:5%;">
-				<h3>تفاصيل الإعلان</h3>
+			<div class="col-lg-12 col-md-12" style="padding:0; margin-bottom:1%; text-align:right">
+				<h3 class="arabic">تفاصيل الإعلان</h3>
 				<table style="width:100%">
 					<tr>
 						<td class="light"><?php echo $unit_type[0]->type; ?></td> 
-						<td class="right_col dark">النوع</td>
+						<td class="right_col dark arabic">النوع</td>
 					</tr>
 					<tr>
 						<td class="dark"><?php echo $unit->floor; ?></td>
-						<td class="right_col light">الطابق</td> 
+						<td class="right_col light arabic">الطابق</td> 
 					</tr>
 					<tr>
 						<td class="light"><?php echo $unit->rooms; ?></td>
-						<td class="right_col dark">الغرف</td> 
+						<td class="right_col dark arabic">الغرف</td> 
 					</tr>
 					<tr>
 						<td class="dark"><?php echo $unit->bathrooms; ?></td>
-						<td class="right_col light">الحمامات</td> 
+						<td class="right_col light arabic">الحمامات</td> 
 					</tr>
 					<tr>
-						<td class="light"><?php echo $unit->area; ?>متر</td>
-						<td class="right_col dark">المساحة</td> 
+						<td class="light">
+							<span style="float:right">&nbsp;<?php echo $unit->area; ?></span>
+							<span>متر</span>
+						</td>
+						<td class="right_col dark arabic">المساحة</td> 
 					</tr>
 					<tr>
 						<td class="dark"><?php echo $unit->finishing; ?></td>
-						<td class="right_col light">التشطيب</td> 
+						<td class="right_col light arabic">التشطيب</td> 
 					</tr>
 				</table>
 			</div>
@@ -134,19 +137,19 @@
 						<div class="image col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
 							<div class="type arabic"><p>للبيع</p></div>
-							<div class="price">
-								<p style="width:50%; margin:0 auto"><?php echo $unit_image[2]; ?></p>
-								<p style="width:40%; margin:0 auto">
-									<span style="float:right"><?php echo $u->area; ?></span>
-									<span class="arabic">متر&nbsp;</span>
+							<div class="price col-lg-12">
+								<p class="col-lg-12"><?php echo $unit_image[2]; ?></p>
+								<p class="col-lg-12">
+									<span class="arabic col-lg-1">متر&nbsp;</span>
+									<span class="col-lg-8" style="padding:0"><?php echo $u->area; ?></span>
 								</p>
-								<p style="width:30%; margin:0 auto">
-									<span class="arabic" style="float:left">غرف&nbsp;</span>
-									<span><?php echo $u->rooms; ?></span>
+								<p class="col-lg-12">
+									<span class="arabic col-lg-1">غرف&nbsp;</span>
+									<span class="col-lg-8" style="padding:0"><?php echo $u->rooms; ?></span>
 								</p>
-								<p style="width:50%; margin:0 auto">
-									<span style="color:red"><?php echo number_format($u->price); ?></span>
-									<span style="float:left">.ج.م</span>
+								<p class="col-lg-12">
+									<span class="col-lg-1">.ج.م</span>
+									<span class="col-lg-8" style="padding:0; color:#ed3f3f"><?php echo number_format($u->price); ?></span>
 								</p>
 								<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $u->title; ?>'">التفاصيل</button>
 							</div>
