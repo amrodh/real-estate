@@ -22,11 +22,11 @@
             
        
                 <div class="row">
+
                     <div class="col-lg-10">
-                        <div class="panel-body">
-                            
-                         </div>
+
                         <table class="table" id="dev-table">
+
                             <thead>
                             <tr width="100%">
                                 <th width="25%">Logo</th>
@@ -38,22 +38,27 @@
                             </thead>
                             <?php if (is_array($social_links)): ?>
                                 <?php foreach($social_links as $social_link): ?>
-                                <tr id="social_<?= $social_link->id  ?>">
-                                    <input type="hidden" name='icon_id' value="<?= $social_link->id  ?>">
-                                    <td><img style="margin-left:2%;" class="row" src="<?php echo base_url(); ?>application/static/upload/social_links/<?= $social_link->image; ?>"></td>
-                                    <td value="<?php echo $social_link->name; ?>"><?php echo $social_link->name; ?></td>
-                                    <td><a href=""><?php echo $social_link->link; ?></a></td>
-                                    <td>
-                                        <a href="javascript:void(0);" onclick="socialLinkDelete(<?= $social_link->id ?>)">
-                                            <span title="Delete" class="glyphicon glyphicon-remove"></span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);" onclick="socialLinkEdit(<?= $social_link->id  ?>, '<?= $social_link->name  ?>', '<?= $social_link->link  ?>')">
-                                            <span title="Edit" class="glyphicon glyphicon-edit"></span>
-                                        </a>
-                                    </td>
-                                </tr>          
+
+                                    <tr id="social_<?= $social_link->id  ?>">
+                                        <form action method="post">
+                                            <input type="hidden" name='icon_id' value="<?php $social_link->id;  ?>">
+                                        </form>
+                                        <input type="hidden" name='icon_id' value="<?php $social_link->id;  ?>">
+                                        <td><img name="image" style="margin-left:2%; max-height:50px;" class="row" src="<?php echo base_url(); ?>application/static/upload/social_links/<?= $social_link->image; ?>"></td>
+                                        <td name="name" value="<?php echo $social_link->name; ?>"><?php echo $social_link->name; ?></td>
+                                        <td><a name="link" href=""><?php echo $social_link->link; ?></a></td>
+                                        <td>
+                                            <a href="javascript:void(0);" onclick="socialLinkDelete(<?= $social_link->id ?>)">
+                                                <span title="Delete" class="glyphicon glyphicon-remove"></span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <!-- <a href="javascript:void(0);" onclick="socialLinkEdit(<?= $social_link->id  ?>, '<?= $social_link->name  ?>', '<?= $social_link->link  ?>')"> -->
+                                            <a href="<?= base_url().'admin/editsocial/' ?><?php echo $social_link->name; ?>">    
+                                                <span title="Edit" class="glyphicon glyphicon-edit"></span>
+                                            </a>
+                                        </td>
+                                    </tr>    
                             <?php endforeach ?>   
                             <?php else: ?>
                                 <tr>

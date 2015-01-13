@@ -9,5 +9,7 @@ jQuery(document).ready(function($){
 		auto:true,
 		page:true
 	});
+
+    $('#search').dataTable();
 	
 });	

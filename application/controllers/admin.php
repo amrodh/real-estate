@@ -229,6 +229,7 @@ class Admin extends CI_Controller {
 		$data['users'] = $users;
 
 		if(isset($_POST['confirmsingle'])){
+
 			$recievers = "";
 			if(isset($_POST['checkAll'])){
 
@@ -245,6 +246,7 @@ class Admin extends CI_Controller {
 					}
 					
 			}
+			// printme($recievers);exit();
 			$this->sendSingle($_POST,$recievers);
 		}elseif (isset($_POST['confirmBanner'])) {
 			// printme($_POST);exit();
@@ -289,22 +291,23 @@ class Admin extends CI_Controller {
 
 		if(isset($_POST['singlepreview'])){
 			// printme($_POST);exit();
-			$path = $this->config->config['upload_path'];
-			$this->config->set_item('upload_path',$path.'/temp');
-			$fileExtension = explode('.',$_FILES['userfile']['name']);
-			$_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-			$upload = uploadme($this);
+			// $path = $this->config->config['upload_path'];
+			// $this->config->set_item('upload_path',$path.'/temp');
+			// $fileExtension = explode('.',$_FILES['userfile']['name']);
+			// printme($fileExtension);exit();
+			// $_FILES['userfile']['name'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
+			// $upload = uploadme($this);
 
-			if(isset($upload['error'])){
-				$data['params'] = $_POST;
-				$data['error'] = $upload['error'];
-				printme($upload['error']);exit();
-			}else{
-				$_POST['image'] = $upload['upload_data']['file_name'];
+			// if(isset($upload['error'])){
+				// $data['params'] = $_POST;
+				// $data['error'] = $upload['error'];
+				// printme($upload['error']);exit();
+			// }else{
+				// $_POST['image'] = $upload['upload_data']['file_name'];
 				$data['params'] = $_POST;
 				$this->load->view('admin/newsletter_single', $data);
 				return;
-			}
+			// }
 		}
 
 		if (isset($_POST['bannerspreview'])){
@@ -376,7 +379,9 @@ class Admin extends CI_Controller {
 	public function sendSingle($params,$list)
 	{
 		$data['params'] = $params;
+		// printme($data['params']);exit();
 		$body = $this->load->view('admin/single_template', $data, true);
+		echo "<script type='text/javascript'>alert('Sent');</script>";
 		$this->smtpmailer('NewsLetter',$body,'s.nahal@enlightworld.com');
 	}
 
@@ -1047,6 +1052,7 @@ class Admin extends CI_Controller {
 			unset($_POST['submit']);
 
 			$insert = $this->social->insert($_POST);
+			// printme($_POST);exit();
 
 			if($insert){
 				$id = $this->db->insert_id();
@@ -1072,6 +1078,40 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/newsociallink',$data);
 	}
 
+	function editSocialLink()
+	{
+		$data = $this->init();
+		$this->load->model('social');
+		$current_url = $_SERVER["REQUEST_URI"];
+		$name = explode('/',$current_url);
+		$name = $name[4];
+		$data['social_link'] = $this->social->getByName($name);
+
+		if(isset($_POST['submit'])){
+			unset($_POST['submit']);
+			$id = $data['social_link'][0]->id;
+
+			$update = $this->social->update($id,$_POST);
+
+			$logo = $_FILES['image'];
+			$logoName = $logo['name'];
+
+			$path = $this->config->config['upload_path'];
+			$defaultPath = $path;
+			$this->config->set_item('upload_path',$path.'/social_links/');
+			$target_dir = $this->config->config['upload_path'];
+			$target_file = $target_dir.$logoName;
+			move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+			$this->social->update($id,array('image'=>$logoName));
+
+			redirect('admin/social');
+
+			$data['params'] = $_POST;
+
+		}
+
+		$this->load->view('admin/editsociallink',$data);
+	}
 
 	function createProject()
 	{	
@@ -1208,7 +1248,7 @@ class Admin extends CI_Controller {
 		$data = $this->init();
 		$this->load->model('social');
 		$data['social_links'] = $this->social->getAll();
-// printme($_POST['cancel']);
+
 		if(isset($_POST['save'])){
 			printme("string");
 			printme($_POST); exit();
@@ -1216,6 +1256,28 @@ class Admin extends CI_Controller {
 			$this->social->update($data['id'],$_POST);
 			redirect('admin/social');
 		}
+
+		// if(isset($_POST['editSubmit'])){
+		// 	$id = $_POST['icon_id'];
+		// 	unset($_POST['icon_id']);
+		// 	unset($_POST['editSubmit']);
+
+		// 	$logo = $_FILES['image'];
+		// 	$logoName = $logo['name'];
+		// 	printme($logo);exit();
+
+		// 	$path = $this->config->config['upload_path'];
+		// 	$defaultPath = $path;
+		// 	$this->config->set_item('upload_path',$path.'/social_links/');
+		// 	$target_dir = $this->config->config['upload_path'];
+		// 	$target_file = $target_dir.$logoName;
+		// 	move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+		// 	$this->social->update($id,array('image'=>$logoName));
+
+		// 	redirect('admin/social');
+
+		// 	$data['params'] = $_POST;
+		// }
 
 		$this->load->view('admin/social',$data);	
 	}

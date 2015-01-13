@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<title>Real Estate</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="<?= base_url(); ?>application/static/css/normalize.css"/>
 		<link href="<?= base_url(); ?>application/static/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?= base_url(); ?>application/static/css/dataTables.bootstrap.css" rel="stylesheet"/>
 		<link href="<?= base_url(); ?>application/static/css/jquery.bxslider.css" rel="stylesheet"/>
 		<link href="<?= base_url(); ?>application/static/css/style.css" rel="stylesheet"/>
 	</head>
@@ -24,14 +26,14 @@
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
 						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-2 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a><div class="current_link_arrow_proj"></div>
+						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="menu_link" style="cursor:default;" href="">PROJECTS</a>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; ?></a></li>
 											<?php endforeach ?>
 										</ul>
 						            </li>
-						            <li class="col-lg-3 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>findyourhome">FIND YOUR HOME</a></li>
+									<li class="col-lg-3 col-md-3 col-sm-3 hidden-xs text-center"><a class="current_link" href="<?= base_url(); ?>findyourhome">FIND YOUR HOME</a><div class="current_link_arrow_findyourhome"></div></li>
 						            <li class="col-lg-2 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						            <li class="col-xs-3 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
@@ -43,21 +45,9 @@
 	    	</nav>
 		</div>
 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3 style="text-align:right"><?php echo $id->name; ?></h3></div>
+		<div class="section col-lg-12 col-md-12">
 
-		<div class="section col-lg-4 col-md-4 visible-lg visible-md">
-
-			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
-				<h3>الموقع</h3>
-				<p><?php echo $id->location; ?></p>
-			</div>
-
-			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
-				<h3>الخريطة</h3>
-				<div id="map-canvas"></div>
-			</div>
-
-			<div class="col-lg-12 col-md-12" style="padding:0; margin-bottom:5%;">
+			<div class="col-lg-3 col-md-3 visible-lg visible-md" style="padding:0; margin-bottom:5%;">
 				<h3 class="arabic">مشاريع</h3>
 				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project1.jpg">
@@ -65,68 +55,96 @@
 				</div>
 				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/ofok';?>">OFOK</a></p></div>
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/sahrawy';?>">SAHRAWY</a></p></div>
+				</div>
+			</div>
+
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="padding:0;"><h3 style="text-align:right;">find your home</h3></div>
+			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="padding:0;">
+				<form dir="rtl" id="search_form" action method="post" class="arabic col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<input id="search_form_button" style="text-align:center" type="submit" name="search" value="بحث" class="col-lg-1">
+					<select class="col-lg-3" name="district">
+						<option class="arabic" value="volvo">الموقع</option>
+						<?php foreach($districts as $district): ?>
+							<option class="arabic" value="<?php echo $district; ?>"><?php echo $district; ?></option>
+						<?php endforeach ?>
+					</select>
+					<select class="col-lg-3" name="location">
+						<option class="arabic" value="volvo">المحافظه</option>
+						<?php foreach($cities as $city): ?>
+							<option class="arabic" value="<?php echo $city; ?>"><?php echo $city; ?></option>
+						<?php endforeach ?>
+					</select>
+					<div class="col-lg-3" style="margin-right:0"><span>ابحث هنا</span></div>
+				</form>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<?php if(!empty($units_data)): ?>
+						<div id="search_div">
+							<h3 class="arabic">
+								<span style="float:left">نتيجه بحث&nbsp;</span><?php echo $search_results ?>
+							</h3>
+						</div>
+						<table id="search" class="table table-striped table-bordered" cellspacing="0" width="100%">
+							<thead hidden>
+					            <tr>
+					                <th></th>
+					                <th></th>
+					                <th></th>
+					                <th></th>
+					            </tr>
+					        </thead>
+					 
+					        <tfoot hidden>
+					            <tr>
+					                <th></th>
+					                <th></th>
+					                <th></th>
+					                <th></th>
+					            </tr>
+					        </tfoot>
+					        <tbody class="image">
+					        	<?php while ($search_results > 0): ?>
+					        		<tr>
+									<?php $inner_count = 0;
+									while (($inner_count < 4) && ($search_results > 0)): ?>
+										<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+											<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $units_data[$inner_count][6] ?>">
+											<div class="type arabic"><p>للبيع</p></div>
+											<div class="price">
+												<p style="width:50%; margin:0 auto"><?php echo $units_data[$inner_count][7]; ?></p>
+												<p style="width:40%; margin:0 auto">
+													<span style="float:right"><?php echo $units_data[$inner_count][2]; ?></span>
+													<span class="arabic">متر&nbsp;</span>
+												</p>
+												<p style="width:30%; margin:0 auto">
+													<span class="arabic" style="float:left">غرف&nbsp;</span>
+													<span><?php echo $units_data[$inner_count][5]; ?></span>
+												</p>
+												<p style="width:50%; margin:0 auto">
+													<span style="color:red"><?php echo number_format($units_data[$inner_count][3]); ?></span>
+													<span style="float:left">.ج.م</span>
+												</p>
+												<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $units_data[$inner_count][1]; ?>'"><span>التفاصيل</span></button>
+											</div>
+										</td>
+									<?php $inner_count++;
+									$search_results = $search_results - 1;
+									endwhile; ?>
+										
+									</tr>
+					        	<?php $count = 0;
+					        	while(!empty($units_data) && $count < 4) {
+						        	array_shift($units_data);
+						        	$count++;
+						        }
+					        	endwhile; 
+					        else: 
+							endif ?>
+							</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
-
-		<div class="section col-lg-8 col-md-8">
-		<?php if(!empty($images)):?>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
-				<ul class="bxslider_project">
-				<?php foreach($images as $image): ?>
-					<li><img src="<?= base_url(); ?>application/static/upload/projects/<?php echo $image->image; ?>" style="min-height:450px;"/></li>
-				<?php endforeach ?>
-				</ul>		
-			</div>
-		<?php endif?>
-
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 arabic" style="padding:0">
-				<h3>عن المشروع </h3>
-				<p><?php echo $id->description; ?></p>
-			</div>
-
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0">
-				<?php if(!empty($units)): ?>
-				<h3 class="arabic">الوحدات</h3>
-				<?php foreach($units as $unit): 
-					foreach($unit_images as $unit_image):
-						if($unit_image[0] == $unit->id):
-							$featured_unit_image = $unit_image[1]; break;
-						endif;
-					endforeach?>
-					<div class="image col-lg-3 col-md-3 col-sm-6 col-xs-12">
-						<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
-						<div class="type arabic"><p>للبيع</p></div>
-						<div class="price">
-							<p style="width:50%; margin:0 auto"><?php echo $unit_image[2]; ?></p>
-							<p style="width:40%; margin:0 auto">
-								<span style="float:right"><?php echo $unit->area; ?></span>
-								<span class="arabic">متر&nbsp;</span>
-							</p>
-							<p style="width:30%; margin:0 auto">
-								<span class="arabic" style="float:left">غرف&nbsp;</span>
-								<span><?php echo $unit->rooms; ?></span>
-							</p>
-							<p style="width:50%; margin:0 auto">
-								<span style="color:red"><?php echo number_format($unit->price); ?></span>
-								<span style="float:left">.ج.م</span>
-							</p>
-							<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $unit->title; ?>'"><span>التفاصيل</span></button>
-						</div>
-					</div>
-				<?php endforeach;
-				else: ?>
-			<?php endif ?>
-			</div>
-		</div>
-
-		<div class="col-sm-12 col-xs-12 visible-sm visible-xs arabic" style="padding:0">
-			<h3>الخريطة</h3>
-			<div id="map-canvas2"></div>
-		</div>
-
-
 
 		<footer>
 			<div class="footer_text hidden-sm hidden-xs col-lg-12 col-md-12" style="padding-left:0; padding-right:0;">
@@ -178,39 +196,9 @@
 		<script src="<?= base_url(); ?>application/static/js/jquery.min.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/main.js"></script>
 		<script src="<?= base_url(); ?>application/static/js/bootstrap.min.js"></script>
-		<script src="<?= base_url(); ?>application/static/js/jquery.bxslider.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
-
-		<script>
-			var map,map2,marker,marker2;
-
-			function initialize() {
-				var myLatlng = new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>);
-			 	var mapOptions = {
-			 		center: new google.maps.LatLng(<?php echo($id->latitude);?>, <?php echo($id->longitude);?>),
-			 		zoom: 8,
-			 		mapTypeId: google.maps.MapTypeId.ROADMAP
-			 	}
-
-			 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-    			map2 = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions); 
-
-			 	marker = new google.maps.Marker({
-			        position: myLatlng, 
-			        map: map,
-			        title:"<?php echo($id->name);?>"
-			    });
-
-			    marker2 = new google.maps.Marker({
-			        position: myLatlng, 
-			        map: map2,
-			        title:"<?php echo($id->name);?>"
-			    });   
-		  	}
-		  	google.maps.event.addDomListener(window, 'load', initialize);
-
-		</script>
+		<script src="<?= base_url(); ?>application/static/js/jquery.dataTables.min.js"></script>
+		<script src="<?= base_url(); ?>application/static/js/jquery.bxslider-rahisified.js"></script>
+		<script src="<?= base_url(); ?>application/static/js/dataTables.bootstrap.js"></script>
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -195,6 +195,24 @@ class Unit extends CI_Model {
     }
 
 
+    function getByCityAndDistrict($city,$district)
+    {
+
+      $q = $this
+              ->db
+              ->where('location',$city)
+              ->where('district',$district)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+
     function getProjectByUnit($unit_name)
     {
 

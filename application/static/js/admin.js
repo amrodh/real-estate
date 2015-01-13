@@ -309,13 +309,16 @@ function socialLinkEdit(id, name, link)
 {
 	htmlContent = '<form action="" method="post" name="form">';
 	htmlContent += '<input type="hidden" name="icon_id" value="'+id;
-	htmlContent +='"><td><form action="" method="post" enctype="multipart/form-data"><input type="file" name="image" required multiple>';
-	htmlContent += '<input type="submit" name="submit" class="btn btn-primary" value="Submit"></form></td>';
-	htmlContent += '<td><input value="'+name+'"></input></td>';
-	htmlContent += '<td><input value="'+link+'"></input></td>';
+	htmlContent +='"><td><form action="" method="post" enctype="multipart/form-data">';
+	htmlContent += '<input type="hidden" name="icon_id" value="'+id;
+	htmlContent += '"><input type="file" name="image" required multiple>';
+	htmlContent += '<input type="submit" name="editSubmit" class="btn btn-primary" value="Submit"></form></td>';
+	htmlContent += '<td><input name="name" value="'+name+'"></td>';
+	htmlContent += '<td><input name="link" value="'+link+'"></td>';
 	htmlContent += '<td><input style="color:white" type="submit" name="save" class="button btn btn-sm" value="Save"></td>';
 	htmlContent += '<td><input style="color:white" type="submit" name="cancel" class="button btn btn-sm" value="Cancel"></td>';
 	htmlContent += '</form>';
+	
 	alert(htmlContent);
 
 	// $("#social_"+id).html("#social_"+id);

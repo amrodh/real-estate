@@ -11,17 +11,10 @@
                           <h3 class="panel-title">Newsletter Creation</h3>
                         </div>
                         <div class="panel-body">
-                            
-                            <label for="">Type : </label>
-                            <select name="" id="newsletterSelect">
-                                <option value=""></option>
-                                <option value="single">Single</option>
-                                <option value="properties">Properties</option>
-                                <option value="banners">Banners</option>
-                            </select>
+        
                             <div class="content">
 
-                                <div class="hide newsletterContent" id="single">
+                                <div class="newsletterContent" id="single">
                                     <form action="" method="post" enctype="multipart/form-data">
                                     <table class="table table-user-information">
                                     <tbody>
@@ -31,19 +24,8 @@
                                         </td>
                                       </tr>
                                       <tr>
-                                        <td>Upper Text:</td>
-                                        <td><textarea name="upper" id="" cols="30" rows="10"></textarea>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>Lower Text:</td>
-                                        <td>
-                                        <textarea name="lower" id="" cols="30" rows="10"></textarea>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>Image:</td>
-                                        <td><input type="file" name="userfile" required>
+                                        <td>Text:</td>
+                                        <td><textarea name="text" id="" cols="30" rows="10"></textarea>
                                         </td>
                                       </tr>
                                   </tbody>

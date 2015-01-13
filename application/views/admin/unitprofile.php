@@ -36,6 +36,10 @@
                         <td width="%"><?php echo $unit->location; ?></td>
                       </tr>
                       <tr>
+                        <td width="%">District:</td>
+                        <td width="%"><?php echo $unit->district; ?></td>
+                      </tr>
+                      <tr>
                         <td width="%">Area:</td>
                         <td width="%"><?php echo $unit->area; ?></td>
                       </tr>
@@ -59,12 +63,6 @@
                         <td>Finishing</td>
                         <td width="%"><?php echo $unit->finishing; ?></td>
                       </tr>
-                      <?php if ($unit->is_featured == 1): ?>
-                         <tr id="featured">
-                          <td width="%">Featured:</td>
-                          <td width="%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>  
-                      <?php endif ?>
                         
                     </tbody>
                   </table>       

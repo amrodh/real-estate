@@ -34,6 +34,10 @@
                           <tr>
                             <td width="%">location:</td>
                             <td width="%"><?php echo $project->location; ?></td>
+                          </tr> 
+                          <tr>
+                            <td width="%">District:</td>
+                            <td width="%"><?php echo $project->district; ?></td>
                           </tr>  
                           <tr>
                             <td width="%">Latitude:</td>

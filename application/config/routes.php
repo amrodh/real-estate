@@ -71,6 +71,7 @@ $route['admin/projects/(:any)'] = 'admin/showProject';
 $route['admin/users/new'] = 'admin/createUser';
 $route['admin/projects/new'] = 'admin/createProject';
 $route['admin/social/new'] = 'admin/addSocialLink';
+$route['admin/editsocial/(:any)'] = 'admin/editSocialLink';
 $route['admin/checkpasswordchange.php'] = 'admin/checkpasswordchange';
 $route['admin/users/(:any)'] = "admin/userProfile";
 
@@ -80,6 +81,7 @@ $route['admin/users/(:any)'] = "admin/userProfile";
 
 $route['home'] = 'home';
 $route['contact'] = 'home/contact';
+$route['findyourhome'] = 'home/findyourhome';
 $route['unit/(:any)'] = 'home/unit';
 $route['project/(:any)'] = 'home/project';
 

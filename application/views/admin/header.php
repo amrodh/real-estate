@@ -63,7 +63,7 @@
                 </button>
                 <a class="navbar-brand" href="">
                    <u>
-                       Real Estate Back-End
+                       Outsourcing Back-End
                    </u>
                 </a>
             </div>
@@ -102,21 +102,6 @@
                     </li>
                     <li <?php if($request == 'units') echo 'class="active"'; ?> >
                         <a href="<?php echo base_url(); ?>admin/units"><i class="fa fa-fw fa-circle"></i> Units</a>
-                    </li>
-                    <li <?php if($request == 'users') echo 'class="active"'; ?>>
-                        <a href="<?php echo base_url(); ?>admin/users"><i class="fa fa-fw fa-user"></i> Users</a>
-                    </li>
-                    <li <?php if($request == 'offices') echo 'class="active"'; ?>>
-                        <a href="<?php echo base_url(); ?>admin/offices"><i class="glyphicon glyphicon-pushpin"></i> Offices</a>
-                    </li>
-                    <!-- <li <?php if($request == 'courses') echo 'class="active"'; ?>>
-                        <a href="<?php echo base_url(); ?>admin/courses"><i class="glyphicon glyphicon-th-large"></i> Courses</a>
-                    </li> -->
-                     <li <?php if($request == 'vacancies') echo 'class="active"'; ?>>
-                        <a href="<?php echo base_url(); ?>admin/vacancies"><i class="glyphicon glyphicon-briefcase"></i> Vacancies</a>
-                    </li>
-                    <li <?php if($request == 'propertyalert') echo 'class="active"'; ?>>
-                        <a href="<?php echo base_url(); ?>admin/propertyalert"><i class="glyphicon glyphicon-phone-alt"></i> Property Alert</a>
                     </li>
                      <li <?php if($request == 'newsletter') echo 'class="active"'; ?> >
                         <a href="<?php echo base_url(); ?>admin/newsletter"><i class="fa fa-fw fa-envelope"></i> Newsletter</a>

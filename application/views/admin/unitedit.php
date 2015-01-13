@@ -74,6 +74,11 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>District:</td>
+                        <td><input type="text" name="district" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->district; ?>">
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Finishing:</td>
                         <td><input type="text" name="finishing" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->finishing; ?>">
                         </td>
@@ -94,13 +99,6 @@
                             <textarea name="description" id="" cols="30" rows="10"><?php if(isset($params)) echo $params->description; ?></textarea>
                          </td>
                       </tr>
-                       <tr>
-                        <td>Featured</td>
-                        <td>
-                          <input type="checkbox" name="is_featured" <?php if(($params->is_featured) == 1) echo 'checked' ?> >
-                        </td>
-                      </tr>
-                      
                     </tbody>
                   </table>
                   </form>

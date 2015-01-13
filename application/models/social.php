@@ -68,6 +68,24 @@ class Social extends CI_Model {
 
     }
 
+
+    function getByName($name)
+    {
+
+      $q = $this
+              ->db
+              ->where('name',$name)
+              ->limit(1)
+              ->get('social_links');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
 }
 
 

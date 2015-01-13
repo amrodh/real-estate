@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Real Estate</title>
+		<meta charset="utf-8">
 		<link rel="stylesheet" href="<?= base_url(); ?>application/static/css/normalize.css"/>
 		<link href="<?= base_url(); ?>application/static/css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?= base_url(); ?>application/static/css/jquery.bxslider.css" rel="stylesheet"/>
@@ -22,8 +23,8 @@
 			            <div>
 			            	<div class="row menu">
 			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 col-lg-offset-5 col-md-offset-3 col-sm-offset-3 col-xs-offset-2 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a>
+						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-2 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
+						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a><div class="current_link_arrow_proj"></div>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; ?></a></li>
@@ -34,7 +35,7 @@
 											<?php endforeach ?>
 										</ul>
 						            </li>
-
+						            <li class="col-lg-3 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>findyourhome">FIND YOUR HOME</a></li>
 						            <li class="col-lg-2 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						            <li class="col-xs-3 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
@@ -48,7 +49,7 @@
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3 style="text-align:right"><?php echo $unit->title; ?></h3></div>
 
-		<div class="section col-lg-3 col-md-3 visible-lg visible-md">
+		<div class="section col-lg-4 col-md-4 visible-lg visible-md">
 
 			<div class="col-lg-12 col-md-12 arabic" style="padding:0">
 				<h3>الموقع</h3>
@@ -68,22 +69,18 @@
 				</div>
 				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
 					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project2.jpg">
-					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/sahrawy';?>">SAHRAWY</a></p></div>
-				</div>
-				<div class="image_left col-lg-12 col-md-12" style="padding:0;">
-					<img style="padding:0; margin-top: 5%;" class="img-responsive col-lg-12 col-md-12" src="<?= base_url(); ?>application/static/images/real_estate/project3.jpg">
-					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/rayos';?>">RAYOS</a></p></div>
+					<div class="type_left"><p><a class="left_link" href="<?= base_url().'project/ofok';?>">OFOK</a></p></div>
 				</div>
 			</div>
 		</div>
 
-		<div class="section col-lg-9 col-md-9">
+		<div class="section col-lg-8 col-md-8">
 			<?php if(!empty($images)):?>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:5%; margin-left:0; margin-right:0; padding:0;">
 					<ul class="bxslider">
 					
 					<?php foreach($images as $image): ?>
-						<li><img src="<?= base_url(); ?>application/static/upload/units/<?php echo $image->image; ?>" style="max-height:400px;"/></li>
+						<li><img src="<?= base_url(); ?>application/static/upload/units/<?php echo $image->image; ?>" style="min-height:450px;"/></li>
 					<? endforeach ?>
 					</ul>		
 				</div>
@@ -124,9 +121,9 @@
 				<p><?php echo $unit->description; ?></p>
 			</div>
 
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 arabic" style="padding:0">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0">
 				<?php if(sizeof($units) != 1):?>
-				<h3>وحدات شبيهه</h3>
+				<h3 class="arabic">وحدات شبيهه</h3>
 				<?php foreach($units as $u): 
 					if($unit->id != $u->id):
 						foreach($unit_images as $unit_image):
@@ -136,18 +133,20 @@
 						endforeach?>
 						<div class="image col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<img class="img-responsive" src="<?= base_url(); ?>application/static/upload/units/<?php echo $featured_unit_image ?>">
-							<div class="type"><p>للبيع</p></div>
+							<div class="type arabic"><p>للبيع</p></div>
 							<div class="price">
-								<p><?php echo $unit_image[2]; ?></p>
-								<p>
-									<span><?php echo $u->area; ?></span>
-									<span>متر</span>
-									<span>&nbsp;&nbsp;&nbsp;<?php echo $u->rooms; ?></span>
-									<span>غرف</span>
+								<p style="width:50%; margin:0 auto"><?php echo $unit_image[2]; ?></p>
+								<p style="width:40%; margin:0 auto">
+									<span style="float:right"><?php echo $u->area; ?></span>
+									<span class="arabic">متر&nbsp;</span>
 								</p>
-								<p>
-									<span style="color:red"><?php echo $u->price; ?></span>
-									<span>جنيه</span>
+								<p style="width:30%; margin:0 auto">
+									<span class="arabic" style="float:left">غرف&nbsp;</span>
+									<span><?php echo $u->rooms; ?></span>
+								</p>
+								<p style="width:50%; margin:0 auto">
+									<span style="color:red"><?php echo number_format($u->price); ?></span>
+									<span style="float:left">.ج.م</span>
 								</p>
 								<button type="button" onclick="window.location.href='<?= base_url().'unit/' ?><?php echo $u->title; ?>'">التفاصيل</button>
 							</div>
@@ -174,7 +173,7 @@
 				<div class="col-lg-2 col-md-2 text-center footer_links">
 					<a class="frontend" href="<?= base_url(); ?>contact">CONTACT US</a>
 				</div>	
-				<div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-3">
+				<div class="col-lg-3 col-lg-offset-4 col-md-4 col-md-offset-3">
 					<form action="" method="post" name="form">
 						<div class="col-lg-8 col-md-8" style="padding:0; color:black">
 							<input type="email" name="email" placeholder="YOUR EMAIL" class="subscribe_input rounded" style="text-align:left">
@@ -184,16 +183,12 @@
 						</div>
 					</form>
 				</div>		
-				<div class="col-lg-1 col-md-2">
-					<a href="http://www.twitter.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					</a>
-					<a href="http://www.youtube.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					</a>
-					<a href="http://www.facebook.com">
-						<img class="img-responsive col-lg-4 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
-					</a>
+				<div class="col-lg-2 col-md-2">
+					<?php foreach($social_links as $social_link): ?>
+						<a href="<?php echo $social_link->link; ?>">
+							<img class="img-responsive col-lg-3 col-md-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/upload/social_links/<?php echo $social_link->image; ?>">
+						</a>
+					<?php endforeach ?>
 				</div>	
 			</div>
 			<div class="footer_text col-sm-12 col-xs-12 hidden-md hidden-lg">
@@ -208,15 +203,11 @@
 					</form>
 				</div>		
 				<div class="col-sm-3 col-sm-offset-3 col-xs-3 col-xs-offset-3">
-					<a href="http://www.twitter.com">
-						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/twitter.jpg">
-					</a>
-					<a href="http://www.youtube.com">
-						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/youtube.jpg">
-					</a>
-					<a href="http://www.facebook.com">
-						<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/images/real_estate/facebook.jpg">
-					</a>
+					<?php foreach($social_links as $social_link): ?>
+						<a href="<?php echo $social_link->link; ?>">
+							<img class="img-responsive col-sm-4 col-xs-4" style="padding:5%; padding-top:2%;" src="<?= base_url(); ?>application/static/upload/social_links/<?php echo $social_link->image; ?>">
+						</a>
+					<?php endforeach ?>
 				</div>	
 			</div>
 		</footer>
