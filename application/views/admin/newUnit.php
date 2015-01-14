@@ -74,6 +74,11 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>District</td>
+                        <td><input type="text" name="district" value="<?php if(isset($params)) echo $params['district']; ?>"required >
+                        </td>
+                      </tr>
+                      <tr>
                         <td>Latitude</td>
                         <td><input type="text" name="latitude" value="<?php if(isset($params)) echo $params['latitude']; ?>"required >
                         </td>
@@ -84,9 +89,18 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>Featured</td>
-                        <td>
-                          <input type="checkbox" name="is_featured">
+                        <td>Floor:</td>
+                        <td><input type="text" name="floor" value="<?php if(isset($params)) echo $params['floor']; ?>" required>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Rooms:</td>
+                        <td><input type="text" name="rooms" value="<?php if(isset($params)) echo $params['rooms']; ?>" required>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Bathrooms:</td>
+                        <td><input type="text" name="bathrooms" value="<?php if(isset($params)) echo $params['bathrooms']; ?>" required>
                         </td>
                       </tr>
 

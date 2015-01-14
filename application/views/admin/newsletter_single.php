@@ -8,33 +8,33 @@
         <div class="col-lg-12">
             <div class="row" style="padding-left: 2%;">
                 <div id="newsletter_logo">
-                    <img class="newsletter_logo img-responsive" src="<?= base_url();?>/application/static/images/logo.png">
-                </div>
+                    <img class="newsletter_logo img-responsive" src="<?= base_url();?>application/static/images/real_estate/logo.png">
+                </div></br></br>
                 <div id="newsletter_title">
                     <?php 
                         if(isset($params))
                             echo $params['title'];
                     ?>
                 </div>
-            </div>
+            </div></br>
             <div class="row">
                 <div id="newsletter_content" style="margin-top: 0;padding-left: 2%;">
                     <?php 
                         if(isset($params))
-                            echo $params['upper'];
+                            echo $params['text'];
                     ?>
                 </div>
             </div>
-            <div id="newsletter_image">
+            <!-- <div id="newsletter_image">
                 <img id="newsletter_mainImg" class="img-responsive" src="<?= base_url();?>/application/static/upload/temp/<?= $params['image'] ?>">
-            </div>
-            <div id="newsletter_content">
+            </div> -->
+            <!-- <div id="newsletter_content">
                  <?php 
                         if(isset($params))
                             echo $params['lower'];
                      ?>
-            </div>
-            <div id="newsletter_contact">
+            </div> -->
+            <!-- <div id="newsletter_contact">
                 <a href="">
                     <img class="newsletter_social_icons" src="<?= base_url();?>/application/static/images/icon_linkedin.png">
                 </a>
@@ -56,22 +56,22 @@
                    16223 
                    </div>
                </div>
-            </div>
+            </div> -->
         </div>
     
     </div>
     <div class="col-lg-3" style="margin-top:5.5%;margin-left:1%;">
     <form action="" id="singleFormID" method="post" onsubmit="checkSingleNewsletterForm();return false;">
-    <input type="hidden" name="title" value="<?= $params['title']; ?>">
-    <input type="hidden" name="lower" value="<?= $params['lower']; ?>">
-    <input type="hidden" name="upper" value="<?= $params['upper']; ?>">
-    <input type="hidden" name="image" value="<?= $params['image']; ?>">
+        <input type="hidden" name="title" value="<?= $params['title']; ?>">
+        <!-- <input type="hidden" name="lower" value="<?= $params['lower']; ?>"> -->
+        <input type="hidden" name="text" value="<?= $params['text']; ?>">
+        <!-- <input type="hidden" name="image" value="<?= $params['image']; ?>"> -->
         <table class="table" id="dev-table">
             <thead>
-            <tr>
-                <th><input type="checkbox" name="checkAll" id="checkall"> All</th>
-                <th>Email</th>
-            </tr>
+                <tr>
+                    <th><input type="checkbox" name="checkAll" id="checkall"> All</th>
+                    <th>Email</th>
+                </tr>
             </thead>
             <tr>
                 <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Users" />
@@ -93,11 +93,12 @@
             </tr>          
             <?php endforeach ?>                       
         </table>
-    </div>
-    <div class="col-lg-1" style="margin-top:5.5%;">
-        <input type="submit" name="confirmsingle" class="btn btn-primary" value="Send">
-        </form>
-    </div>
+
+        <div class="col-lg-1" style="margin-top:5.5%;">
+            <input type="submit" name="confirmsingle" class="btn btn-primary" value="Send">
+            </form>
+        </div>
+        </div>
 </div>
 </div>
 </div>

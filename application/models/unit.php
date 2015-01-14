@@ -134,7 +134,6 @@ class Unit extends CI_Model {
 
     }
 
-
     function get_images($id)
     {
       $q = $this
@@ -161,22 +160,6 @@ class Unit extends CI_Model {
 
         return true;
    }
-
-
-  // function insert_unit_image($params)
-  //  {
-  //     $query = $this
-  //                 ->db
-  //                 ->where()
-  //                 ->update('unit', $params); 
-      
-  //     if($this->db->affected_rows() != 1){
-  //         return false;
-  //       }
-
-  //       return true;
-  //  }
-
 
    function get_unit_type($id)
    {
@@ -212,6 +195,24 @@ class Unit extends CI_Model {
     }
 
 
+    function getByCityAndDistrict($city,$district)
+    {
+
+      $q = $this
+              ->db
+              ->where('location',$city)
+              ->where('district',$district)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+
     function getProjectByUnit($unit_name)
     {
 
@@ -236,6 +237,24 @@ class Unit extends CI_Model {
       $q = $this
               ->db
               ->where('project_id',$id)
+              ->limit(1)
+              ->get('unit');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+
+    }
+
+    function getByProjectAndUnit($proj_id,$unit_name)
+    {
+
+      $q = $this
+              ->db
+              ->where('project_id',$proj_id)
+              ->where('title',$unit_name)
               ->limit(1)
               ->get('unit');
 

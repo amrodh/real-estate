@@ -50,6 +50,13 @@
                          </td>
                       </tr>
                       <tr>
+                        <td>District</td>
+                        <td>
+                            <input type="text" name="district" required pattern=".{4,}" title="4 characters minimum" 
+                        value="<?php if(isset($params)) echo $params->district; ?>">
+                         </td>
+                      </tr>
+                      <tr>
                         <td>Latitude:</td>
                         <td><input type="text" name="latitude" required pattern=".{4,}" value="<?php if(isset($params)) echo $params->latitude; ?>">
                         </td>

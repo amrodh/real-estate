@@ -41,6 +41,72 @@ class Project extends CI_Model {
 
     }
 
+    function getByLocation($location)
+    {
+
+      $q = $this
+              ->db
+              ->where('location',$location)
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+
+    }
+
+    function getByDistrict($district)
+    {
+
+      $q = $this
+              ->db
+              ->where('district',$district)
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->row();
+           } 
+
+           return false; 
+
+    }
+
+    function getLocations()
+    {
+
+      $q = $this
+              ->db
+              ->distinct()
+              ->group_by('location')
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
+    function getDistricts()
+    {
+
+      $q = $this
+              ->db
+              ->distinct()
+              ->group_by('district')
+              ->get('project');
+
+           if($q->num_rows >0){
+              return $q->result();
+           } 
+
+           return false; 
+
+    }
+
     function getByID($id)
     {
 

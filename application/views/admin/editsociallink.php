@@ -13,7 +13,7 @@
                         
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Users / New
+                                <i class="fa fa-dashboard"></i> Social Link / Edit
                             </li>
                         </ol>
                     </div>
@@ -39,49 +39,17 @@
                     <tbody>
                       <tr>
                         <td>Name:</td>
-                        <td><input type="text" name="name" required pattern=".{4,}" title="4 characters minimum" value="<?php if(isset($params)) echo $params['name']; ?>">
+                        <td><input type="text" name="name" required pattern=".{4,}" value="<?php echo $social_link[0]->name; ?>">
                         </td>
                       </tr>
                       <tr>
-                        <td>Description:</td>
-                        <td>
-                        <textarea name="description" cols="25" rows="10" required><?php if(isset($params)) echo $params['description'];?></textarea>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Location</td>
-                        <td><input type="text" name="location" value="<?php if(isset($params)) echo $params['location']; ?>" required></td>
-                      </tr>
-                      <tr>
-                        <td>District</td>
-                        <td><input type="text" name="district" value="<?php if(isset($params)) echo $params['district']; ?>" required></td>
-                      </tr>
-                      <tr>
-                        <td>Latitude</td>
-                        <td><input type="text" name="latitude" value="<?php if(isset($params)) echo $params['latitude']; ?>"required >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Longitude</td>
-                        <td><input type="text" name="longitude" value="<?php if(isset($params)) echo $params['longitude']; ?>"required >
-                        </td>
+                        <td>Link</td>
+                        <td><input type="text" name="link" value="<?php echo $social_link[0]->link; ?>" required></td>
                       </tr>
                       <tr>
                         <td>Logo</td>
                         <td>
-                          <input type="file" name="logo" required>
-                        </td>
-                      </tr>
-                     <tr>
-                      <td>Images</td>
-                      <td>
-                        <input type="file" name="userfile[]" required multiple>
-                      </td>
-                    </tr>
-                    <tr>
-                        <td>Featured</td>
-                        <td>
-                          <input type="checkbox" name="is_featured">
+                          <input type="file" name="image" value="<?php echo $social_link[0]->image; ?>" required>
                         </td>
                       </tr>
                     </tbody>

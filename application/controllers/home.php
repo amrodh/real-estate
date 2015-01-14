@@ -35,6 +35,11 @@ class Home extends CI_Controller {
 			array_push($featured_images,[$featured_image,$featured_name]);
 		}
 		$data['featured_images'] = $featured_images;
+
+		$this->load->model('social');
+		$social_links = array();
+		$links = $this->social->getAll();
+		$data['social_links'] = $links;
 		
 		if(isset($_POST['subscribe'])){
 
@@ -80,7 +85,6 @@ class Home extends CI_Controller {
 		$projects = $this->project->getAll();
 
 		$a = array();
-		// printme($a); exit();
 		$order = 0;
 		foreach ($projects as $project ) {
 			$name = $projects[$order]->name;
@@ -92,12 +96,10 @@ class Home extends CI_Controller {
 
 		$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
 		$actual_link = explode("/",$actual_link); 
-		// printme($actual_link); exit();
 
 		$data['id'] = $this->project->getByName(urldecode($actual_link[5]));
 
 		$data['units'] = $this->unit->getAllByProjectID($data['id']->id);
-
 
 		$unit_images = array();
 		$order = 0;
@@ -114,6 +116,11 @@ class Home extends CI_Controller {
 		$data['unit_images'] = $unit_images;
 
 		$data['images'] = $this->project->get_images($data['id']->id);
+
+		$this->load->model('social');
+		$social_links = array();
+		$links = $this->social->getAll();
+		$data['social_links'] = $links;
 
 		if(isset($_POST['subscribe'])){
 
@@ -153,6 +160,80 @@ class Home extends CI_Controller {
 		$this->load->view('project.php',$data);
 	}
 
+	function findyourhome() 
+	{ 
+		$projects = $this->project->getAll();
+
+		$a = array();
+		$order = 0;
+		foreach ($projects as $project ) {
+			$name = $projects[$order]->name;
+			$id = $projects[$order]->id;
+			$order++;
+			array_push($a,[$name,$id]);
+		}
+		$data['array'] = $a;
+
+		$locations = $this->project->getLocations();
+		$cities = array();
+		$order = 0;
+		foreach ($locations as $location ) {
+			array_push($cities, $location->location);
+			$order++;
+		}
+		$data['cities'] = $cities;
+
+		$sub_locations = $this->project->getDistricts();
+		$districts = array();
+		$order = 0;
+		foreach ($sub_locations as $sub_location ) {
+			array_push($districts, $sub_location->district);
+			$order++;
+		}
+		$data['districts'] = $districts;
+
+		$this->load->model('social');
+		$social_links = array();
+		$links = $this->social->getAll();
+		$data['social_links'] = $links;
+
+		if(isset($_POST['search'])) {
+			$units = $this->unit->getByCityAndDistrict($_POST['location'],$_POST['district']);
+			$unit_images = array();
+			$order = 0;
+			if(!empty($units)){
+				foreach ($units as $unit ) {
+					$type = $this->unit->get_unit_type($unit->type_id);
+					$type = $type[0]->type;
+					$id = $unit->id;
+					$unit_image = $this->unit->getFeaturedImage($id)[0]->image;
+					$order++;
+					array_push($unit_images,[$id,$unit_image,$type]);
+				}
+
+				$units_data = array();
+				$order = 0;
+				foreach ($units as $unit ) {
+					$title = $unit->title;
+					$id = $unit->id;
+					$area = $unit->area;
+					$price = $unit->price;
+					$project_id = $unit->project_id;
+					$rooms = $unit->rooms;
+					$image = $unit_images[$order][1];
+					$type = $unit_images[$order][2];
+					$order++;
+					array_push($units_data,[$id,$title,$area,$price,$project_id,$rooms,$image,$type]);
+				}
+				$data['units_data'] = $units_data;
+			}
+			
+			$data['search_results'] = $order;
+		}
+
+		$this->load->view('findYourHome.php',$data);
+	}
+
 	function unit() 
 	{ 
 		$data['projects'] = $this->project->getAll();
@@ -187,7 +268,8 @@ class Home extends CI_Controller {
 			$order++;
 		}
 
-		$data['unit'] = $this->unit->getByProjectID($proj_id);
+		$data['unit'] = $this->unit->getByProjectAndUnit($proj_id,$unit_name);
+		$data['unit_type'] = $this->unit->get_unit_type($data['unit']->type_id);
 		$data['images'] = $this->unit->get_images($data['unit']->id);
 
 		$unit_images = array();
@@ -203,6 +285,11 @@ class Home extends CI_Controller {
 			}
 		}
 		$data['unit_images'] = $unit_images;
+
+		$this->load->model('social');
+		$social_links = array();
+		$links = $this->social->getAll();
+		$data['social_links'] = $links;
 
 		if(isset($_POST['subscribe'])){
 
@@ -243,7 +330,7 @@ class Home extends CI_Controller {
 		$this->load->view('unit.php',$data);
 	}
 
-		function contact() 
+	function contact() 
 	{ 
 		$data['projects'] = $this->project->getAll();
 
@@ -274,6 +361,11 @@ class Home extends CI_Controller {
 			mail("m.ashraf@enlightworld.com","My subject",$message,$headers);
 		}
 
+		$this->load->model('social');
+		$social_links = array();
+		$links = $this->social->getAll();
+		$data['social_links'] = $links;
+		
 		if(isset($_POST['subscribe'])){
 
 			$email = $_POST["email"];
