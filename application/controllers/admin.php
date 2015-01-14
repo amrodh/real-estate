@@ -1407,44 +1407,6 @@ class Admin extends CI_Controller {
 					return;
 				}
 
-				// $_FILES['userfile']['name']     = $tmp['userfile']['name']["'logo'"];
-				// $_FILES['userfile']['type']     = $tmp['userfile']['type']["'logo'"];
-				// $_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'logo'"];
-				// $_FILES['userfile']['error']    = $tmp['userfile']['error']["'logo'"];
-				// $_FILES['userfile']['size']     = $tmp['userfile']['size']["'logo'"];
-				// $fileExtension = explode('.',$_FILES['userfile']['name']);
-				// $_POST['logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				// $_FILES['userfile']['name'] = $_POST['logo'];
-
-				
-
-				// $upload = uploadme($this);
-				// if(isset($upload['error'])){
-				// 	echo 'yes';
-				// 	$data['error'] = 'Upload Failed, Please try again';
-				// 	$this->load->view('admin/newcontent',$data);
-				// 	return;
-				// }
-
-				// $_FILES['userfile']['name']     = $tmp['userfile']['name']["'alt_logo'"];
-				// $_FILES['userfile']['type']     = $tmp['userfile']['type']["'alt_logo'"];
-				// $_FILES['userfile']['tmp_name'] = $tmp['userfile']['tmp_name']["'alt_logo'"];
-				// $_FILES['userfile']['error']    = $tmp['userfile']['error']["'alt_logo'"];
-				// $_FILES['userfile']['size']     = $tmp['userfile']['size']["'alt_logo'"];
-				// $fileExtension = explode('.',$_FILES['userfile']['name']);
-				// $_POST['alt_logo'] = $fileExtension[0].'_'.time().'.'.$fileExtension[1];
-				// $_FILES['userfile']['name'] = $_POST['alt_logo'];
-
-				
-
-				// $upload = uploadme($this);
-				// if(isset($upload['error'])){
-				// 	echo 'yes';
-				// 	$data['error'] = 'Upload Failed, Please try again';
-				// 	$this->load->view('admin/newcontent',$data);
-				// 	return;
-				// }
-
 				unset($_POST['submit']);
 				$_POST['is_active'] = 1;
 				//printme($_POST);exit();
@@ -1652,6 +1614,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/addunitimage', $data);
 	}
 
+	public function projectSelected()
+	{
+		$project_id = $_GET['value'];
+		$this->load->model('project');
+		$proj = $this->project->getByID($project_id);
+
+		$project = array('location' => $proj->location, 'district' => $proj->district, 'latitude' => $proj->latitude, 'longitude' => $proj->longitude);
+		$msg = json_encode($project);
+		echo $msg;
+	}
 
 	public function unitNameValidation()
 	{
@@ -1666,7 +1638,7 @@ class Admin extends CI_Controller {
 	public function projectNameValidation()
 	{
 		
-		$check = $this->project->checkProjectName($_GET['value']);
+		$check = $this->project->checkProjectName($_GET['value']); // mawgood
 		if(!$check)
 			echo 'false';
 		else

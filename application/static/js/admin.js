@@ -12,8 +12,27 @@ jQuery(document).ready(function($) {
 
 });
 
-var abc = 0; 
+function valueselect() {
 
+	var selectedValue = $("#project :selected").val();
+	url =$("#base_url").val();
+		url += 'admin/projectSelected';
+		$.ajax({
+		  type: "GET",
+		  url: url,
+		  data: { value: selectedValue }
+		})
+		  .success(function( msg ) {
+		  		// $("#district").val(msg);
+		  		// $("#district").attr("disabled", "disabled"); 
+		  		// return;
+		  		alert(msg);
+		  		var obj = JSON.parse(msg);
+		  		alert(obj);
+		  });
+}
+
+var abc = 0; 
 
 function checkUnitName()
 {

@@ -43,6 +43,7 @@ $route['admin/sendall'] = 'admin/newsletterSend';
 
 
 $route['admin/unitNameValidation'] = 'admin/unitNameValidation';
+$route['admin/projectSelected'] = 'admin/projectSelected';
 
 
 
