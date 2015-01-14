@@ -22,17 +22,17 @@
 			        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
 			            <div>
 			            	<div class="row menu">
-			                	<ul class="nav navbar-nav col-lg-9 col-md-9 col-sm-9 col-xs-12">
-						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-2 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
-						            <li class="col-lg-2 col-md-3 col-sm-3 col-xs-3 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a><div class="current_link_arrow_proj"></div>
+			                	<ul class="nav navbar-nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 text-center"><a class="menu_link" href="<?= base_url(); ?>home">HOME</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="current_link" style="cursor:default;" href="">PROJECTS</a><div class="current_link_arrow_proj"></div>
 						            	<ul>
 							            	<?php foreach($array as $project): ?>
 												<li><a href="<?= base_url().'project/'.$project[0];?>"><?php echo $project[0]; ?></a></li>
 											<?php endforeach ?>
 										</ul>
 						            </li>
-						            <li class="col-lg-3 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>findyourhome">FIND YOUR HOME</a></li>
-						            <li class="col-lg-2 col-md-3 col-sm-3 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
+						            <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"><a class="menu_link" href="<?= base_url(); ?>findyourhome">FIND YOUR HOME</a></li>
+						            <li class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						            <li class="col-xs-3 visible-xs text-center"><a class="menu_link" href="<?= base_url(); ?>contact">CONTACT US</a></li>
 						        </ul>
 						        <div class="col-sm-3 col-md-3 pull-right">

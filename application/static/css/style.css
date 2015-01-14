@@ -543,6 +543,11 @@ input.rounded:focus {
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .image img {
         height: 70px;
         margin: 0 auto;

@@ -61,7 +61,7 @@
                       <tr>
                         <td>Project</td>
                         <td>
-                          <select name="project_id" id="" required>
+                          <select name="project_id" id="project" onchange="valueselect();" required>
                             <?php foreach ($projects as $project): ?>
                               <option value="<?= $project->id; ?>"><?= $project->name; ?></option>
                             <?php endforeach ?>
@@ -75,7 +75,7 @@
                       </tr>
                       <tr>
                         <td>District</td>
-                        <td><input type="text" name="district" value="<?php if(isset($params)) echo $params['district']; ?>"required >
+                        <td><input type="text" name="district" id="district" value="<?php if(isset($params)) echo $params['district']; ?>"required >
                         </td>
                       </tr>
                       <tr>
@@ -107,7 +107,7 @@
                       <tr>
                         <td>Type</td>
                         <td>
-                          <select name="type_id" id="" required>
+                          <select name="type_id" required>
                             <?php foreach ($types as $type): ?>
                               <option value="<?= $type->id ?>"><?= $type->type; ?></option>
                             <?php endforeach ?>
