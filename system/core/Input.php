@@ -732,10 +732,10 @@ class CI_Input {
 		}
 
 		// Clean UTF-8 if supported
-		if (UTF8_ENABLED === TRUE)
-		{
-			$str = $this->uni->clean_string($str);
-		}
+		// if (UTF8_ENABLED === TRUE)
+		// {
+		// 	$str = $this->uni->clean_string($str);
+		// }
 
 		return $str;
 	}
